@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    color:white;
+    background-color: #0A131E;
+    font-family: sans-serif;
+    margin-top: 40px;
+}
+h1{
+    color: white;
+    font-size: 25px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    margin: 20px 0;
+}
+.aplicacion-cursos{
+    background-color: #0A131E;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.cursos-lista-principal{
+    width: 1100px;
+    min-height:500px;
+    background-color: #1A314C;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 26px;
+}
+
+
+
