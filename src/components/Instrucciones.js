@@ -37,7 +37,7 @@ function Instrucciones() {
                 </div>
                 <div className="footer animate__animated animate__fadeInUp animate__delay-3s">
                     <strong>¿Estàs listo? ¡Juguemos!</strong>
-                    <button className="btn-general animate__animated animate__fadeInUp animate__delay-4s"> Iniciar actividad</button>
+                    <button className="btn-general animate__animated animate__fadeInUp animate__delay-4s"> <Link to="/Ahorcado" className="link">Iniciar actividad</Link></button>
                 </div>
             </div>
         </div>
