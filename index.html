@@ -20,6 +20,8 @@
     <script type="text/babel" src="./src/components/CursoFormulario.js"></script>
     <script type="text/babel" src="./src/components/Preguntas.js"></script>
     <script type="text/babel" src="./src/components/Boton.js"></script>
+    <script type="text/babel" src="./src/components/General.js"></script>
+    <script type="text/babel" src="./src/components/Instrucciones.js"></script>
 
 
     <link rel="stylesheet" href="./index.css">
@@ -28,7 +30,11 @@
     <link rel="stylesheet" href="./src/styles/CursoFormulario.css">
     <link rel="stylesheet" href="./src/styles/Preguntas.css">
     <link rel="stylesheet" href="./src/styles/Button.css">
+    <link rel="stylesheet" href="./src/styles/General.css">
+    <link rel="stylesheet" href="./src/styles/Instrucciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+    <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
 
  
 
@@ -37,23 +43,37 @@
 </head>
 
 <body>
+    <div id='root'></div>
+    <script type='text/babel'>
+      const Link = ReactRouterDOM.Link;
+      const Route = ReactRouterDOM.Route;
 
-
-    <div id="root"></div>
-    
-
-    <script type="text/babel">
+      const App = () => (
+        <ReactRouterDOM.HashRouter>
+            <nav>
+            <input type="checkbox" id="check" />
+        <label for="check" className="checkbtn">
+            <i className="fas fa-bars"></i>
+        </label>
+        <a href="#" className="enlace">
+            <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" className="logo" />
+        </a>
+        <ul>
+            <li><a className="active" href="#">Inicio</a></li>
+            <li><Link to="/Instrucciones">Instrucciones</Link></li>
+        </ul>
+    </nav>
+    <br/>
         
-        function Container() {
-            return (
-                <React.Fragment>
-                    <App />
-                </React.Fragment>
-            );
-        }
+          <Route path="/" exact component={General} />
+          <Route path="/Instrucciones" component={Instrucciones} />
+        </ReactRouterDOM.HashRouter>
+      )
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<Container />);
+      const Home = () => <h1>General</h1>
+      const Login = () => <h1>Instrucciones</h1>
+
+      ReactDOM.render(<App />, document.querySelector('#root'));
     </script>
 </body>
 

@@ -1,0 +1,28 @@
+.contenedor-principal{
+    text-align: center;
+}
+h2{
+    color: #F8922C;
+}
+/*Boton general*/
+.btn-general{
+    width: 20%;
+    background-color: #F8922C;
+    border-radius: 50px;
+    font-size: xx-large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+}
+.btn-general:hover .link{
+   background-color: white;
+   color: #F8922C !important;
+   border-color: white;
+}
+a{
+    text-decoration: none;
+}
+.link{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: black;
+}
