@@ -150,3 +150,11 @@ li a.active, li a:hover{
     color: white;
    border-color: white;
 }
+.btn-general-upload{
+    width: 35%;
+    background-color: #F8922C;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+}

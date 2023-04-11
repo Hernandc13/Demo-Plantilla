@@ -28,8 +28,11 @@
     <script type="text/babel" src="./src/components/Hang/Alphabet.js"></script>
     <script type="text/babel" src="./src/components/Hang/Hanged.js"></script>
     <script type="text/babel" src="./src/components/Hang/Word.js"></script>
+    <script type="text/babel" src="./src/components/ReadCSV/Read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js" integrity="sha512-UNbeFrHORGTzMn3HTt00fvdojBYHLPxJbLChmtoyDwB6P9hX5mah3kMKm0HHNx/EvSPJt14b+SlD8xhuZ4w9Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 
-
+    
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
     <link rel="stylesheet" href="./src/styles/ListaDeCursos.css">
@@ -39,6 +42,11 @@
     <link rel="stylesheet" href="./src/styles/General.css">
     <link rel="stylesheet" href="./src/styles/Instrucciones.css">
     <link rel="stylesheet" href="./src/styles/Hang.css">
+    <link rel="stylesheet" href="./src/styles/Read.css">
+
+
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
@@ -69,6 +77,7 @@
                     <ul>
                         <li><a className="active" href="#">Inicio</a></li>
                         <li><Link to="/Instrucciones">Instrucciones</Link></li>
+                        <li><Link to="/ReadCSV">Leer Archivo</Link></li>
                     </ul>
                 </nav>
                 <br />
@@ -76,6 +85,7 @@
                 <Route path="/" exact component={General} />
                 <Route path="/Instrucciones" component={Instrucciones} />
                 <Route path="/Ahorcado" component={Hang} />
+                <Route path="/ReadCSV" component={Read} />
             </ReactRouterDOM.HashRouter>
         )
 
