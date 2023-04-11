@@ -39,11 +39,10 @@ function Hang() {
         }
       }
     }
-    console.log("----------------");
   }
 
   return (
-    <React.Fragment>
+    <div>
       <h2>Ahorcado</h2>
       <p>
         Pregunta 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -67,6 +66,6 @@ function Hang() {
       <div className="contHang" ref={hangBody}>
         <Hanged />
       </div>
-    </React.Fragment>
+    </div>
   );
 }
