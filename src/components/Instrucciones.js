@@ -2,12 +2,12 @@
 function Instrucciones() {
     return(
         <div className="contenedor-instrucciones">
-              <img  className="imagen-principal-instrucciones animate__animated animate__fadeInUp animate__delay-0.5s" src="/src/imagenes/saludo.png" alt="Bienvenida" />
-        <br/><br/>
+              
             <div className="contenedor-titulo animate__animated animate__fadeInUp animate__delay-1s">
                 <h4 >Instrucciones</h4>
             </div>
             <div className="contenedor-texto">
+            <img  className="imagen-principal-instrucciones animate__animated animate__fadeInUp animate__delay-0.5s" src="/src/imagenes/saludo.png" alt="Bienvenida" />
                 <div className="contenedor-texto-puntos animate__animated animate__fadeInUp animate__delay-2s">
                         <h4>Bienvenido a la actividad</h4>
                         <label>La actividad tiene como objetivo formar  las palabras correctas, para hacerlo deberas:</label>

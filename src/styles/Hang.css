@@ -8,6 +8,8 @@
 
 .questionHang {
     color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 .containWordSecret,
@@ -28,11 +30,6 @@
     flex-wrap: wrap;
     gap: 0.8rem;
 }
-
-/* 
-.buttonAlphabet{
-    padding: 0.6rem;
-} */
 .buttonAlphabet {
     border-radius: 10px;
     border: 0;
