@@ -47,17 +47,3 @@
 .footer button{
     margin-left: 3rem;
 }
-/*Boton general*/
-.btn-general{
-    width: 35%;
-    background-color: #F8922C;
-    border-radius: 50px;
-    font-size: x-large;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: black;
-}
-.btn-general:hover{
-   background-color: white;
-   color: #F8922C;
-   border-color: white;
-}

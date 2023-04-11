@@ -11,16 +11,16 @@ function Instrucciones() {
                         <h4>Bienvenido a la actividad</h4>
                         <label>La actividad tiene como objetivo formar  las palabras correctas, para hacerlo deberas:</label>
                         <br/>
-                        <h5>Lee con atenciòn cada pregunta.</h5>
+                        <h5>Lee con atención cada pregunta.</h5>
                         <div className="puntos">
                             <ul>
                                 <li>
-                                    Selecciona una letra, haciedno clic sobre ella en el tablero que està en la pantalla o presionàndola en tu teclado fìsico.
+                                    Selecciona una letra, haciendo clic sobre ella en el tablero que está en la pantalla o presionándola en tu teclado físico.
                                 </li>
                             </ul>
                             <ul>
                                 <li>
-                                    Si la letra que selecionaste forma parte de la palabra correcta, aparecerà en el espacio correspondiente.
+                                    Si la letra que selecionaste forma parte de la palabra correcta, aparecerá en el espacio correspondiente.
                                 </li>
                             </ul>
                             <ul>
@@ -30,14 +30,14 @@ function Instrucciones() {
                             </ul>
                             <ul>
                                 <li>
-                                    Por cada letra errònea que selecciones, iràn apareciendo las partes del ahorcado, solo tendràs 5 posibilidades de fallar.
+                                    Por cada letra errónea que selecciones, irán apareciendo las partes del ahorcado, solo tendrás 5 posibilidades de fallar.
                                 </li>
                             </ul>
                         </div>
                 </div>
                 <div className="footer animate__animated animate__fadeInUp animate__delay-3s">
-                    <strong>¿Estàs listo? ¡Juguemos!</strong>
-                    <button className="btn-general animate__animated animate__fadeInUp animate__delay-4s"> <Link to="/Ahorcado" className="link">Iniciar actividad</Link></button>
+                    <strong>¿Estás listo? ¡Juguemos!</strong>
+                    <Link to="/Ahorcado" className="animate__animated animate__fadeInUp animate__delay-4s" ><button className="btn-general-actividades">Iniciar actividad</button></Link>
                 </div>
             </div>
         </div>

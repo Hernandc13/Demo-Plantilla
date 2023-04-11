@@ -37,7 +37,8 @@ h1{
 
 /*estilos de navegaciòn*/
 nav{
-    margin-top: 1rem;
+    background-color: #1A314C;
+    margin-top: 0;
     height: 80px;
     width: 100%;
 }
@@ -186,4 +187,31 @@ li a.active, li a:hover{
 }
 .headHang, .bodyHang, .leftArmHang,.RightArmHang,.leftLegHang,.RightLegHang{
     display: none;
+}
+/*Boton general*/
+.btn-general{
+    width: 35%;
+    background-color: #F8922C;
+    border-radius: 50px;
+    font-size: x-large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+}
+.btn-general:hover{
+    background-color:#1A314C;
+    color: white;
+   border-color: white;
+}
+.btn-general-actividades{
+    width: 35%;
+    background-color: #F8922C;
+    border-radius: 50px;
+    font-size: x-large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+}
+.btn-general-actividades:hover{
+    background-color:#0A131E;
+    color: white;
+   border-color: white;
 }

@@ -7,8 +7,7 @@ function General() {
             <h1 className="animate__animated animate__fadeInUp animate__delay-2s">Bienvenido</h1>
             <h2 className="animate__animated animate__fadeInUp animate__delay-2s">Demo de funcionalidad</h2>
             <br/>
-            <button className="btn-general animate__animated animate__fadeInUp animate__delay-3s"> <Link to="/Instrucciones" className="link">Iniciar</Link></button>
-         
+            <Link to="/Instrucciones" className="animate__animated animate__fadeInUp animate__delay-3s" ><button className="btn-general">Iniciar</button></Link>
         </div>
     );
     
