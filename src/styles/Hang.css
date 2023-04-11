@@ -1,64 +1,145 @@
-.containWordSecret, .containLetters{
-    display: flex;
-}
-.wordSecret{
-    padding: 1rem;
-    border-bottom: 2px solid black;
-    margin: 0.5rem 1rem;
-    color: #0A131E
-}
-.contHang{
-    width: 8rem;
-    height: 18rem;
-    position: relative;
+.contenedorPrincipalHang {
+    width: 90%;
+    background-color: #1A314C;
+    border-radius: 3rem;
+    padding: 1.5rem;
+    margin: auto;
 }
 
-.headHang{
+.questionHang {
+    color: #fff;
+}
+
+.containWordSecret,
+.containLetters {
+    display: flex;
+}
+
+.containWordSecret {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.containLetters {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* 
+.buttonAlphabet{
+    padding: 0.6rem;
+} */
+.buttonAlphabet {
+    border-radius: 10px;
+    border: 0;
+    background-color: #F8922C;
+    letter-spacing: 1.5px;
+    font-size: 1.1rem;
+    transition: all .3s ease;
+    box-shadow: #C66606 0px 10px 0px 0px;
+    color: #22201E;
+    width: 3rem;
+}
+
+.buttonAlphabet:hover {
+    box-shadow: #C66606 0px 7px 0px 0px;
+}
+
+.buttonAlphabet:active {
+    background-color: #F8922C;
+    /*50, 168, 80*/
+    box-shadow: #C66606 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 200ms;
+}
+
+
+.wordSecret {
+    padding: 1rem;
+    border-bottom: 2.5px solid #F8922C;
+    margin: 0.5rem 1rem;
+    color: #1A314C;
+    font-size: 1.25rem;
+}
+
+.contSecundario {
+    display: flex;
+}
+
+.contHang {
+    width: 8rem;
+    height: 12rem;
+    position: relative;
+    margin: auto;
+}
+
+.headHang {
     width: 50%;
     display: flex;
     margin: auto;
 }
-.bodyHang{
-    width: 0.6rem;
-    height: 7rem;
+
+.bodyHang {
+    width: 0.5rem;
+    height: 5rem;
     background-color: black;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 3rem;
+    bottom: -1rem;
     margin: auto;
 }
-.leftArmHang,.RightArmHang,.leftLegHang,.RightLegHang{
-    width: 0.6rem;
-    height: 4rem;
+
+.leftArmHang,
+.RightArmHang,
+.leftLegHang,
+.RightLegHang {
+    width: 0.5rem;
+    height: 3rem;
     background-color: black;
     position: absolute;
 }
-.leftArmHang, .leftLegHang{
+
+.leftArmHang,
+.leftLegHang {
     transform: rotate(45deg);
     top: 0;
     left: 0;
-    right: 3rem;
-    bottom: 5rem;
+    right: 2rem;
+    bottom: 1rem;
     margin: auto;
 }
-.RightArmHang, .RightLegHang{
+
+.RightArmHang,
+.RightLegHang {
     transform: rotate(135deg);
-    top: 0; 
-    left: 3rem;
+    top: 0;
+    left: 2rem;
     right: 0;
-    bottom: 5rem;
+    bottom: 1rem;
     margin: auto;
 }
-.leftLegHang{
+
+.leftLegHang {
     bottom: 0;
-    top: 6rem;
+    top: 7rem;
 }
-.RightLegHang{
+
+.RightLegHang {
     bottom: 0;
-    top: 6rem;
+    top: 7rem;
 }
-.headHang, .bodyHang, .leftArmHang,.RightArmHang,.leftLegHang,.RightLegHang{
+
+.headHang,
+.bodyHang,
+.leftArmHang,
+.RightArmHang,
+.leftLegHang,
+.RightLegHang {
     display: none;
 }
