@@ -47,3 +47,10 @@
 .footer button{
     margin-left: 3rem;
 }
+/*imagen instrucciones*/
+.imagen-principal-instrucciones{
+    position: absolute;
+    width: 15%;
+    margin-left: 15rem;
+    margin-top: 12rem;
+}

@@ -2,6 +2,7 @@
 function Instrucciones() {
     return(
         <div className="contenedor-instrucciones">
+              <img  className="imagen-principal-instrucciones animate__animated animate__fadeInUp animate__delay-0.5s" src="/src/imagenes/saludo.png" alt="Bienvenida" />
         <br/><br/>
             <div className="contenedor-titulo animate__animated animate__fadeInUp animate__delay-1s">
                 <h4 >Instrucciones</h4>
