@@ -12,7 +12,7 @@ function Read() {
       fileReader.readAsText( file );
   
       fileReader.onload = () => {
-        console.log( fileReader.result );
+        alert( fileReader.result );
         /*Recorremos el a.result para obtener la información*/
         
       }
