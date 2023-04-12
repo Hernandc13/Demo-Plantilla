@@ -40,6 +40,7 @@
     box-shadow: #C66606 0px 10px 0px 0px;
     color: #22201E;
     width: 3rem;
+    font-weight: bold;
 }
 
 .buttonAlphabet:hover {
