@@ -9,15 +9,15 @@ function Hang() {
     {
       id: 2,
       question:
-        "Aenean accumsan est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Aeneani accumsan est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       answer: "moodle",
     },
     {
       id: 3,
       question:
-        "Est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      answer: "daniel",
-    }
+        "ejemplo.",
+      answer: "moodle",
+    },
   ];
   let contLetters = React.createRef();
   let contWordSecret = React.createRef();
@@ -126,7 +126,7 @@ function Hang() {
           <Hanged />
         </div>
       </div>
-      <div>{isVisible && <button onClick={reload}>Siguiente pregunta</button>}</div>
+      <div>{isVisible && <button className="btn-general-actividades" onClick={reload}>Siguiente pregunta</button>}</div>
     </div>
   );
 }
