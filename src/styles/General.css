@@ -1,12 +1,7 @@
 .contenedor-principal{
     text-align: center;
+    margin: auto;
 }
 h2{
     color: #F8922C;
-}
-/*iamgen de bienvenida*/
-.imagen-principal{
-    position: absolute;
-    width: 20%;
-    margin-left: 13rem;
 }

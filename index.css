@@ -33,10 +33,11 @@ h1{
 
 #root{
     background-color: #0A131E;
+    display: flex;
 }
 
 /*estilos de navegaciòn*/
-nav{
+/* nav{
     background-color: #1A314C;
     margin-top: 0;
     height: 80px;
@@ -122,7 +123,7 @@ li a.active, li a:hover{
     #check:checked ~ ul{
         left:0;
     }
-}
+} */
 /*Boton general*/
 .btn-general{
     width: 35%;

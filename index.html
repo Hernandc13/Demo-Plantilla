@@ -30,9 +30,11 @@
     <script type="text/babel" src="./src/components/Hang/Hanged.js"></script>
     <script type="text/babel" src="./src/components/Hang/Word.js"></script>
     <script type="text/babel" src="./src/components/ReadCSV/Read.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js" integrity="sha512-UNbeFrHORGTzMn3HTt00fvdojBYHLPxJbLChmtoyDwB6P9hX5mah3kMKm0HHNx/EvSPJt14b+SlD8xhuZ4w9Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"
+        integrity="sha512-UNbeFrHORGTzMn3HTt00fvdojBYHLPxJbLChmtoyDwB6P9hX5mah3kMKm0HHNx/EvSPJt14b+SlD8xhuZ4w9Lg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    
+
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
     <link rel="stylesheet" href="./src/styles/ListaDeCursos.css">
@@ -65,93 +67,70 @@
 
         const App = () => (
             <ReactRouterDOM.HashRouter>
-                <nav>
-                    <input type="checkbox" id="check" />
-                    <label for="check" className="checkbtn">
-                        <i className="fas fa-bars"></i>
-                    </label>
-                    <a href="#" className="enlace">
-                        <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" className="logo" />
-                    </a>
-                    <ul>
-                        <li><a className="active" href="#">Inicio</a></li>
-                        <li><Link to="/Instrucciones">Instrucciones</Link></li>
-                        <li><Link to="/ReadCSV">Leer Archivo</Link></li>
+
+                <nav className="nav">
+                    <ul className="list">
+
+                        <li className="list__item">
+                            <div className="list__button">
+                                <img src="assets/dashboard.svg" className="list__img" />
+                                <a href="#" className="nav__link">Inicio</a>
+                            </div>
+                        </li>
+
+                        <li className="list__item list__item--click">
+                            <div className="list__button list__button--click">
+                                <img src="assets/docs.svg" className="list__img" />
+                                <a href="#" className="nav__link">Juegos</a>
+                                <img src="assets/arrow.svg" className="list__arrow" />
+                            </div>
+
+                            <ul className="list__show">
+                                <li className="list__inside">
+                                    <a href="#" className="nav__link nav__link--inside"><Link to="/Ahorcado">Ahorcado</Link></a>
+                                    
+                                </li>
+
+                                <li className="list__inside">
+                                    <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+
+                        <li className="list__item">
+                            <div className="list__button">
+                                <img src="assets/stats.svg" className="list__img" />
+                                <a href="#" className="nav__link">Estadisticas</a>
+                            </div>
+                        </li>
+
+                        <li className="list__item list__item--click">
+                            <div className="list__button list__button--click">
+                                <img src="assets/bell.svg" className="list__img" />
+                                <a href="#" className="nav__link">Notificaciones</a>
+                                <img src="assets/arrow.svg" className="list__arrow" />
+                            </div>
+
+                            <ul className="list__show">
+                                <li className="list__inside">
+                                    <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
+                                </li>
+
+                                <li className="list__inside">
+                                    <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
+                                </li>
+
+                                <li className="list__inside">
+                                    <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
                     </ul>
                 </nav>
-                <br />
-                <br/>
-
-                    <nav className="nav">
-        <ul className="list">
-
-            <li className="list__item">
-                <div className="list__button">
-                    <img src="assets/dashboard.svg" className="list__img" />
-                    <a href="#" className="nav__link">Inicio</a>
-                </div>
-            </li>
-
-            <li className="list__item list__item--click">
-                <div className="list__button list__button--click">
-                    <img src="assets/docs.svg" className="list__img"/>
-                    <a href="#" className="nav__link">Servicios</a>
-                    <img src="assets/arrow.svg" className="list__arrow" />
-                </div>
-
-                <ul className="list__show">
-                    <li className="list__inside">
-                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
-                    </li>
-
-                    <li className="list__inside">
-                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
-                    </li>
-                </ul>
-
-            </li>
-
-
-            <li className="list__item">
-                <div className="list__button">
-                    <img src="assets/stats.svg" className="list__img" />
-                    <a href="#" className="nav__link">Estadisticas</a>
-                </div>
-            </li>
-
-            <li className="list__item list__item--click">
-                <div className="list__button list__button--click">
-                    <img src="assets/bell.svg" className="list__img" />
-                    <a href="#" className="nav__link">Notificaciones</a>
-                    <img src="assets/arrow.svg" className="list__arrow" />
-                </div>
-
-                <ul className="list__show">
-                    <li className="list__inside">
-                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
-                    </li>
-
-                    <li className="list__inside">
-                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
-                    </li>
-
-                    <li className="list__inside">
-                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
-                    </li>
-                </ul>
-
-            </li>
-
-
-            <li className="list__item">
-                <div className="list__button">
-                    <img src="assets/message.svg" className="list__img" />
-                    <a href="#" className="nav__link">Contacto</a>
-                </div>
-            </li>
-
-        </ul>
-    </nav> 
                 <Route path="/" exact component={General} />
                 <Route path="/Instrucciones" component={Instrucciones} />
                 <Route path="/Ahorcado" component={Hang} />
@@ -163,26 +142,44 @@
         const Login = () => <h1>Instrucciones</h1>
 
         ReactDOM.render(<App />, document.querySelector('#root'));
-        
+
 
         let listElements = document.querySelectorAll('.list__button--click');
 
-listElements.forEach(listElement => {
-    listElement.addEventListener('click', ()=>{
-        
-        listElement.classList.toggle('arrow');
+        listElements.forEach(listElement => {
+            listElement.addEventListener('click', () => {
 
-        let height = 0;
-        let menu = listElement.nextElementSibling;
-        if(menu.clientHeight == "0"){
-            height=menu.scrollHeight;
-        }
+                listElement.classList.toggle('arrow');
 
-        menu.style.height = `${height}px`;
+                let height = 0;
+                let menu = listElement.nextElementSibling;
+                if (menu.clientHeight == "0") {
+                    height = menu.scrollHeight;
+                }
 
-    })
-});
+                menu.style.height = `${height}px`;
+
+            })
+        });
     </script>
 </body>
 
 </html>
+
+
+<!-- <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" className="checkbtn">
+        <i className="fas fa-bars"></i>
+    </label>
+    <a href="#" className="enlace">
+        <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" className="logo" />
+    </a>
+    <ul>
+        <li><a className="active" href="#">Inicio</a></li>
+        <li><Link to="/Instrucciones">Instrucciones</Link></li>
+        <li><Link to="/ReadCSV">Leer Archivo</Link></li>
+    </ul>
+</nav>
+<br />
+<br /> -->

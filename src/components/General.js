@@ -15,13 +15,6 @@ function General() {
       <h2 className="animate__animated animate__fadeInUp animate__delay-4s">
         Demo de funcionalidad
       </h2>
-      <br />
-      <Link
-        to="/Instrucciones"
-        className="animate__animated animate__fadeInUp animate__delay-5s"
-      >
-        <button className="btn-general">Iniciar</button>
-      </Link>
     </div>
   );
 }
