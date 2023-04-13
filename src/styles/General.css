@@ -7,6 +7,7 @@
 .contenedor-principalDos{
     display: block;
     text-align: center;
+    margin: auto;
 }
 h2{
     color: #F8922C;

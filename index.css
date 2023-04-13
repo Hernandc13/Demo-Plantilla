@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 html,body{
+    overflow-y: hidden;
     color:white;
     background-color: #0A131E;
     font-family: sans-serif;
@@ -11,7 +12,7 @@ html,body{
 h1{
     color: white;
     font-size: 25px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: sans-serif;
     text-align: center;
     margin: 20px 0;
 }
@@ -32,6 +33,7 @@ h1{
 }
 
 #root{
+    font-family: sans-serif;
     background-color: #0A131E;
     display: flex;
 }
@@ -163,15 +165,47 @@ li a.active, li a:hover{
 
 /*estilo para nav lateral*/
 .nav{
+font-family: sans-serif;
     width: 300px;
 }
+.nav-header{
+    font-size: x-large;
+    font-family: sans-serif;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    background-color: #14253A;
+    color: #fff;
+}
 
+.nav-header img{
+    margin: 1rem;
+   width: 20%;
+   align-items: center;
+   justify-items: center;
+}
+.navlink{
+    width: auto;
+    height: auto;
+    color: white;
+    text-decoration: none;
+    border-radius: 1rem;
+}
+.navlink:hover{
+    font-size: large;
+    color: white;
+    font-family: sans-serif;
+}
 .nav__link{
-    color: #303440;
+    color: #F8922C;
     display: block;
     padding: 15px 0;
     text-decoration: none;
 }
+.nav__link:hover{
+    color: #F8922C;
+}
+
 
 .nav__link--inside{
     border-radius: 6px ;
@@ -180,17 +214,16 @@ li a.active, li a:hover{
 }
 
 .nav__link--inside:hover{
-    background: #F6F8FA;
+    background: #1A314C;
 }
 
 .list{
+    font-family: sans-serif;
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    border-radius: 0 16px 16px 0;
-    background: #fff;
+    background: #1A314C;
 }
 
 .list__item{
@@ -224,8 +257,11 @@ li a.active, li a:hover{
 .list__show{
     width: 80%;
     margin-left: auto;
-    border-left: 2px solid #303440;
+    border-left: 2px solid #F8922C;
     list-style: none;
     transition: height .4s;
     height: 0;
+}
+ol, ul{
+    padding-left: 0 !important;
 }
