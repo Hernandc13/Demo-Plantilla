@@ -18,6 +18,7 @@
 
     <script src="./src/components/Hang/data.js"></script>
     <script type="text/babel" src="App.js"></script>
+    <script type="text/babel" src="./src/components/main.js"></script>
     <script type="text/babel" src="./src/components/Curso.js"></script>
     <script type="text/babel" src="./src/components/ListaDeCursos.js"></script>
     <script type="text/babel" src="./src/components/CursoFormulario.js"></script>
@@ -33,6 +34,9 @@
     <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script>
     <script type="text/babel" src="./src/components/Acordeon_Animado/Acordeon_Animado.js"></script>
     
+
+
+
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
     <link rel="stylesheet" href="./src/styles/ListaDeCursos.css">
@@ -67,27 +71,31 @@
 
         const App = () => (
             <ReactRouterDOM.HashRouter>
-
+                
                 <nav className="nav">
+                    <div className="nav-header">
+                        <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
+                  
+                    </div>
                     <ul className="list">
 
                         <li className="list__item">
                             <div className="list__button">
-                                <img src="assets/dashboard.svg" className="list__img" />
+                                <img src="assets/dashboardwhite.svg" className="list__img" />
                                 <a href="#" className="nav__link">Inicio</a>
                             </div>
                         </li>
 
                         <li className="list__item list__item--click">
                             <div className="list__button list__button--click">
-                                <img src="assets/docs.svg" className="list__img" />
+                                <img src="assets/gamepatwhite.svg" className="list__img" />
                                 <a href="#" className="nav__link">Juegos</a>
-                                <img src="assets/arrow.svg" className="list__arrow" />
+                                <img src="assets/arrowwhite.svg" className="list__arrow" />
                             </div>
 
                             <ul className="list__show">
                                 <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link to="/Ahorcado">Ahorcado</Link></a>
+                                    <a href="#" className="nav__link nav__link--inside"><Link className="navlink" to="/Ahorcado">Ahorcado</Link></a>
                                     
                                 </li>
 
@@ -101,25 +109,26 @@
 
                         <li className="list__item">
                             <div className="list__button">
-                                <img src="assets/stats.svg" className="list__img" />
-                                <a href="#" className="nav__link">Vacio</a>
+                                <img src="assets/sliderwhite.svg" className="list__img" />
+                                <a href="#" className="nav__link">Sliders</a>
                             </div>
                         </li>
+                        
 
                         <li className="list__item list__item--click">
                             <div className="list__button list__button--click">
-                                <img src="assets/bell.svg" className="list__img" />
+                                <img src="assets/acordeonwhite.svg" className="list__img" />
                                 <a href="#" className="nav__link">Acordeon</a>
-                                <img src="assets/arrow.svg" className="list__arrow" />
+                                <img src="assets/arrowwhite.svg" className="list__arrow" />
                             </div>
 
                             <ul className="list__show">
                                 <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link to="/Acordeon">Acordeon</Link></a>
+                                    <a href="#" className="nav__link nav__link--inside link"><Link className="navlink" to="/Acordeon">Acordeon</Link></a>
                                 </li>
 
                                 <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link to="/Acordeon_Animado">Acordeon_Animado</Link></a>
+                                    <a href="#" className="nav__link nav__link--inside"><Link className="navlink" to="/Acordeon_Animado">Acordeon_Animado</Link></a>
                                 </li>
                             </ul>
 
@@ -141,7 +150,7 @@
 
         ReactDOM.render(<App />, document.querySelector('#root'));
 
-
+       
         let listElements = document.querySelectorAll('.list__button--click');
 
         listElements.forEach(listElement => {
@@ -159,7 +168,11 @@
 
             })
         });
+
+
+      
     </script>
+
 </body>
 
 </html>
