@@ -33,6 +33,10 @@
     <script type="text/babel" src="./src/components/ReadCSV/Read.js"></script>
     <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script>
     <script type="text/babel" src="./src/components/Acordeon_Animado/Acordeon_Animado.js"></script>
+    <script type="text/babel" src="./src/components/ExpandingCards/index.js"></script>
+    <script type="text/babel" src="./src/components/Split/index.js"></script>
+    <script type="text/babel" src="./src/components/Split/SplitUnit.js"></script>
+    <script type="text/babel" src="./src/components/Split/button.js"></script>
     
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
@@ -95,6 +99,22 @@
                             <ul className="list__show">
                                 <li className="list__inside">
                                     <a className="nav__link nav__link--inside"><Link className="navlink" to="/Ahorcado">Ahorcado</Link></a>
+                                    
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <li className="list__item list__item--click">
+                            <div className="list__button list__button--click">
+                                <img src="assets/gamepatwhite.svg" className="list__img" />
+                                <a href="#" className="nav__link">Carrusel</a>
+                                <img src="assets/arrowwhite.svg" className="list__arrow" />
+                            </div>
+
+                            <ul className="list__show">
+                                <li className="list__inside">
+                                    <a className="nav__link nav__link--inside"><Link className="navlink" to="/ExpandingCards">Carrusel 1</Link></a>
                                     
                                 </li>
 
@@ -178,21 +198,3 @@
 </body>
 
 </html>
-
-
-<!-- <nav>
-    <input type="checkbox" id="check" />
-    <label for="check" className="checkbtn">
-        <i className="fas fa-bars"></i>
-    </label>
-    <a href="#" className="enlace">
-        <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" className="logo" />
-    </a>
-    <ul>
-        <li><a className="active" href="#">Inicio</a></li>
-        <li><Link to="/Instrucciones">Instrucciones</Link></li>
-        <li><Link to="/ReadCSV">Leer Archivo</Link></li>
-    </ul>
-</nav>
-<br />
-<br /> -->
