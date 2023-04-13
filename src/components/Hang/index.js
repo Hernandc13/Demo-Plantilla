@@ -6,6 +6,7 @@ function Hang() {
   let contLetters = React.createRef();
   let contWordSecret = React.createRef();
   let hangBody = React.createRef();
+  let imgAnswer = React.createRef();
 
   const [isVisible, setIsVisible] = React.useState(false);
   const [errorCounter, setErrorCounter] = React.useState(0);
@@ -32,6 +33,8 @@ function Hang() {
         //Si esta bien, la muestra en pantalla
         contWordSecret.current.children[index].children[0].style.display = "block";
         wordSecret[index].status = true;
+        console.log(wordSecret[index])
+        setIsVisible(wordSecret.every((e) => e.status == true));
       } else {
         //Variable que cuenta las veces que entra al else, si es 7 (longitud de la palabra) quiere decir que se equivoco de letra
         counter++;
@@ -45,27 +48,26 @@ function Hang() {
           //else cuando supera numero de erroees
           hangBody.current.children[errorCounter].style.display = "block";
           disable = true;
-          console.log("perdiste");
         }
       }
+      
     }
 
     //Si se gana o pierde, se desactiva teclado
+    
     if (disable || isVisible) {
       for (let j = 0; j < 26; j++) {
         contLetters.current.children[j].disabled = "true";
       }
+      imgAnswer.current.style.display = 'block'
     }
-    setIsVisible(wordSecret.every((e) => e.status == true));
 
     //Validacion de espacios en respuesta
-    wordSecret.forEach(space => {
-      if(space.letter == ' '){
-        space.status = true
+    wordSecret.forEach((space) => {
+      if (space.letter == " ") {
+        space.status = true;
       }
-      
     });
-    console.log(wordSecret);
     
   }
 
@@ -103,6 +105,13 @@ function Hang() {
         {wordSecret.map((word) => (
           <Word letter={word.letter} key={word.id} />
         ))}
+        {isVisible ? (
+          <img className="imgAnswer" ref={imgAnswer} src="../../../assets/circle-check-solid.svg"/>
+          
+        ) : (
+          <img className="imgAnswer" ref={imgAnswer} src="../../../assets/circle-xmark-solid.svg"/>
+        )}
+        
       </div>
       <div className="contSecundario">
         <div className="containLetters" ref={contLetters}>

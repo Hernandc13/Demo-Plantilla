@@ -15,6 +15,6 @@ const listQuestions = [
     id: 3,
     question:
       "Est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer: "daniel",
+    answer: "javascript",
   }
 ];

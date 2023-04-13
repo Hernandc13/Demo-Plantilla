@@ -1,6 +1,12 @@
 .contenedor-principal{
-    text-align: center;
+    width: 70%;
     margin: auto;
+    flex-direction: column;
+    display: flex;
+}
+.contenedor-principalDos{
+    display: block;
+    text-align: center;
 }
 h2{
     color: #F8922C;

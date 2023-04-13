@@ -32,6 +32,10 @@
     <script type="text/babel" src="./src/components/ReadCSV/Read.js"></script>
     <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script>
     <script type="text/babel" src="./src/components/Acordeon_Animado/Acordeon_Animado.js"></script>
+    <script type="text/babel" src="./src/components/ExpandingCards/index.js"></script>
+    <script type="text/babel" src="./src/components/Split/index.js"></script>
+    <script type="text/babel" src="./src/components/Split/button.js"></script>
+    <script type="text/babel" src="./src/components/Split/SplitUnit.js"></script>
     
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
@@ -45,6 +49,8 @@
     <link rel="stylesheet" href="./src/styles/Read.css">
     <link rel="stylesheet" href="./src/styles/Acordeon.css">
     <link rel="stylesheet" href="./src/styles/Acordeon_Animado.css">
+    <link rel="stylesheet" href="./src/components/Split/index.css">
+    <link rel="stylesheet" href="./src/components/ExpandingCards/index.css">
 
 
 
@@ -81,45 +87,54 @@
                         <li className="list__item list__item--click">
                             <div className="list__button list__button--click">
                                 <img src="assets/docs.svg" className="list__img" />
-                                <a href="#" className="nav__link">Juegos</a>
+                                <a className="nav__link">Juegos</a>
                                 <img src="assets/arrow.svg" className="list__arrow" />
                             </div>
 
                             <ul className="list__show">
                                 <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link to="/Ahorcado">Ahorcado</Link></a>
+                                    <a className="nav__link nav__link--inside"><Link to="/Ahorcado">Ahorcado</Link></a>
                                     
-                                </li>
-
-                                <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
                                 </li>
                             </ul>
 
                         </li>
 
 
-                        <li className="list__item">
-                            <div className="list__button">
-                                <img src="assets/stats.svg" className="list__img" />
-                                <a href="#" className="nav__link">Vacio</a>
-                            </div>
-                        </li>
-
                         <li className="list__item list__item--click">
                             <div className="list__button list__button--click">
-                                <img src="assets/bell.svg" className="list__img" />
-                                <a href="#" className="nav__link">Acordeon</a>
+                                <img src="assets/docs.svg" className="list__img" />
+                                <a className="nav__link">Carrusel</a>
                                 <img src="assets/arrow.svg" className="list__arrow" />
                             </div>
 
                             <ul className="list__show">
                                 <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link to="/Acordeon">Acordeon</Link></a>
+                                    <a className="nav__link nav__link--inside"><Link to="/ExpandingCards">Carrusel 1</Link></a>
+                                    
+                                </li>
+                                <li className="list__inside">
+                                    <a className="nav__link nav__link--inside"><Link to="/Split">Carrusel 2</Link></a>
+                                    
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <li className="list__item list__item--click">
+                            <div className="list__button list__button--click">
+                                <img src="assets/bell.svg" className="list__img" />
+                                <a className="nav__link">Acordeon</a>
+                                <img src="assets/arrow.svg" className="list__arrow" />
+                            </div>
+
+                            <ul className="list__show">
+                                <li className="list__inside">
+                                    <a className="nav__link nav__link--inside"><Link to="/Acordeon">Acordeon</Link></a>
                                 </li>
 
                                 <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link to="/Acordeon_Animado">Acordeon_Animado</Link></a>
+                                    <a className="nav__link nav__link--inside"><Link to="/Acordeon_Animado">Acordeon_Animado</Link></a>
                                 </li>
                             </ul>
 
@@ -133,6 +148,8 @@
                 <Route path="/ReadCSV" component={Read} />
                 <Route path="/Acordeon" component={Acordeon} />
                 <Route path="/Acordeon_Animado" component={Acordeon_Animado} />
+                <Route path="/ExpandingCards" component={ExpandingCards} />
+                <Route path="/Split" component={Split} />
             </ReactRouterDOM.HashRouter>
         )
 
