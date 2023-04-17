@@ -1,10 +1,10 @@
-.contenedor-principal{
+/* .contenedor-principal{
     width: 70%;
     margin: auto;
     flex-direction: column;
     display: flex;
-}
-.contenedor-principalDos{
+} */
+.contenedor-principalGeneral{
     display: block;
     text-align: center;
     margin: auto;

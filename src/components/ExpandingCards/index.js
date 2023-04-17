@@ -16,7 +16,7 @@ function ExpandingCards() {
   };
 
   return (
-    <div className="contenedor-principal">
+    <div className="contenedorPrincipal">
       <section className="contImg" ref={moveCard}>
         <img
           className="ImgCard"

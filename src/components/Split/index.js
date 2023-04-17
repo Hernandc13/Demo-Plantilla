@@ -15,7 +15,7 @@ function Split() {
     },
   ];
   return (
-    <div className="contenedor-principal">
+    <div className="contenedorPrincipal">
       <div className="containSplit">
         {splitConfig.map((config) => (
           <SplitUnit

@@ -1,6 +1,7 @@
 function General() {
   return (
-    <div className="contenedor-principal contenedor-principalDos">
+    <div className="contenedor-principalGeneral">
+      <div className="principalGeneral">
       <h1 className="animate__animated animate__fadeInUp animate__delay-1s">
         Plantilla Subitus Mx
       </h1>
@@ -15,6 +16,7 @@ function General() {
       <h2 className="animate__animated animate__fadeInUp animate__delay-4s">
         Demo de funcionalidad
       </h2>
+    </div>
     </div>
   );
 }
