@@ -1,6 +1,7 @@
 function Card() {
     return (
-        <div className="contenedor-principal">
+        <div className="contenedorPrincipal">
+            <div className="contenedor-principal">
             <h1>Card</h1>
 
             <section className="container">
@@ -36,6 +37,8 @@ function Card() {
 
         </div>
 
+        </div>
+        
     );
 }
 

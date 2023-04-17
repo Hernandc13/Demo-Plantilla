@@ -1,6 +1,7 @@
 function Acordeon() {
   return (
-    <div className="contenedor-principal">
+    <div className="contenedorPrincipal">
+ <div className="contenedor-principal">
       <h1>Acordeon</h1>
       <div className="accordion-wrapper">
         <div className="accordion">
@@ -27,6 +28,8 @@ function Acordeon() {
       </div>
 
     </div>
+    </div>
+   
 
   );
 }

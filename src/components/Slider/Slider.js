@@ -1,6 +1,7 @@
 function Slider() {
     return (
-        <div className="contenedor-principal">
+     <div className=" contenedorPrincipal">
+             <div className="contenedor-principal">
             <h1>Slider</h1>
             <section className="wrapper">
                 <i className="fa-solid fa-arrow-left button" id="prev"></i>
@@ -15,6 +16,8 @@ function Slider() {
                 </div>
             </section>
         </div>
+     </div>
+       
 
     );
 }
