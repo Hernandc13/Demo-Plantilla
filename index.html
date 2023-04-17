@@ -37,9 +37,6 @@
     <script type="text/babel" src="./src/components/Split/index.js"></script>
     <script type="text/babel" src="./src/components/Split/SplitUnit.js"></script>
     <script type="text/babel" src="./src/components/Split/button.js"></script>
-    <script type="text/babel" src="./src/components/Slider/Slider.js"></script>
-    <script type="text/babel" src="./src/components/Card/Card.js"></script>
-    
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
     <link rel="stylesheet" href="./src/styles/ListaDeCursos.css">
@@ -77,81 +74,95 @@
 
         const App = () => (
             <ReactRouterDOM.HashRouter>
-                
-                <nav className="nav">
-                    <div className="nav-header">
-                        <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
-                  
-                    </div>
-                    <ul className="list">
+                <div className="wrapper widthZero" id="wrapper">
+                    <input type="checkbox" id="btn" onClick={sidebarFuncion} />
+                    <label for="btn" className="menu-btn">
+                        <i className="fas fa-bars"></i>
+                        <i className="fas fa-times"></i>
+                    </label>
+                    <nav className="nav" id="sidebar">
+                        <div className="nav-header">
+                            <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
 
-                        <li className="list__item">
-                            <div className="list__button">
-                                <img src="assets/dashboardwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Inicio</a>
-                            </div>
-                        </li>
+                        </div>
+                        <ul className="list">
 
-                        <li className="list__item list__item--click">
-                            <div className="list__button list__button--click">
-                                <img src="assets/gamepatwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Juegos</a>
-                                <img src="assets/arrowwhite.svg" className="list__arrow" />
-                            </div>
+                            <li className="list__item">
+                                <div className="list__button">
+                                    <img src="assets/dashboardwhite.svg" className="list__img" />
+                                    <a href="#" className="nav__link">Inicio</a>
+                                </div>
+                            </li>
 
-                            <ul className="list__show">
-                                <li className="list__inside">
-                                    <a className="nav__link nav__link--inside"><Link className="navlink" to="/Ahorcado">Ahorcado</Link></a>
-                                    
-                                </li>
-                            </ul>
+                            <li className="list__item list__item--click">
+                                <div className="list__button list__button--click">
+                                    <img src="assets/gamepatwhite.svg" className="list__img" />
+                                    <a className="nav__link">Juegos</a>
+                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                </div>
 
-                        </li>
+                                <ul className="list__show">
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Ahorcado">Ahorcado</Link></a>
 
-                        <li className="list__item list__item--click">
-                            <div className="list__button list__button--click">
-                                <img src="assets/gamepatwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Carrusel</a>
-                                <img src="assets/arrowwhite.svg" className="list__arrow" />
-                            </div>
+                                    </li>
+                                </ul>
 
-                            <ul className="list__show">
-                                <li className="list__inside">
-                                    <a className="nav__link nav__link--inside"><Link className="navlink" to="/ExpandingCards">Carrusel 1</Link></a>
-                                    
-                                </li>
+                            </li>
 
-                                <li className="list__inside">
-                                    <a className="nav__link nav__link--inside"><Link className="navlink"  to="/Split">Carrusel 2</Link></a>
-                                    
-                                </li>
-                            </ul>
+                            <li className="list__item list__item--click">
+                                <div className="list__button list__button--click">
+                                    <img src="assets/gamepatwhite.svg" className="list__img" />
+                                    <a className="nav__link">Carrusel</a>
+                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                </div>
 
-                        </li>
+                                <ul className="list__show">
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/ExpandingCards">Carrusel 1</Link></a>
+
+                                    </li>
+
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link to="/Split">Carrusel 2</Link></a>
+
+                                    </li>
+                                </ul>
+
+                            </li>
 
 
+                            <li className="list__item">
+                                <div className="list__button">
+                                    <img src="assets/sliderwhite.svg" className="list__img" />
+                                    <a className="nav__link">Sliders</a>
+                                </div>
+                            </li>
 
-                        <li className="list__item list__item--click">
-                            <div className="list__button list__button--click">
-                                <img src="assets/acordeonwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Acordeon</a>
-                                <img src="assets/arrowwhite.svg" className="list__arrow" />
-                            </div>
 
-                            <ul className="list__show">
-                                <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside link"><Link className="navlink" to="/Acordeon">Acordeon</Link></a>
-                                </li>
+                            <li className="list__item list__item--click">
+                                <div className="list__button list__button--click">
+                                    <img src="assets/acordeonwhite.svg" className="list__img" />
+                                    <a className="nav__link">Acordeon</a>
+                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                </div>
 
-                                <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link className="navlink" to="/Acordeon_Animado">Acordeon_Animado</Link></a>
-                                </li>
-                            </ul>
+                                <ul className="list__show">
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside link"><Link className="navlink" to="/Acordeon">Acordeon</Link></a>
+                                    </li>
 
-                        </li>
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Acordeon_Animado">Acordeon_Animado</Link></a>
+                                    </li>
+                                </ul>
 
-                    </ul>
-                </nav>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+
                 <Route path="/" exact component={General} />
                 <Route path="/Instrucciones" component={Instrucciones} />
                 <Route path="/Ahorcado" component={Hang} />
@@ -188,42 +199,8 @@ listElements.forEach(listElement => {
     })
 });
 
-// Get the DOM elements for the image carousel
-const wrapper = document.querySelector(".wrapper"),
-carousel = document.querySelector(".carousel"),
-images = document.querySelectorAll("img"),
-buttons = document.querySelectorAll(".button");
-
-let imageIndex = 1,
-intervalId;
 
 
-
-// A function that updates the carousel display to show the specified image
-const slideImage = () => {
-// Calculate the updated image index
-imageIndex = imageIndex === images.length ? 0 : imageIndex < 0 ? images.length - 1 : imageIndex;
-// Update the carousel display to show the specified image
-carousel.style.transform = `translate(-${imageIndex * 100}%)`;
-};
-
-// A function that updates the carousel display to show the next or previous image
-const updateClick = (e) => {
-// Stop the automatic slideshow
-clearInterval(intervalId);
-// Calculate the updated image index based on the button clicked
-imageIndex += e.target.id === "next" ? 1 : -1;
-slideImage(imageIndex);
-// Restart the automatic slideshow
-
-};
-
-// Add event listeners to the navigation buttons
-buttons.forEach((button) => button.addEventListener("click", updateClick));
-
-
-
-      
     </script>
 
 </body>

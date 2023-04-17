@@ -31,9 +31,10 @@ function Hang() {
     for (let index = 0; index < wordSecret.length; index++) {
       if (contWordSecret.current.children[index].textContent == letter) {
         //Si esta bien, la muestra en pantalla
-        contWordSecret.current.children[index].children[0].style.display = "block";
+        contWordSecret.current.children[index].children[0].style.display =
+          "block";
         wordSecret[index].status = true;
-        console.log(wordSecret[index])
+        console.log(wordSecret[index]);
         setIsVisible(wordSecret.every((e) => e.status == true));
       } else {
         //Variable que cuenta las veces que entra al else, si es 7 (longitud de la palabra) quiere decir que se equivoco de letra
@@ -50,16 +51,15 @@ function Hang() {
           disable = true;
         }
       }
-      
     }
 
     //Si se gana o pierde, se desactiva teclado
-    
+
     if (disable || isVisible) {
       for (let j = 0; j < 26; j++) {
         contLetters.current.children[j].disabled = "true";
       }
-      imgAnswer.current.style.display = 'block'
+      imgAnswer.current.style.display = "block";
     }
 
     //Validacion de espacios en respuesta
@@ -68,7 +68,6 @@ function Hang() {
         space.status = true;
       }
     });
-    
   }
 
   function reload() {
@@ -95,44 +94,52 @@ function Hang() {
   }
 
   return (
-    <div className="contenedorPrincipalHang">
-      <h2>Ahorcado</h2>
-      <p className="questionHang">
-        Pregunta {listQuestions[indexHangTwo].id}.{" "}
-        {listQuestions[indexHangTwo].question}
-      </p>
-      <div className="containWordSecret" ref={contWordSecret}>
-        {wordSecret.map((word) => (
-          <Word letter={word.letter} key={word.id} />
-        ))}
-        {isVisible ? (
-          <img className="imgAnswer" ref={imgAnswer} src="../../../assets/circle-check-solid.svg"/>
-          
-        ) : (
-          <img className="imgAnswer" ref={imgAnswer} src="../../../assets/circle-xmark-solid.svg"/>
-        )}
-        
-      </div>
-      <div className="contSecundario">
-        <div className="containLetters" ref={contLetters}>
-          {alpha.map((al) => (
-            <Letter
-              func={() => hangChange(al.id, al.letter)}
-              letter={al.letter}
-              key={al.id}
-            />
+    <div className="contenedorPrincipal">
+      <div className="contenedorPrincipalHang" id="content">
+        <h2>Ahorcado</h2>
+        <p className="questionHang">
+          Pregunta {listQuestions[indexHangTwo].id}.{" "}
+          {listQuestions[indexHangTwo].question}
+        </p>
+        <div className="containWordSecret" ref={contWordSecret}>
+          {wordSecret.map((word) => (
+            <Word letter={word.letter} key={word.id} />
           ))}
+          {isVisible ? (
+            <img
+              className="imgAnswer"
+              ref={imgAnswer}
+              src="../../../assets/circle-check-solid.svg"
+            />
+          ) : (
+            <img
+              className="imgAnswer"
+              ref={imgAnswer}
+              src="../../../assets/circle-xmark-solid.svg"
+            />
+          )}
         </div>
-        <div className="contHang" ref={hangBody}>
-          <Hanged />
+        <div className="contSecundario">
+          <div className="containLetters" ref={contLetters}>
+            {alpha.map((al) => (
+              <Letter
+                func={() => hangChange(al.id, al.letter)}
+                letter={al.letter}
+                key={al.id}
+              />
+            ))}
+          </div>
+          <div className="contHang" ref={hangBody}>
+            <Hanged />
+          </div>
         </div>
-      </div>
-      <div className="contBtnNext">
-        {isVisible && (
-          <button className="btn-general-actividades" onClick={reload}>
-            Siguiente pregunta
-          </button>
-        )}
+        <div className="contBtnNext">
+          {isVisible && (
+            <button className="btn-general-actividades" onClick={reload}>
+              Siguiente pregunta
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
