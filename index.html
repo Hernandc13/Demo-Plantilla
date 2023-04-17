@@ -77,8 +77,14 @@
 
         const App = () => (
             <ReactRouterDOM.HashRouter>
-                
-                <nav className="nav">
+                <div className="wrapper widthZero" id="wrapper">
+                    <input type="checkbox"  id="btn" onclick={sidebarFuncion} />
+                    <label for="btn" className="menu-btn">
+                        <i className="fas fa-bars"></i>
+                        <i className="fas fa-times"></i>
+                    </label>
+                      
+                <nav className="nav" id="sidebar">
                     <div className="nav-header">
                         <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
                   
@@ -166,6 +172,8 @@
 
                     </ul>
                 </nav>
+                </div>
+              
                 <Route path="/" exact component={General} />
                 <Route path="/Instrucciones" component={Instrucciones} />
                 <Route path="/Ahorcado" component={Hang} />

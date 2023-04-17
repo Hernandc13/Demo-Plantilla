@@ -1,5 +1,5 @@
 
-  .wrapper {
+  .wrapper2 {
     display: flex;
     max-width: 650px;
     width: 100%;
@@ -11,7 +11,7 @@
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
-  .wrapper i.button {
+  .wrapper2 i.button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

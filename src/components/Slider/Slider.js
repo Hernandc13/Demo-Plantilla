@@ -3,7 +3,7 @@ function Slider() {
      <div className=" contenedorPrincipal">
              <div className="contenedor-principal">
             <h1>Slider</h1>
-            <section className="wrapper">
+            <section className="wrapper2">
                 <i className="fa-solid fa-arrow-left button" id="prev"></i>
                 <div className="image-container">
                     <div className="carousel">
