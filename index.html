@@ -39,7 +39,7 @@
     <script type="text/babel" src="./src/components/Split/button.js"></script>
     <script type="text/babel" src="./src/components/Slider/Slider.js"></script>
     <script type="text/babel" src="./src/components/Card/Card.js"></script>
-    
+
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
     <link rel="stylesheet" href="./src/styles/ListaDeCursos.css">
@@ -78,102 +78,102 @@
         const App = () => (
             <ReactRouterDOM.HashRouter>
                 <div className="wrapper widthZero" id="wrapper">
-                    <input type="checkbox"  id="btn" onclick={sidebarFuncion} />
+                    <input type="checkbox" id="btn" onClick={sidebarFuncion} />
                     <label for="btn" className="menu-btn">
                         <i className="fas fa-bars"></i>
                         <i className="fas fa-times"></i>
                     </label>
-                      
-                <nav className="nav" id="sidebar">
-                    <div className="nav-header">
-                        <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
-                  
-                    </div>
-                    <ul className="list">
 
-                        <li className="list__item">
-                            <div className="list__button">
-                                <img src="assets/dashboardwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Inicio</a>
-                            </div>
-                        </li>
+                    <nav className="nav" id="sidebar">
+                        <div className="nav-header">
+                            <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
 
-                        <li className="list__item list__item--click">
-                            <div className="list__button list__button--click">
-                                <img src="assets/gamepatwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Juegos</a>
-                                <img src="assets/arrowwhite.svg" className="list__arrow" />
-                            </div>
+                        </div>
+                        <ul className="list">
 
-                            <ul className="list__show">
-                                <li className="list__inside">
-                                    <a className="nav__link nav__link--inside"><Link className="navlink" to="/Ahorcado">Ahorcado</Link></a>
-                                    
-                                </li>
-                            </ul>
+                            <li className="list__item">
+                                <div className="list__button">
+                                    <img src="assets/dashboardwhite.svg" className="list__img" />
+                                    <a href="#" className="nav__link">Inicio</a>
+                                </div>
+                            </li>
 
-                        </li>
+                            <li className="list__item list__item--click">
+                                <div className="list__button list__button--click">
+                                    <img src="assets/gamepatwhite.svg" className="list__img" />
+                                    <a className="nav__link">Juegos</a>
+                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                </div>
 
-                        <li className="list__item list__item--click">
-                            <div className="list__button list__button--click">
-                                <img src="assets/gamepatwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Carrusel</a>
-                                <img src="assets/arrowwhite.svg" className="list__arrow" />
-                            </div>
+                                <ul className="list__show">
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Ahorcado">Ahorcado</Link></a>
 
-                            <ul className="list__show">
-                                <li className="list__inside">
-                                    <a className="nav__link nav__link--inside"><Link className="navlink" to="/ExpandingCards">Carrusel 1</Link></a>
-                                    
-                                </li>
+                                    </li>
+                                </ul>
 
-                                <li className="list__inside">
-                                    <a className="nav__link nav__link--inside"><Link className="navlink"  to="/Split">Carrusel 2</Link></a>
-                                    
-                                </li>
-                            </ul>
+                            </li>
 
-                        </li>
+                            <li className="list__item list__item--click">
+                                <div className="list__button list__button--click">
+                                    <img src="assets/gamepatwhite.svg" className="list__img" />
+                                    <a className="nav__link">Carrusel</a>
+                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                </div>
+
+                                <ul className="list__show">
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/ExpandingCards">Carrusel 1</Link></a>
+
+                                    </li>
+
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Split">Carrusel 2</Link></a>
+
+                                    </li>
+                                </ul>
+
+                            </li>
 
 
-                        <li className="list__item">
-                            <div className="list__button">
-                                <img src="assets/sliderwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link"><Link className="navlink" to="/Slider">Slider</Link></a>
-                            </div>
-                        </li>
-                        
-                        <li className="list__item">
-                            <div className="list__button">
-                                <img src="assets/sliderwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link"><Link className="navlink" to="/Card">Card</Link></a>
-                            </div>
-                        </li>
-                        
+                            <li className="list__item">
+                                <div className="list__button">
+                                    <img src="assets/sliderwhite.svg" className="list__img" />
+                                    <a className="nav__link"><Link className="navlink" to="/Slider">Slider</Link></a>
+                                </div>
+                            </li>
 
-                        <li className="list__item list__item--click">
-                            <div className="list__button list__button--click">
-                                <img src="assets/acordeonwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link">Acordeon</a>
-                                <img src="assets/arrowwhite.svg" className="list__arrow" />
-                            </div>
+                            <li className="list__item">
+                                <div className="list__button">
+                                    <img src="assets/sliderwhite.svg" className="list__img" />
+                                    <a className="nav__link"><Link className="navlink" to="/Card">Card</Link></a>
+                                </div>
+                            </li>
 
-                            <ul className="list__show">
-                                <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside link"><Link className="navlink" to="/Acordeon">Acordeon</Link></a>
-                                </li>
 
-                                <li className="list__inside">
-                                    <a href="#" className="nav__link nav__link--inside"><Link className="navlink" to="/Acordeon_Animado">Acordeon_Animado</Link></a>
-                                </li>
-                            </ul>
+                            <li className="list__item list__item--click">
+                                <div className="list__button list__button--click">
+                                    <img src="assets/acordeonwhite.svg" className="list__img" />
+                                    <a className="nav__link">Acordeon</a>
+                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                </div>
 
-                        </li>
+                                <ul className="list__show">
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside link"><Link className="navlink" to="/Acordeon">Acordeon</Link></a>
+                                    </li>
 
-                    </ul>
-                </nav>
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Acordeon_Animado">Acordeon_Animado</Link></a>
+                                    </li>
+                                </ul>
+
+                            </li>
+
+                        </ul>
+                    </nav>
                 </div>
-              
+
                 <Route path="/" exact component={General} />
                 <Route path="/Instrucciones" component={Instrucciones} />
                 <Route path="/Ahorcado" component={Hang} />
@@ -195,25 +195,26 @@
 
         let listElements = document.querySelectorAll('.list__button--click');
 
-listElements.forEach(listElement => {
-    listElement.addEventListener('click', () => {
+        listElements.forEach(listElement => {
+            listElement.addEventListener('click', () => {
 
-        listElement.classList.toggle('arrow');
+                listElement.classList.toggle('arrow');
 
-        let height = 0;
-        let menu = listElement.nextElementSibling;
-        if (menu.clientHeight == "0") {
-            height = menu.scrollHeight;
-        }
+                let height = 0;
+                let menu = listElement.nextElementSibling;
+                if (menu.clientHeight == "0") {
+                    height = menu.scrollHeight;
+                }
 
-        menu.style.height = `${height}px`;
+                menu.style.height = `${height}px`;
 
-    })
-});
+            })
+        });
 
-const wrapper = document.getElementById('wrapper')
+        const wrapper = document.getElementById('wrapper')
         let isActive = false;
         function sidebarFuncion() {
+            console.log(wrapper)
             if (isActive) {
                 wrapper.classList.add('widthZero')
 
@@ -222,7 +223,8 @@ const wrapper = document.getElementById('wrapper')
             }
             isActive = !isActive
         }
-      
+        /* document.documentElement.style.setproperty('--nombreVariable', 'valor'); */
+
     </script>
 
 </body>

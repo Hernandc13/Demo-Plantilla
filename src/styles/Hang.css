@@ -1,15 +1,22 @@
-
+:root{
+    --color-Background: #1A314C;
+}
 .contenedorPrincipalHang {
-    width: 70%;
-    background-color: #1A314C;
+    width: 90%;
+    background-color: var(--color-Background);
     border-radius: 3rem;
     padding: 1.5rem;
     margin: auto;
+    margin-top: 5rem;
+}
+
+.TituloHang{
+    font-size: 1.5rem;
 }
 
 .questionHang {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -21,13 +28,14 @@
 .containWordSecret {
     justify-content: center;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .containLetters {
     align-items: center;
     justify-content: center;
     align-content: center;
-    width: 50%;
+    width: 100%;
     flex-wrap: wrap;
     gap: 0.8rem;
 }
@@ -36,11 +44,11 @@
     border: 0;
     background-color: #F8922C;
     letter-spacing: 1.5px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all .3s ease;
     box-shadow: #C66606 0px 10px 0px 0px;
     color: #22201E;
-    width: 3rem;
+    width: 2.5rem;
     font-weight: bold;
 }
 
@@ -50,7 +58,6 @@
 
 .buttonAlphabet:active {
     background-color: #F8922C;
-    /*50, 168, 80*/
     box-shadow: #C66606 0px 0px 0px 0px;
     transform: translateY(5px);
     transition: 200ms;
@@ -58,11 +65,11 @@
 
 
 .wordSecret {
-    padding: 1rem;
+    padding: 0.5rem;
     border-bottom: 2.5px solid #F8922C;
     margin: 0.5rem 1rem;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 0.85rem;
 }
 .wordSecret span{
     display: none;
@@ -70,11 +77,12 @@
 
 .contSecundario {
     display: flex;
+    flex-direction: column;
 }
 
 .contHang {
     width: 8rem;
-    height: 12rem;
+    height: 15rem;
     position: relative;
     margin: auto;
 }
@@ -83,6 +91,11 @@
     width: 50%;
     display: flex;
     margin: auto;
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        top: 1.5rem;
 }
 
 .bodyHang {
@@ -154,6 +167,45 @@
     font-size: 1.2rem;
 }
 .imgAnswer{
-    width: 3rem;
+    width: 2.5em;
+    margin: 1rem 0;
     display: none;
+}
+.btnNextQuestion {
+    width: 70%;
+    background-color: #F8922C;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    color: black;
+}
+@media(min-width: 768px){
+    .TituloHang{
+        font: 1.75rem;
+    }
+    .wordSecret, .questionHang, .buttonAlphabet {
+        font-size: 1.25rem;
+    }
+    .buttonAlphabet{
+        width: 3rem;
+    }
+    .contSecundario {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media(min-width: 992px){
+    .contSecundario {
+        flex-direction: row;
+    }
+    .containLetters{
+        width: 50%;
+    }
+}
+@media(min-width: 1400px){
+    .TituloHang{
+        font: 2rem;
+    }
+    .wordSecret, .questionHang, .buttonAlphabet {
+        font-size: 1.5rem;
+    }
 }

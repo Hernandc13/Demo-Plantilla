@@ -2,6 +2,14 @@ let counter,
   disable = false,
   indexHang = 0;
 
+  let root = document.querySelector(':root');
+  let rs = getComputedStyle(root);
+
+/* const getColorBackground = () => getComputedStyle(document.documentElement).getPropertyValue('--color-Background')
+let colorDeFondo = getColorBackground()
+colorDeFondo = '#fff'
+document.documentElement.style.setproperty('--color-Background', colorDeFondo); */
+
 function Hang() {
   let contLetters = React.createRef();
   let contWordSecret = React.createRef();
@@ -51,6 +59,7 @@ function Hang() {
           disable = true;
         }
       }
+      console.log(rs.getPropertyValue('--blue'))
     }
 
     //Si se gana o pierde, se desactiva teclado
@@ -96,7 +105,7 @@ function Hang() {
   return (
     <div className="contenedorPrincipal">
       <div className="contenedorPrincipalHang" id="content">
-        <h2>Ahorcado</h2>
+        <h2 className="TituloHang">Ahorcado</h2>
         <p className="questionHang">
           Pregunta {listQuestions[indexHangTwo].id}.{" "}
           {listQuestions[indexHangTwo].question}
@@ -135,7 +144,7 @@ function Hang() {
         </div>
         <div className="contBtnNext">
           {isVisible && (
-            <button className="btn-general-actividades" onClick={reload}>
+            <button className="btnNextQuestion" onClick={reload}>
               Siguiente pregunta
             </button>
           )}
