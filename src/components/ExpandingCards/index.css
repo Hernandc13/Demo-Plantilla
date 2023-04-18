@@ -1,17 +1,20 @@
 .contImg{
-    width: 100%;
+    width: 90%;
     height: 500px;
     margin: auto;
     margin-top: 20px;
-    display: grid;
-    grid-template-columns:  65% 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    transition: grid-template-columns 0.5s ease;
+    gap: 1rem;
+    display: flex;
+    transition: all 0.5s ease;
 }
 .ImgCard{
-    width: 100%;
+    width: 8%;
     height: 500px;
     object-fit: cover;
     border-radius: 50px;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+.ImgCardActive{
+    width: 55%;
 }

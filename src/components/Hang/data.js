@@ -24,5 +24,5 @@ const hangStyles = {
   colorSecundario: '#C66606',
   colorTexto: '#fff',
   colorTextoAlfabeto: '#22201E',
-  anchoComponente: '70%'
+  anchoComponente: '75%'
 }
