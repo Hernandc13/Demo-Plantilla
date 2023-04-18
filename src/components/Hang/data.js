@@ -18,3 +18,11 @@ const listQuestions = [
     answer: "javascript",
   }
 ];
+const hangStyles = {
+  colorBackgroundHang: '#1A314C',
+  colorPrincipal: '#F8922C',
+  colorSecundario: '#C66606',
+  colorTexto: '#fff',
+  colorTextoAlfabeto: '#22201E',
+  anchoComponente: '70%'
+}

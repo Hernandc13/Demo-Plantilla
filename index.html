@@ -39,6 +39,8 @@
     <script type="text/babel" src="./src/components/Split/button.js"></script>
     <script type="text/babel" src="./src/components/Slider/Slider.js"></script>
     <script type="text/babel" src="./src/components/Card/Card.js"></script>
+    <script type="text/babel" src="./src/components/Card_Animado/CardAnimado.js"></script>
+    <script type="text/babel" src="./src/components/Scroll/Scroll.js"></script>
 
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
@@ -48,18 +50,25 @@
     <link rel="stylesheet" href="./src/styles/Button.css">
     <link rel="stylesheet" href="./src/styles/General.css">
     <link rel="stylesheet" href="./src/styles/Instrucciones.css">
-    <link rel="stylesheet" href="./src/styles/Hang.css">
+    <link rel="stylesheet" href="./src/components/Hang/Hang.css">
     <link rel="stylesheet" href="./src/styles/Read.css">
     <link rel="stylesheet" href="./src/styles/Acordeon.css">
     <link rel="stylesheet" href="./src/styles/Acordeon_Animado.css">
     <link rel="stylesheet" href="./src/components/Split/index.css">
     <link rel="stylesheet" href="./src/components/ExpandingCards/index.css">
+    <link rel="stylesheet" href="./src/styles/Card.css">
+    <link rel="stylesheet" href="./src/styles/Card_Animado.css">
+    <link rel="stylesheet" href="./src/styles/Scroll.css">
+    <link rel="stylesheet" href="./src/styles/Slider.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
     <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
 
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -70,7 +79,7 @@
 <body>
     <div id='root'></div>
     <script type='text/babel'>
-
+        
         const Link = ReactRouterDOM.Link;
         const Route = ReactRouterDOM.Route;
 
@@ -149,6 +158,20 @@
                                 </div>
                             </li>
 
+                            <li className="list__item">
+                                <div className="list__button">
+                                    <img src="assets/sliderwhite.svg" className="list__img" />
+                                    <a className="nav__link"><Link className="navlink" to="/CardAnimado">Card Animado</Link></a>
+                                </div>
+                            </li>
+
+                            <li className="list__item">
+                                <div className="list__button">
+                                    <img src="assets/sliderwhite.svg" className="list__img" />
+                                    <a className="nav__link"><Link className="navlink" to="/Scroll">Scroll</Link></a>
+                                </div>
+                            </li>
+
 
                             <li className="list__item list__item--click">
                                 <div className="list__button list__button--click">
@@ -181,8 +204,12 @@
                 <Route path="/Acordeon_Animado" component={Acordeon_Animado} />
                 <Route path="/ExpandingCards" component={ExpandingCards} />
                 <Route path="/Split" component={Split} />
+                <Route path="/Slider" component={Slider} />
+                <Route path="/Card" component={Card} />
+                <Route path="/CardAnimado" component={CardAnimado} />
+                <Route path="/Scroll" component={Scroll} />
 
-                
+
 
             </ReactRouterDOM.HashRouter>
         )
@@ -191,6 +218,8 @@
         const Login = () => <h1>Instrucciones</h1>
 
         ReactDOM.render(<App />, document.querySelector('#root'));
+
+        
 
         let listElements = document.querySelectorAll('.list__button--click');
 
@@ -213,7 +242,6 @@
         const wrapper = document.getElementById('wrapper')
         let isActive = false;
         function sidebarFuncion() {
-            console.log(wrapper)
             if (isActive) {
                 wrapper.classList.add('widthZero')
 
@@ -222,8 +250,89 @@
             }
             isActive = !isActive
         }
-        /* document.documentElement.style.setproperty('--nombreVariable', 'valor'); */
 
+
+        const container = document.querySelectorAll(".container .card2")
+
+        container.forEach(el => {
+            el.addEventListener("mousemove", (e) => {
+                let xAxis = (window.innerWidth / 2 - e.pageX) / 15
+                let yAxis = (window.innerHeight / 2 - e.pageY) / 15
+                el.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`
+            })
+        })
+        //in
+        container.forEach(el => {
+            el.addEventListener('mouseenter', (e) => {
+                el.style.transition = `all 0.5s ease`
+                el.style.animation = `animacion 1.5s forwards`
+                el.querySelector(".title").style.transform = "translateZ(150px)"
+            })
+        })
+        //out
+        container.forEach(el => {
+            el.addEventListener('mouseleave', (e) => {
+                el.style.transition = `all 1.5s ease`
+                el.style.animation = `none`
+                el.style.transform = `rotateY(0deg) rotateX(0deg)`
+                el.querySelector(".title").style.transform = "translateZ(0px)"
+            })
+        })
+
+
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+
+
+
+        // Get the DOM elements for the image carousel
+        const wrapper2 = document.querySelector(".wrapper"),
+            carousel = document.querySelector(".carousel"),
+            images = document.querySelectorAll("img"),
+            buttons = document.querySelectorAll(".button");
+
+        let imageIndex = 1,
+            intervalId;
+
+        // Define function to start automatic image slider
+        const autoSlide = () => {
+            // Start the slideshow by calling slideImage() every 2 seconds
+            intervalId = setInterval(() => slideImage(++imageIndex), 2000);
+        };
+        // Call autoSlide function on page load
+        autoSlide();
+
+        // A function that updates the carousel display to show the specified image
+        const slideImage = () => {
+            // Calculate the updated image index
+            imageIndex = imageIndex === images.length ? 0 : imageIndex < 0 ? images.length - 1 : imageIndex;
+            // Update the carousel display to show the specified image
+            carousel.style.transform = `translate(-${imageIndex * 100}%)`;
+        };
+
+        // A function that updates the carousel display to show the next or previous image
+        const updateClick = (e) => {
+            // Stop the automatic slideshow
+            clearInterval(intervalId);
+            // Calculate the updated image index based on the button clicked
+            imageIndex += e.target.id === "next" ? 1 : -1;
+            slideImage(imageIndex);
+            // Restart the automatic slideshow
+            autoSlide();
+        };
+
+        // Add event listeners to the navigation buttons
+        buttons.forEach((button) => button.addEventListener("click", updateClick));
+
+        // Add mouseover event listener to wrapper element to stop auto sliding
+        wrapper.addEventListener("mouseover", () => clearInterval(intervalId));
+        // Add mouseleave event listener to wrapper element to s
+
+
+        
     </script>
 
 </body>

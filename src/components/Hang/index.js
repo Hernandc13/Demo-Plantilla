@@ -1,15 +1,3 @@
-let counter,
-  disable = false,
-  indexHang = 0;
-
-  let root = document.querySelector(':root');
-  let rs = getComputedStyle(root);
-
-/* const getColorBackground = () => getComputedStyle(document.documentElement).getPropertyValue('--color-Background')
-let colorDeFondo = getColorBackground()
-colorDeFondo = '#fff'
-document.documentElement.style.setproperty('--color-Background', colorDeFondo); */
-
 function Hang() {
   let contLetters = React.createRef();
   let contWordSecret = React.createRef();
@@ -59,7 +47,6 @@ function Hang() {
           disable = true;
         }
       }
-      console.log(rs.getPropertyValue('--blue'))
     }
 
     //Si se gana o pierde, se desactiva teclado
@@ -153,3 +140,31 @@ function Hang() {
     </div>
   );
 }
+
+let counter,
+  disable = false,
+  indexHang = 0;
+
+const rootElementHang = document.querySelector(":root");
+
+rootElementHang.style.setProperty(
+  "--color-BackgroundHang",
+  hangStyles.colorBackgroundHang
+);
+rootElementHang.style.setProperty(
+  "--color-Principal",
+  hangStyles.colorPrincipal
+);
+rootElementHang.style.setProperty(
+  "--color-Secundario",
+  hangStyles.colorSecundario
+);
+rootElementHang.style.setProperty("--color-Texto", hangStyles.colorTexto);
+rootElementHang.style.setProperty(
+  "--color-TextoAlfabeto",
+  hangStyles.colorTextoAlfabeto
+);
+rootElementHang.style.setProperty(
+  "--ancho-Componente",
+  hangStyles.anchoComponente
+);

@@ -1,9 +1,14 @@
 :root{
-    --color-Background: #1A314C;
+    --color-BackgroundHang: #1A314C; 
+    --color-Principal: #F8922C;
+    --color-Secundario: #C66606 ;
+    --color-Texto: #fff;
+    --color-TextoAlfabeto: #22201E;
+    --ancho-Componente: 90%; 
 }
 .contenedorPrincipalHang {
-    width: 90%;
-    background-color: var(--color-Background);
+    width: var(--ancho-Componente);
+    background-color: var(--color-BackgroundHang);
     border-radius: 3rem;
     padding: 1.5rem;
     margin: auto;
@@ -12,10 +17,11 @@
 
 .TituloHang{
     font-size: 1.5rem;
+    color: var(--color-Principal);
 }
 
 .questionHang {
-    color: #fff;
+    color: var(--color-Texto);
     font-size: 1rem;
     margin: 0;
 }
@@ -42,23 +48,23 @@
 .buttonAlphabet {
     border-radius: 10px;
     border: 0;
-    background-color: #F8922C;
+    background-color: var(--color-Principal);
     letter-spacing: 1.5px;
     font-size: 1rem;
     transition: all .3s ease;
-    box-shadow: #C66606 0px 10px 0px 0px;
-    color: #22201E;
+    box-shadow: var(--color-Secundario) 0px 10px 0px 0px;
+    color: var(--color-TextoAlfabeto);
     width: 2.5rem;
     font-weight: bold;
 }
 
 .buttonAlphabet:hover {
-    box-shadow: #C66606 0px 7px 0px 0px;
+    box-shadow: var(--color-Secundario) 0px 7px 0px 0px;
 }
 
 .buttonAlphabet:active {
-    background-color: #F8922C;
-    box-shadow: #C66606 0px 0px 0px 0px;
+    background-color: var(--color-Principal);
+    box-shadow: var(--color-Secundario) 0px 0px 0px 0px;
     transform: translateY(5px);
     transition: 200ms;
 }
@@ -66,9 +72,9 @@
 
 .wordSecret {
     padding: 0.5rem;
-    border-bottom: 2.5px solid #F8922C;
+    border-bottom: 2.5px solid var(--color-Principal);
     margin: 0.5rem 1rem;
-    color: #fff;
+    color: var(--color-Texto);
     font-size: 0.85rem;
 }
 .wordSecret span{
@@ -173,7 +179,7 @@
 }
 .btnNextQuestion {
     width: 70%;
-    background-color: #F8922C;
+    background-color: var(--color-Principal);
     border-radius: 50px;
     font-size: 1.5rem;
     color: black;
@@ -190,7 +196,6 @@
     }
     .contSecundario {
         display: flex;
-        flex-direction: column;
     }
 }
 @media(min-width: 992px){
