@@ -4,21 +4,11 @@ function ExpandingCards() {
   const expandCard = (code) => {
     let imgCards = moveCard.current.children
     for (let index = 0; index < imgCards.length; index++) {
-      imgCards[index].classList.remove('ImgCardActive')
-
+      imgCards[index].classList.remove('ImgCardActive') 
+      imgCards[index].classList.remove('visible') 
     }
-    
-    /* if (code === 5) {
-      moveCard.current.style.gridTemplateColumns = "1fr 1fr 1fr 1fr 65%";
-    } else if (code === 4) {
-      moveCard.current.style.gridTemplateColumns = "1fr 1fr 1fr 65% 1fr";
-    } else if (code === 3) {
-      moveCard.current.style.gridTemplateColumns = "1fr 1fr 65% 1fr 1fr";
-    } else if (code === 2) {
-      moveCard.current.style.gridTemplateColumns = "1fr 65% 1fr 1fr 1fr";
-    } else if (code === 1) {
-      moveCard.current.style.gridTemplateColumns = "65% 1fr 1fr 1fr 1fr";
-    } */
+    imgCards[code].classList.add('ImgCardActive')
+    imgCards[code+1].classList.add('visible')
   };
 
   return (
@@ -26,34 +16,39 @@ function ExpandingCards() {
       <section className="contImg" ref={moveCard}>
         <img
           className="ImgCard ImgCardActive"
-          src="assets/imgExpandigCards/img1.jpg"
-          onClick={() => expandCard(1)}
+          src={listImages[0].imagen}
+          onClick={() => expandCard(0)}
           alt=""
         />
+        <p className="tituloImgCard visible">{listImages[0].title}</p>
         <img
           className="ImgCard"
-          src="assets/imgExpandigCards/img2.jpg"
+          src={listImages[1].imagen}
           onClick={() => expandCard(2)}
           alt=""
         />
+        <p className="tituloImgCard tituloImgCardTwo">{listImages[1].title}</p>
         <img
           className="ImgCard"
-          src="assets/imgExpandigCards/img3.jpg"
-          onClick={() => expandCard(3)}
-          alt=""
-        />
-        <img
-          className="ImgCard"
-          src="assets/imgExpandigCards/img4.jpg"
+          src={listImages[2].imagen}
           onClick={() => expandCard(4)}
           alt=""
         />
+        <p className="tituloImgCard tituloImgCardThree">{listImages[2].title}</p>
         <img
           className="ImgCard"
-          src="assets/imgExpandigCards/img5.jpg"
-          onClick={() => expandCard(5)}
+          src={listImages[3].imagen}
+          onClick={() => expandCard(6)}
           alt=""
         />
+        <p className="tituloImgCard tituloImgCardFour">{listImages[3].title}</p>
+        <img
+          className="ImgCard"
+          src={listImages[4].imagen}
+          onClick={() => expandCard(8)}
+          alt=""
+        />
+        <p className="tituloImgCard tituloImgCardFive">{listImages[4].title}</p>
       </section>
     </div>
   );

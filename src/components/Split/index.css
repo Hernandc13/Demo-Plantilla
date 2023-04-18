@@ -1,6 +1,6 @@
 .containSplit {
-    width: 35rem;
-    height: 18rem;
+    width: 18rem;
+    height: 10rem;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
     margin: auto;
@@ -35,17 +35,17 @@
     position: absolute;
     z-index: 2;
     top: 20%;
-    font-size: 1.6rem;
+    font-size: 0.85rem;
     color: white;
     font-weight: bold;
 }
 
 .btnSplit {
     position: relative;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 7px;
     border: 1px solid rgb(61, 106, 255);
-    font-size: 14px;
+    font-size: 0.5rem;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
@@ -112,4 +112,55 @@
     -webkit-transition: box-shadow 0.2s ease-in;
     -moz-transition: box-shadow 0.2s ease-in;
     transition: box-shadow 0.2s ease-in;
+}
+@media(min-width: 768px){
+    .containSplit {
+        width: 24rem;
+        height: 16rem;
+    }
+    .textSplit{
+        font-size: 1.15rem;
+    }
+    .btnSplit{
+        padding: 12px 17px;
+        font-size: 0.75rem;
+    }
+}
+@media(min-width: 992px){
+    .containSplit {
+        width: 32rem;
+        height: 20rem;
+    }
+    .textSplit{
+        font-size: 1.5rem;
+    }
+    .btnSplit{
+        font-size: 1.15rem;
+    }
+}
+@media(min-width: 1200px){
+    .containSplit {
+        width: 38rem;
+        height: 22rem;
+    }
+    .textSplit{
+        font-size: 1.5rem;
+    }
+    .btnSplit{
+        padding: 15px 20px;
+        font-size: 1.15rem;
+    }
+}
+@media(min-width: 1600px){
+    .containSplit {
+        width: 42rem;
+        height: 25rem;
+    }
+    .textSplit{
+        font-size: 1.75rem;
+    }
+    .btnSplit{
+        padding: 17px 22px;
+        font-size: 1.35rem;
+    }
 }
