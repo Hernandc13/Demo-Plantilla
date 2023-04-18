@@ -37,8 +37,7 @@
     <script type="text/babel" src="./src/components/Split/index.js"></script>
     <script type="text/babel" src="./src/components/Split/SplitUnit.js"></script>
     <script type="text/babel" src="./src/components/Split/button.js"></script>
-    <script type="text/babel" src="./src/components/Slider/Slider.js"></script>
-    <script type="text/babel" src="./src/components/Card/Card.js"></script>
+
     
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
@@ -54,10 +53,9 @@
     <link rel="stylesheet" href="./src/styles/Acordeon_Animado.css">
     <link rel="stylesheet" href="./src/components/Split/index.css">
     <link rel="stylesheet" href="./src/components/ExpandingCards/index.css">
-    <link rel="stylesheet" href="./src/styles/Slider.css">
-    <link rel="stylesheet" href="./src/styles/Card.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 
     <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
 
@@ -143,12 +141,7 @@
                             </div>
                         </li>
                         
-                        <li className="list__item">
-                            <div className="list__button">
-                                <img src="assets/sliderwhite.svg" className="list__img" />
-                                <a href="#" className="nav__link"><Link className="navlink" to="/Card">Card</Link></a>
-                            </div>
-                        </li>
+
                         
 
                         <li className="list__item list__item--click">
@@ -182,8 +175,8 @@
                 <Route path="/Acordeon_Animado" component={Acordeon_Animado} />
                 <Route path="/ExpandingCards" component={ExpandingCards} />
                 <Route path="/Split" component={Split} />
-                <Route path="/Slider" component={Slider} />
-                <Route path="/Card" component={Card} />
+
+                
 
             </ReactRouterDOM.HashRouter>
         )
@@ -223,6 +216,9 @@ const wrapper = document.getElementById('wrapper')
             isActive = !isActive
         }
       
+
+      
+
     </script>
 
 </body>
