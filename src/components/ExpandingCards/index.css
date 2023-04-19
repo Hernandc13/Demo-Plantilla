@@ -1,20 +1,126 @@
 .contImg{
     width: 90%;
-    height: 500px;
+    height: 12rem;
     margin: auto;
     margin-top: 20px;
-    gap: 1rem;
+    gap: 0.75rem;
     display: flex;
     transition: all 0.5s ease;
+    position: relative;
 }
 .ImgCard{
-    width: 8%;
-    height: 500px;
+    width: 7.5%;
+    height: 12rem;
     object-fit: cover;
-    border-radius: 50px;
+    border-radius: 2rem;
     cursor: pointer;
     transition: all 0.5s ease;
 }
 .ImgCardActive{
     width: 55%;
+}
+.tituloImgCard{
+    position: absolute;
+    color: #fff;
+    font-size: 0.85rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    bottom: 0;
+    left: 5%;
+    transition: all 1s ease;
+    display: none;
+}
+.tituloImgCardTwo{
+    left: 20%;
+}
+.tituloImgCardThree{
+    left: 30%;
+}
+.tituloImgCardFour{
+    left: 40%;
+}
+.tituloImgCardFive{
+    left: 50%;
+}
+.visible{
+    display: block;
+}
+@media(min-width: 768px){
+    .contImg{
+        height: 18rem;
+    }
+    .ImgCard{
+        height: 18rem;
+        width: 8%;
+    }
+    .ImgCardActive{
+        width: 60%;
+    }
+    .tituloImgCard{
+        font-size: 1.25rem;
+    }
+    .tituloImgCardTwo{
+        left: 15%;
+    }
+    .tituloImgCardThree{
+        left: 25%;
+    }
+    .tituloImgCardFour{
+        left: 35%;
+    }
+    .tituloImgCardFive{
+        left: 45%;
+    }
+}
+@media(min-width: 992px){
+    .contImg{
+        height: 24rem;
+    }
+    .ImgCard{
+        height: 24rem;
+    }
+    .ImgCardActive{
+        width: 62%;
+    }
+    .tituloImgCard{
+        font-size: 1.5rem;
+    }
+}
+@media(min-width: 1200px){
+    .contImg{
+        height: 28rem;
+    }
+    .ImgCard{
+        height: 28rem;
+        border-radius: 3rem;
+    }
+    .ImgCardActive{
+        width: 62%;
+    }
+    .tituloImgCard{
+        font-size: 2rem;
+    }
+    .tituloImgCardTwo{
+        left: 13%;
+    }
+    .tituloImgCardThree{
+        left: 23%;
+    }
+    .tituloImgCardFour{
+        left: 33%;
+    }
+    .tituloImgCardFive{
+        left: 43%;
+    }
+}
+@media(min-width: 1600px){
+    .contImg{
+        height: 32rem;
+    }
+    .ImgCard{
+        height: 32rem;
+        border-radius: 3.5rem;
+    }
+    .tituloImgCard{
+        font-size: 2.5rem;
+    }
 }
