@@ -1,23 +1,24 @@
 function CardAnimado() {
     return (
       <div className="contenedorPrincipal">
-    <h1>DESARROLLO WEB</h1>
-    <div className="container">
+        <br/>
+    <h1>Desarrollo Web</h1>
+    <div className="containerAnimado">
         <div className="card2">
-            <div className="title">
+            <div className="titlea">
                 <h1>FRONTEND </h1>
             </div>
             <a href="" className="btn2">INTRO</a>
 
         </div>
         <div className="card2">
-            <div className="title">
+            <div className="titlea">
                 <h1>BACKEND </h1> 
             </div>
             <a href="" className="btn2">INTRO</a>
         </div>
         <div className="card2">
-            <div className="title">
+            <div className="titlea">
                 <h1>FULLSTACK </h1>
             </div>
             <a href="" className="btn2">INTRO</a>
