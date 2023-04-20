@@ -54,8 +54,7 @@
     width: 100%;
   }
   
-  .card__background{
-    background-image: url(/assets/imgExpandigCards/img1.jpg);
+  .card__background img{
     background-size: cover;
     background-position: center;
     border-radius: var(--spacing-l);
@@ -72,11 +71,11 @@
       transform 200ms linear;
   }
   
-  .cardDist:hover .card__background{
+  .cardDist:hover .card__background img{
     transform: scale(1.05) translateZ(0);
   }
   
-  .card-grid:hover > .cardDist:not(:hover) .card__background{
+  .card-grid:hover > .cardDist:not(:hover) .card__background img{
     filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
   }
   

@@ -7,31 +7,31 @@ function Card() {
             <section className="containerCard">
                 <div className="cardn">
                     <div className="image">
-                        <img src="https://www.subitus.com/wp-content/uploads/2022/09/Santi_Clemente_Subitus-150x150.jpeg" alt="" />
+                        <img src={listImagesCard[0].imagen} alt="" />
                     </div>
-                    <h2>Someone Name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elite.</p>
+                    <h3>{listImagesCard[0].title}</h3>
+                    <p>{listImagesCard[0].texto}</p>
                 </div>
                 <div className="cardn">
                     <div className="image">
-                        <img src="https://www.subitus.com/wp-content/uploads/2020/05/Fabian_Gutierrez_Subitus_Certificado_Moodle-150x150.jpg" alt="" />
+                        <img src={listImagesCard[1].imagen} alt="" />
                     </div>
-                    <h2>Someone Name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elite.</p>
+                    <h3>{listImagesCard[1].title}</h3>
+                    <p>{listImagesCard[1].texto}</p>
                 </div>
                 <div className="cardn">
                     <div className="image">
-                        <img src="https://www.subitus.com/wp-content/uploads/2022/09/Santi_Clemente_Subitus-150x150.jpeg" alt="" />
+                        <img src={listImagesCard[2].imagen} alt="" />
                     </div>
-                    <h2>Someone Name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elite.</p>
+                    <h3>{listImagesCard[2].title}</h3>
+                    <p>{listImagesCard[2].texto}</p>
                 </div>
                 <div className="cardn">
                     <div className="image">
-                        <img src="https://www.subitus.com/wp-content/uploads/2020/05/Fabian_Gutierrez_Subitus_Certificado_Moodle-150x150.jpg" alt="" />
+                        <img src={listImagesCard[3].imagen} alt="" />
                     </div>
-                    <h2>Someone Name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elite.</p>
+                    <h3>{listImagesCard[3].title}</h3>
+                    <p>{listImagesCard[3].texto}</p>
                 </div>
             </section>
 

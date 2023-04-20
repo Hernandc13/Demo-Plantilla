@@ -28,6 +28,7 @@
     <script type="text/babel" src="./src/components/Hang/Hanged.js"></script>
     <script type="text/babel" src="./src/components/Hang/Word.js"></script>
     <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script>
+        <script type="text/babel" src="./src/components/CardProfile/CardProfile.js"></script>
     <script type="text/babel" src="./src/components/CardHover/CardHover.js"></script>
     <script type="text/babel" src="./src/components/ExpandingCards/index.js"></script>
     <script type="text/babel" src="./src/components/Split/index.js"></script>
@@ -45,6 +46,11 @@
     <script type="text/babel" src="./src/components/SliderColor/SliderColor.js"></script>
     <script src="./src/components/Hang/data.js"></script>
     <script src="./src/components/ExpandingCards/edit.js"></script>
+    <script src="./src/components/Card/EditCard.js"></script>
+    <script src="./src/components/Card_Animado/EditCard_Animado.js"></script>
+    <script src="./src/components/CardDist/EditCardDist.js"></script>
+    <script src="./src/components/CardHover/EditCardHover.js"></script>
+    <script src="./src/components/CardZoom/EditCardZoom.js"></script>
     <script src="./src/components/Split/edit.js"></script>
 
 
@@ -64,6 +70,9 @@
     <script type="text/babel" src="./src/components/Card/Card.js"></script>
     <script type="text/babel" src="./src/components/Card_Animado/CardAnimado.js"></script>
     <script type="text/babel" src="./src/components/Scroll/Scroll.js"></script>
+    <script type="text/babel" src="./src/components/LineaDeTiempo/LineaDeTiempo.js"></script>
+    <script type="text/babel" src="./src/components/SliderAnimado/SliderAnimado.js"></script>
+    <script type="text/babel" src="./src/components/CardFlip/CardFlip.js"></script>
 
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/Curso.css">
@@ -76,18 +85,22 @@
     <link rel="stylesheet" href="./src/components/Hang/Hang.css">
     <link rel="stylesheet" href="./src/styles/Read.css">
     <link rel="stylesheet" href="./src/styles/Acordeon.css">
-    <link rel="stylesheet" href="./src/styles/CardHover.css">
+    <link rel="stylesheet" href="./src/components/CardHover/CardHover.css">
     <link rel="stylesheet" href="./src/components/Split/index.css">
     <link rel="stylesheet" href="./src/components/ExpandingCards/index.css">
-    <link rel="stylesheet" href="./src/styles/Card.css">
-    <link rel="stylesheet" href="./src/styles/Card_Animado.css">
+    <link rel="stylesheet" href="./src/components/Card/Card.css">
+    <link rel="stylesheet" href="./src/components/Card_Animado/Card_Animado.css">
     <link rel="stylesheet" href="./src/components/Scroll/Scroll.css">
     <link rel="stylesheet" href="./src/components/Slider/Slider.css">
     <link rel="stylesheet" href="./src/components/Slider3D/Slider3D.css">
     <link rel="stylesheet" href="./src/components/Libro/Libro.css">
-    <link rel="stylesheet" href="./src/styles/CardDist.css">
-    <link rel="stylesheet" href="./src/styles/CardZoom.css">
+    <link rel="stylesheet" href="./src/components/CardDist/CardDist.css">
+    <link rel="stylesheet" href="./src/components/CardZoom/CardZoom.css">
     <link rel="stylesheet" href="./src/components/SliderColor/SliderColor.css">
+        <link rel="stylesheet" href="./src/components/LineaDeTiempo/LineaDeTiempo.css">
+        <link rel="stylesheet" href="./src/components/CardProfile/CardProfile.css">
+        <link rel="stylesheet" href="./src/components/SliderAnimado/SliderAnimado.css">
+        <link rel="stylesheet" href="./src/components/CardFlip/CardFlip.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
@@ -173,6 +186,10 @@
                                         <a className="nav__link nav__link--inside"><Link className="navlink" to="/SliderColor">SliderColor</Link></a>
 
                                     </li>
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/SliderAnimado">SliderAnimado</Link></a>
+
+                                    </li>
 
                                     <li className="list__inside">
                                         <a className="nav__link nav__link--inside"><Link className="navlink" to="/Slider3D">Slider3D</Link></a>
@@ -218,11 +235,30 @@
                                         <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardHover">Card Hover 2</Link></a>
 
                                     </li>
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardProfile">Card Perfil</Link></a>
+                                    </li>
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardFlip">Card Flip</Link></a>
+                                    </li>
                                 </ul>
 
                             </li>
 
+                            <li className="list__item list__item--click">
+                                <div className="list__button list__button--click">
+                                    <img src="assets/acordeonwhite.svg" className="list__img" />
+                                    <a className="nav__link">Line Time</a>
+                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                </div>
 
+                                <ul className="list__show">
+                                    <li className="list__inside">
+                                        <a className="nav__link nav__link--inside link"><Link className="navlink" to="/LineaDeTiempo">Fechas</Link></a>
+                                    </li>
+                                </ul>
+
+                            </li>
                             <li className="list__item list__item--click">
                                 <div className="list__button list__button--click">
                                     <img src="assets/acordeonwhite.svg" className="list__img" />
@@ -257,8 +293,12 @@
                 <Route path="/CardDist" component={CardDist} />
                 <Route path="/CardZoom" component={CardZoom} />
                 <Route path="/SliderColor" component={SliderColor} />
+                <Route path="/LineaDeTiempo" component={LineaDeTiempo} />
+                <Route path="/CardProfile" component={CardProfile} />
+                <Route path="/SliderAnimado" component={SliderAnimado} />
+                <Route path="/CardFlip" component={CardFlip} />
 
-
+                
             </ReactRouterDOM.HashRouter>
         )
 
