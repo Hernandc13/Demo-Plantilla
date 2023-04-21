@@ -1,3 +1,8 @@
+:root{
+  --color-CardFlipGeneral: #1A314C; 
+  --color-FondoFlipCard: #F8922C;
+}
+
 .wrapperFlip{
     height: 400px;
     width: 320px;
@@ -10,7 +15,7 @@
     height: 100%;
     width: 100%;
     padding: 5px;
-    background: #fff;
+    background: var(--color-FondoFlipCard);
     border-radius: 10px;
     transform: translateY(0deg);
     backface-visibility: hidden;
@@ -42,7 +47,7 @@
     width: 150px;
     padding: 5px;
     border-radius: 50%;
-   background-color: #F8922C;
+   background-color: var(--color-CardFlipGeneral);
   }
   .wrapperFlip .back-face .info{
     text-align: center;
@@ -64,12 +69,12 @@
     line-height: 38px;
     border: 2px solid transparent;
     border-radius: 50%;
-    background-color: #F8922C;
+    background-color: var(--color-CardFlipGeneral);
     transition: all 0.5s ease;
   }
   .back-face ul a:hover{
-    color: #f1aa63;
-    border-color: #f1aa63;
+    color: var(--color-CardFlipGeneral);
+    border-color: var(--color-CardFlipGeneral);
     background: linear-gradient(375deg, transparent, transparent);
   }
   

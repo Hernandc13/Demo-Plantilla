@@ -8,6 +8,8 @@
     --spacing-xl: 32px;
     --spacing-xxl: 64px;
     --width-container: 1200px;
+    --color-TituloCardDist: #F8922C;
+    --color-SubtitutoCardDist: #fff;
   }
   
  
@@ -87,14 +89,14 @@
   }
   
   .card__category{
-    color: var(--text-light);
+    color: var(--color-TituloCardDist);
     font-size: 0.9rem;
     margin-bottom: var(--spacing-s);
     text-transform: uppercase;
   }
   
   .card__heading{
-    color: var(--text-lighter);
+    color: var(--color-SubtitutoCardDist);
     font-size: 1.9rem;
     text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
     line-height: 1.4;

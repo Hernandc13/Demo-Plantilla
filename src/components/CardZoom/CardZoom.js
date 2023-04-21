@@ -47,3 +47,13 @@ function CardZoom() {
 
     );
   }
+  const rootElementCardZoom = document.querySelector(":root");
+
+  rootElementCardZoom.style.setProperty(
+    "--color-TextoTitulo",
+    CardZoomStyles.colorTextoTitulo
+  );
+  rootElementCardZoom.style.setProperty(
+    "--color-Iconos",
+    CardZoomStyles.colorIconos
+  );

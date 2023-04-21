@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+:root{
+  --color-BackgroundCardProfile: #1A314C; 
+  --color-PrincipalCardProfile: #F8922C;
+  --color-TextoCardProfession: #F8922C;
+  --color-TituloCardProfile: #fff;
+}
 .containerProfile{
   padding: 0 40px;
   display: flex;
@@ -10,7 +16,7 @@
   height: 280px;
   max-width: 350px;
   margin: 0 20px;
-  background: #F8922C;
+  background: var(--color-PrincipalCardProfile);
   transition: 0.4s;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
@@ -36,18 +42,18 @@
 .cardProfile .top-text .name{
   font-size: 25px;
   font-weight: 600;
-  color: #0A131E;
+ color:var(--color-TituloCardProfile);
 }
 .cardProfile .top-text p{
   font-size: 20px;
   font-weight: 600;
-  color: #fff;
+color:var(--color-TextoCardProfession);
   line-height: 20px;
 }
 .cardProfile .bottom-text{
   padding: 0 20px 10px 20px;
   margin-top: 5px;
-  background: white;
+  background: var(--color-BackgroundCardProfile);
   opacity: 0;
   visibility: hidden;
   transition: 0.1s;
@@ -65,7 +71,7 @@
 }
 .cardProfile .bottom-text .btn a{
   text-decoration: none;
-  background: #e74c3c;
+  background: var(--color-PrincipalCardProfile);
   color: #f2f2f2;
   padding: 5px 8px;
   border-radius: 3px;

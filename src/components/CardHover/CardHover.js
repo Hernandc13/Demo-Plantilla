@@ -72,3 +72,21 @@ function CardHover() {
 
     );
 }
+
+
+
+const rootElementCardHover2 = document.querySelector(":root");
+
+rootElementCardHover2.style.setProperty(
+  "--color-BackgroundCardHover2",
+  CardHover2Styles.colorBackgroundCardHover2
+);
+rootElementCardHover2.style.setProperty(
+  "--color-TituloCardHover2",
+  CardHover2Styles.colorTituloCardHover2
+);
+rootElementCardHover2.style.setProperty("--color-TextoCardHover2",
+CardHover2Styles.colorTextoCardHover2);
+
+
+

@@ -28,3 +28,20 @@ function CardAnimado() {
     );
   }
   
+const rootElementCardAnimado = document.querySelector(":root");
+
+rootElementCardAnimado.style.setProperty(
+  "--color-BackgroundCardAnimado",
+  CardAnimadoStyles.colorBackgroundCardAnimado
+);
+rootElementCardAnimado.style.setProperty(
+  "--color-PrincipalCardAnimado",
+  CardAnimadoStyles.colorPrincipalCardAnimado
+);
+rootElementCardAnimado.style.setProperty("--color-TextoCardAnimado", CardAnimadoStyles.colorTextoCardAnimado);
+
+
+
+
+
+

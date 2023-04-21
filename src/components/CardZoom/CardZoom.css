@@ -1,3 +1,7 @@
+:root{
+  --color-TextoTitulo: #1A314C; 
+  --color-Iconos: #F8922C;
+}
 .containerZoom {
     max-height: 800px;
     max-width: 1280px;
@@ -79,7 +83,7 @@
   }
   h2 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #fff;
+    color: var(--color-TextoTitulo);
     margin: 20px;
     opacity: 0;
     transition: opacity 1s;
@@ -91,7 +95,7 @@
   .icons {
     position: absolute;
     fill: #fff;
-    color: #fff;
+    color: var(--color-Iconos);
     height: 130px;
     top: 226px;
     width: 50px;
