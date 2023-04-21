@@ -3,7 +3,7 @@ const listQuestions = [
     id: 1,
     question:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan est at nunc fermentum ultrices.",
-    answer: "moodle",
+    answer: "nancy",
   },
   {
     id: 2,
