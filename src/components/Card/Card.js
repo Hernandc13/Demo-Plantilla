@@ -43,8 +43,19 @@ function Card() {
 }
 
 
+const rootElementCard = document.querySelector(":root");
 
+rootElementCard.style.setProperty(
+  "--color-BackgroundCard",
+  CardStyles.colorBackgroundCard
+);
+rootElementCard.style.setProperty(
+  "--color-PrincipalCard",
+  CardStyles.colorPrincipalCard
+);
+rootElementCard.style.setProperty("--color-TextoCard", CardStyles.colorTextoCard);
 
+rootElementCard.style.setProperty("--color-TituloCard", CardStyles.colorTituloCard);
 
 
 

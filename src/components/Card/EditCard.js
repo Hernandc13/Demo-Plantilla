@@ -21,3 +21,10 @@ const listImagesCard = [
     },
   ];
   
+
+  const CardStyles = {
+    colorBackgroundCard: 'white',
+    colorPrincipalCard: '#F8922C',
+    colorTituloCard: '#F8922C',
+    colorTextoCard: 'black'
+  }

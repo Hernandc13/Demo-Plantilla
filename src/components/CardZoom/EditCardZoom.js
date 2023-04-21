@@ -12,4 +12,7 @@ const listCardZoom= [
         name: 'Francisco Ortega',
       }
   ];
-  
+  const CardZoomStyles = {
+    colorTextoTitulo: 'white',
+    colorIconos: 'white'
+  }

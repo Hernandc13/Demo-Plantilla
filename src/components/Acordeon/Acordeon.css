@@ -1,4 +1,9 @@
-
+:root{
+    --color-Fondo:white;
+    --color-General:white;
+    --color-Texto:white;
+    --color-Titulo:white;
+  }
 h1{
     text-align:center;
 }

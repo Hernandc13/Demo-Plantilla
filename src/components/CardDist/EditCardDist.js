@@ -21,3 +21,7 @@ const listCardDist= [
       }
   ];
   
+  const CardDistStyles = {
+    colorTextoTitulo: 'orange',
+    colorTextoSubtitulo: 'white'
+  }

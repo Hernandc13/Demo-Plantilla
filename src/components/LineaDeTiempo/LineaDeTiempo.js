@@ -9,83 +9,83 @@ function LineaDeTiempo() {
       <section>
         <i class="icon fas fa-home"></i>
         <div class="details">
-          <span class="titleTiempo">Title of Section 1</span>
-          <span>1st Jan 2021</span>
+          <span class="titleTiempo">{listListaTiempo[0].title}</span>
+          <span>{listListaTiempo[0].fecha}</span>
         </div>
-        <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+        <p>{listListaTiempo[0].texto}</p>
         <div class="bottom">
           <a href="#">Read more</a>
-          <i>- Someone famous</i>
+          <i>- {listListaTiempo[0].footer}</i>
         </div>
       </section>
     </div>
     <div class="row row-2">
-      <section>
-        <i class="icon fas fa-star"></i>
+    <section>
+        <i class="icon fas fa-home"></i>
         <div class="details">
-          <span class="titleTiempo">Title of Section 2</span>
-          <span>2nd Jan 2021</span>
+          <span class="titleTiempo">{listListaTiempo[1].title}</span>
+          <span>{listListaTiempo[1].fecha}</span>
         </div>
-        <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+        <p>{listListaTiempo[1].texto}</p>
         <div class="bottom">
           <a href="#">Read more</a>
-          <i>- Someone famous</i>
+          <i>- {listListaTiempo[1].footer}</i>
         </div>
       </section>
     </div>
     <div class="row row-1">
-      <section>
-        <i class="icon fas fa-rocket"></i>
+    <section>
+        <i class="icon fas fa-home"></i>
         <div class="details">
-          <span class="titleTiempo">Title of Section 3</span>
-          <span>3rd Jan 2021</span>
+          <span class="titleTiempo">{listListaTiempo[2].title}</span>
+          <span>{listListaTiempo[2].fecha}</span>
         </div>
-        <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+        <p>{listListaTiempo[2].texto}</p>
         <div class="bottom">
           <a href="#">Read more</a>
-          <i>- Someone famous</i>
+          <i>- {listListaTiempo[2].footer}</i>
         </div>
       </section>
     </div>
     <div class="row row-2">
-      <section>
-        <i class="icon fas fa-globe"></i>
+    <section>
+        <i class="icon fas fa-home"></i>
         <div class="details">
-          <span class="titleTiempo">Title of Section 4</span>
-          <span>4th Jan 2021</span>
+          <span class="titleTiempo">{listListaTiempo[3].title}</span>
+          <span>{listListaTiempo[3].fecha}</span>
         </div>
-        <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+        <p>{listListaTiempo[3].texto}</p>
         <div class="bottom">
           <a href="#">Read more</a>
-          <i>- Someone famous</i>
+          <i>- {listListaTiempo[3].footer}</i>
         </div>
       </section>
     </div>
     <div class="row row-1">
-      <section>
-        <i class="icon fas fa-paper-plane"></i>
+    <section>
+        <i class="icon fas fa-home"></i>
         <div class="details">
-          <span class="titleTiempo">Title of Section 5</span>
-          <span>5th Jan 2021</span>
+          <span class="titleTiempo">{listListaTiempo[4].title}</span>
+          <span>{listListaTiempo[4].fecha}</span>
         </div>
-        <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+        <p>{listListaTiempo[4].texto}</p>
         <div class="bottom">
           <a href="#">Read more</a>
-          <i>- Someone famous</i>
+          <i>- {listListaTiempo[4].footer}</i>
         </div>
       </section>
     </div>
     <div class="row row-2">
-      <section>
-        <i class="icon fas fa-map-marker-alt"></i>
+    <section>
+        <i class="icon fas fa-home"></i>
         <div class="details">
-          <span class="titleTiempo">Title of Section 6</span>
-          <span>6th Jan 2021</span>
+          <span class="titleTiempo">{listListaTiempo[5].title}</span>
+          <span>{listListaTiempo[5].fecha}</span>
         </div>
-        <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+        <p>{listListaTiempo[5].texto}</p>
         <div class="bottom">
           <a href="#">Read more</a>
-          <i>- Someone famous</i>
+          <i>- {listListaTiempo[5].footer}</i>
         </div>
       </section>
     </div>
@@ -94,3 +94,21 @@ function LineaDeTiempo() {
         </div>
     );
 }
+
+const rootElementListadeTiempo = document.querySelector(":root");
+
+rootElementListadeTiempo.style.setProperty(
+  "--color-Fondo",
+  ListaDeTiempoStyles.colorFondoSection
+);
+rootElementListadeTiempo.style.setProperty(
+  "--color-General",
+  ListaDeTiempoStyles.colorGeneralSection
+);
+rootElementListadeTiempo.style.setProperty("--color-Texto", ListaDeTiempoStyles.colorTextoSection);
+
+rootElementListadeTiempo.style.setProperty("--color-Titulo", ListaDeTiempoStyles.colorTitleSection);
+
+
+
+

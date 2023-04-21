@@ -25,3 +25,8 @@ const listCardHover= [
       }
   ];
   
+  const CardHover2Styles = {
+    colorBackgroundCardHover2: 'white',
+    colorTituloCardHover2: '#F8922C',
+    colorTextoCardHover2: 'black'
+  }

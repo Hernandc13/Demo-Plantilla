@@ -1,5 +1,10 @@
 /* Import Google font - Poppins */
-
+:root{
+  --color-BackgroundCard: #1A314C; 
+  --color-TituloCard: #F8922C;
+  --color-PrincipalCard: #F8922C;
+  --color-TextoCard: #fff;
+}
 ::-webkit-scrollbar {
   height: 8px;
 }
@@ -33,7 +38,7 @@
   align-items: center;
   padding: 30px;
   border-radius: 12px;
-  background: #fff;
+  background: var(--color-BackgroundCard);;
   scroll-snap-align: start;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
@@ -41,7 +46,7 @@
   height: 150px;
   width: 150px;
   padding: 4px;
-  background: #F8922C;
+  background:var(--color-PrincipalCard);;
   border-radius: 50%;
 }
 .image img {
@@ -53,7 +58,7 @@
 }
 .cardn h3 {
   margin-top: 25px;
-  color: #132d67 !important;
+  color: var(--color-TituloCard);
   font-size: 22px;
   font-weight: 600;
 }
@@ -61,6 +66,6 @@
   margin-top: 4px;
   font-size: 18px;
   font-weight: 400;
-  color: #333;
+  color: var(--color-TextoCard);
   text-align: center;
 }

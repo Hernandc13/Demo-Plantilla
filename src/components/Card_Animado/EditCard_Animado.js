@@ -13,3 +13,9 @@ const listCardAnimado = [
     }
   ];
   
+  
+  const CardAnimadoStyles = {
+    colorBackgroundCardAnimado: '#1A314C',
+    colorPrincipalCardAnimado: '#F8922C',
+    colorTextoCardAnimado: 'white'
+  }

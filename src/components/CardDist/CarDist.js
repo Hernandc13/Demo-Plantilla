@@ -49,3 +49,13 @@ function CardDist() {
 
     );
   }
+  const rootElementCardDist = document.querySelector(":root");
+
+  rootElementCardDist.style.setProperty(
+  "--color-TituloCardDist",
+  CardDistStyles.colorTextoTitulo
+);
+rootElementCardDist.style.setProperty(
+  "--color-SubtitutoCardDist",
+  CardDistStyles.colorTextoSubtitulo
+);
