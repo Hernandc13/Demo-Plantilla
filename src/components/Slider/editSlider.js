@@ -16,3 +16,8 @@ const imagesSlider = [
       url: "https://www.biossmann.com/statics/images/proposito.jpg",
     },
   ];
+
+  const SliderStyles = {
+    colorPrincipalSlider: '#343f4f',
+    colorSecundarioSlider:'white'
+  }

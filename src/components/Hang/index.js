@@ -152,19 +152,19 @@ rootElementHang.style.setProperty(
   hangStyles.colorBackgroundHang
 );
 rootElementHang.style.setProperty(
-  "--color-Principal",
-  hangStyles.colorPrincipal
+  "--color-PrincipalHang",
+  hangStyles.colorPrincipalHang
 );
 rootElementHang.style.setProperty(
-  "--color-Secundario",
-  hangStyles.colorSecundario
+  "--color-SecundarioHang",
+  hangStyles.colorSecundarioHang
 );
-rootElementHang.style.setProperty("--color-Texto", hangStyles.colorTexto);
+rootElementHang.style.setProperty("--color-TextoHang", hangStyles.colorTextoHang);
 rootElementHang.style.setProperty(
-  "--color-TextoAlfabeto",
-  hangStyles.colorTextoAlfabeto
+  "--color-TextoAlfabetoHang",
+  hangStyles.colorTextoAlfabetoHang
 );
 rootElementHang.style.setProperty(
-  "--ancho-Componente",
-  hangStyles.anchoComponente
+  "--ancho-ComponenteHang",
+  hangStyles.anchoComponenteHang
 );

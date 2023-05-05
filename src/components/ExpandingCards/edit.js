@@ -20,3 +20,6 @@ const listImages = [
     title: 'Titulo de imagen 5'
   }
 ];
+const ExpandingCardsStyle = {
+  colorTextExpandigCards: 'white'
+}

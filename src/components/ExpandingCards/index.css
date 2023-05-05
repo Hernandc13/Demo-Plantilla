@@ -1,3 +1,6 @@
+:root{
+    --color-textExpandingCards: red
+}
 .contImg{
     width: 90%;
     height: 12rem;
@@ -21,7 +24,7 @@
 }
 .tituloImgCard{
     position: absolute;
-    color: #fff;
+    color: var(--color-textExpandingCards);
     font-size: 0.85rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     bottom: 0;

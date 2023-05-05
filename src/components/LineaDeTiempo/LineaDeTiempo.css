@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 :root{
-  --color-Fondo: white; 
-  --color-General: #F8922C;
-  --color-Texto: #003964;
-  --color-Titulo: #fff;
+  --color-FondoLineTime: white; 
+  --color-GeneralLineTime: #F8922C;
+  --color-TextoLineTime: #003964;
+  --color-TituloLineTime: #fff;
 }
 
 .wrapperTiempo{
@@ -16,7 +16,7 @@
   position: absolute;
   height: 100%;
   width: 4px;
-  background: var(--color-Fondo);
+  background: var(--color-FondoLineTime);
   left: 50%;
   top: 20px;
   transform: translateX(-50%);
@@ -31,7 +31,7 @@
   justify-content: flex-end;
 }
 .wrapperTiempo .row section{
-  background: var(--color-Fondo);
+  background: var(--color-FondoLineTime);
   border-radius: 5px;
   width: calc(50% - 40px);
   padding: 20px;
@@ -42,7 +42,7 @@
   content: "";
   height: 15px;
   width: 15px;
-  background: var(--color-Fondo);
+  background: var(--color-FondoLineTime);
   top: 28px;
   z-index: -1;
   transform: rotate(45deg);
@@ -56,13 +56,13 @@
 .row section .icon,
 .center-line .scroll-icon{
   position: absolute;
-  background: var(--color-Fondo);
+  background: var(--color-FondoLineTime);
   height: 40px;
   width: 40px;
   text-align: center;
   line-height: 40px;
   border-radius: 50%;
-  color:var(--color-General);
+  color:var(--color-GeneralLineTime);
   font-size: 17px;
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
 }
@@ -87,17 +87,17 @@
   justify-content: space-between;
 }
 .row section .details .titleTiempo{
-  color: var(--color-General);
+  color: var(--color-GeneralLineTime);
   font-size: 22px;
   font-weight: 600;
 }
 .row section p{
-  color:var(--color-Texto);
+  color:var(--color-TextoLineTime);
   margin: 10px 0 17px 0;
 }
 .row section .bottom a{
   text-decoration: none;
-  background: var(--color-General);
+  background: var(--color-GeneralLineTime);
   color: white;
   padding: 7px 15px;
   border-radius: 5px;

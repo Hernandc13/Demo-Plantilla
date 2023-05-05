@@ -8,18 +8,18 @@
     width: 100%; 
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 .card2{
     transform-style: preserve-3d;
     background: var(--color-BackgroundCardAnimado,0.466);
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
-    min-height: 60vh;
-    width: 33%;
-    margin: 10px;
+    min-height: 24rem;
+    width: 80%;
+    margin: 10px auto;
     border-radius: 20px;
     color: var(--color-TextoCardAnimado);
-    box-shadow: 0 20px 50px rgba(244, 240, 240, 0.466);
     place-items: center;
     display: grid;
     transition: all 0.75s ease;
@@ -54,4 +54,25 @@
     color: var(--color-TextoCardAnimado);
     padding: 10px 30px 10px 30px;
     text-decoration: none;
+}
+@media(min-width: 768px){
+    .card2{
+        width: 50%;
+    }
+}
+@media(min-width: 992px){
+    .containerAnimado{
+        flex-direction: row;
+    }
+    .card2{
+        width: 30%;
+    }
+    .titlea{
+        padding: 30px;
+    }
+}
+@media(min-width: 1200px){
+    .titlea{
+        padding: 40px;
+    }
 }

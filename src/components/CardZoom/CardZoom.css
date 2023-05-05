@@ -1,15 +1,11 @@
 :root{
-  --color-TextoTitulo: #1A314C; 
-  --color-Iconos: #F8922C;
+  --color-TextoTituloCardZoom: #1A314C; 
+  --color-IconosCardZoom: #F8922C;
 }
 .containerZoom {
-    max-height: 800px;
-    max-width: 1280px;
-    min-height: 600px;
-    min-width: 1000px;
     display: flex;
-    justify-content: space-around;
-    margin: 2rem;
+    margin: auto;
+    flex-direction: column;
   }
   .border {
     height: 369px;
@@ -41,6 +37,7 @@
     justify-content: center;
     background-repeat: no-repeat;
     background-size: 350px;
+    margin: auto;
   }
   .cardz0:hover {
     background-size: 500px;
@@ -56,6 +53,7 @@
     justify-content: center;
     background-repeat: no-repeat;
     background-size: 350px;
+    margin: auto;
   }
   .cardz1:hover {
     background-size: 450px;
@@ -71,6 +69,7 @@
     justify-content: center;
     background-repeat: no-repeat;
     background-size: 350px;
+    margin: auto;
   }
   .cardz2:hover {
     background-size: 450px;
@@ -81,9 +80,9 @@
   .cardz2:hover .fa {
     opacity: 1;
   }
-  h2 {
+  .h2CardZoom {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: var(--color-TextoTitulo);
+    color: var(--color-TextoTituloCardZoom);
     margin: 20px;
     opacity: 0;
     transition: opacity 1s;
@@ -95,7 +94,7 @@
   .icons {
     position: absolute;
     fill: #fff;
-    color: var(--color-Iconos);
+    color: var(--color-IconosCardZoom);
     height: 130px;
     top: 226px;
     width: 50px;
@@ -103,4 +102,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+  }
+  @media(min-width: 992px){
+    .containerZoom {
+      flex-direction: row;
+    }
   }

@@ -84,4 +84,10 @@
     align-items: center;
     justify-content: space-between;
     margin: 4rem;
+    flex-direction: column;
+  }
+  @media(min-width: 992px){
+    .contentFlip{
+      flex-direction: row;
+    }
   }

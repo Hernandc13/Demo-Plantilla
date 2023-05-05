@@ -13,7 +13,7 @@
   margin: 4rem;
 }
 .cardProfile{
-  height: 280px;
+  height: 400px;
   max-width: 350px;
   margin: 0 20px;
   background: var(--color-PrincipalCardProfile);
@@ -25,7 +25,7 @@
   box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
 }
 .cardProfile .img{
-  height: 200px;
+  height: 300px;
   width: 100%;
 }
 .cardProfile .img img{
@@ -34,6 +34,7 @@
  justify-content: center;
  align-items: center;
  background-repeat: no-repeat;
+ object-fit: cover;
 
 }
 .cardProfile .top-text{

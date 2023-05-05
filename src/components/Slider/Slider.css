@@ -1,9 +1,14 @@
+:root{
+  --color-PrincipalSlider: #343f4f;
+  --color-SecundarioSlider: #fff;
+}
+
 .wrapper2 {
   display: flex;
   max-width: 650px;
   width: 100%;
   height: 400px;
-  background: #343f4f;
+  background: var(--color-PrincipalSlider);
   align-items: center;
   justify-content: center;
   position: relative;
@@ -18,11 +23,11 @@
   transform: translateY(-50%);
   height: 36px;
   width: 36px;
-  background-color: #fff;
+  background-color: var(--color-SecundarioSlider);
   border-radius: 50%;
   text-align: center;
   line-height: 36px;
-  color: #343f4f;
+  color: var(--color-PrincipalSlider);
   font-size: 15px;
   z-index: 100;
   cursor: pointer;
@@ -51,7 +56,7 @@ i#next {
   height: 100%;
   width: 100%;
   border-radius: 18px;
-  border: 10px solid #fff;
+  border: 10px solid var(--color-SecundarioSlider);
   object-fit: cover;
   position: absolute;
   transition: all 0.8s ease;

@@ -1,13 +1,13 @@
 :root{
     --color-BackgroundHang: #1A314C; 
-    --color-Principal: #F8922C;
-    --color-Secundario: #C66606 ;
-    --color-Texto: #fff;
-    --color-TextoAlfabeto: #22201E;
-    --ancho-Componente: 90%; 
+    --color-PrincipalHang: #F8922C;
+    --color-SecundarioHang: #C66606 ;
+    --color-TextoHang: #fff;
+    --color-TextoAlfabetoHang: #22201E;
+    --ancho-ComponenteHang: 90%; 
 }
 .contenedorPrincipalHang {
-    width: var(--ancho-Componente);
+    width: var(--ancho-ComponenteHang);
     background-color: var(--color-BackgroundHang);
     border-radius: 3rem;
     padding: 1.5rem;
@@ -17,11 +17,11 @@
 
 .TituloHang{
     font-size: 1.5rem;
-    color: var(--color-Principal);
+    color: var(--color-PrincipalHang);
 }
 
 .questionHang {
-    color: var(--color-Texto);
+    color: var(--color-TextoHang);
     font-size: 1rem;
     margin: 0;
 }
@@ -48,33 +48,33 @@
 .buttonAlphabet {
     border-radius: 10px;
     border: 0;
-    background-color: var(--color-Principal);
+    background-color: var(--color-PrincipalHang);
     letter-spacing: 1.5px;
     font-size: 1rem;
     transition: all .3s ease;
-    box-shadow: var(--color-Secundario) 0px 10px 0px 0px;
-    color: var(--color-TextoAlfabeto);
+    box-shadow: var(--color-SecundarioHang) 0px 10px 0px 0px;
+    color: var(--color-TextoAlfabetoHang);
     width: 2.5rem;
     font-weight: bold;
 }
 
 .buttonAlphabet:hover {
-    box-shadow: var(--color-Secundario) 0px 7px 0px 0px;
+    box-shadow: var(--color-SecundarioHang) 0px 7px 0px 0px;
 }
 
 .buttonAlphabet:active {
-    background-color: var(--color-Principal);
-    box-shadow: var(--color-Secundario) 0px 0px 0px 0px;
+    background-color: var(--color-PrincipalHang);
+    box-shadow: var(--color-SecundarioHang) 0px 0px 0px 0px;
     transform: translateY(5px);
     transition: 200ms;
 }
 
 
 .wordSecret {
-    padding: 0.5rem;
-    border-bottom: 2.5px solid var(--color-Principal);
-    margin: 0.5rem 1rem;
-    color: var(--color-Texto);
+    padding: 1.5rem 1rem;
+    border-bottom: 2.5px solid var(--color-PrincipalHang);
+    margin: 0.5rem;
+    color: var(--color-TextoHang);
     font-size: 0.85rem;
 }
 .wordSecret span{
@@ -178,11 +178,12 @@
     display: none;
 }
 .btnNextQuestion {
-    width: 70%;
-    background-color: var(--color-Principal);
+    width: 40%;
+    background-color: var(--color-PrincipalHang);
     border-radius: 50px;
     font-size: 1.5rem;
     color: black;
+    border: none;
 }
 @media(min-width: 768px){
     .TituloHang{

@@ -59,3 +59,14 @@ function Slider() {
     </div>
   );
 }
+
+const rootElementSlider = document.querySelector(":root");
+
+rootElementSlider.style.setProperty(
+  "--color-PrincipalSlider",
+  SliderStyles.colorPrincipalSlider
+);
+rootElementSlider.style.setProperty(
+  "--color-SecundarioSlider",
+  SliderStyles.colorSecundarioSlider
+);

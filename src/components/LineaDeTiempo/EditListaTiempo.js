@@ -38,8 +38,8 @@ const listListaTiempo= [
   ];
   
   const ListaDeTiempoStyles = {
-    colorGeneralSection: 'orange',
-    colorFondoSection:'white',
-    colorTitleSection:'orange',
-    colorTextoSection:'black'
+    colorGeneralLineTime: 'orange',
+    colorFondoLineTime:'white',
+    colorTitleLineTime:'orange',
+    colorTextoLineTime:'black'
   }

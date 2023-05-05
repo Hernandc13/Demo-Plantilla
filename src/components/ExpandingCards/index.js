@@ -53,3 +53,10 @@ function ExpandingCards() {
     </div>
   );
 }
+
+const rootElementExpandingCards = document.querySelector(":root");
+
+rootElementExpandingCards.style.setProperty(
+  "--color-textExpandingCards",
+  ExpandingCardsStyle.colorTextExpandigCards
+);

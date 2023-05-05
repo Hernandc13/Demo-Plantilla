@@ -13,6 +13,6 @@ const listCardZoom= [
       }
   ];
   const CardZoomStyles = {
-    colorTextoTitulo: 'white',
-    colorIconos: 'white'
+    colorTextoTituloCardZoom: 'white',
+    colorIconosCardZoom: 'white'
   }
