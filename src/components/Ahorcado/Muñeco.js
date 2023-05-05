@@ -1,4 +1,4 @@
-function Hanged(){
+function Muñeco(){
     return(
         <React.Fragment>
             <img className="headHang" src="../../../assets/face-smile-regular.svg"/>

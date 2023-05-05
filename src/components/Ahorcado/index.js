@@ -1,4 +1,4 @@
-function Hang() {
+function Ahorcado() {
   let contLetters = React.createRef();
   let contWordSecret = React.createRef();
   let hangBody = React.createRef();
@@ -126,7 +126,7 @@ function Hang() {
             ))}
           </div>
           <div className="contHang" ref={hangBody}>
-            <Hanged />
+            <Muñeco />
           </div>
         </div>
         <div className="contBtnNext">

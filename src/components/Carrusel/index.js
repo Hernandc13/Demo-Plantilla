@@ -1,4 +1,4 @@
-function ExpandingCards() {
+function Carrusel() {
   let moveCard = React.createRef();
 
   const expandCard = (code) => {

@@ -1,4 +1,4 @@
-function Card() {
+function CardUno() {
   return (
     <div className="contenedorPrincipal">
       <div className="contenedor-principal">

@@ -1,4 +1,4 @@
-function CardDist() {
+function CardHoverUno() {
   return (
     <div className="contenedorPrincipal">
       <section className="hero-section">

@@ -280,3 +280,10 @@ ul {
 .widthZero {
     width: 0;
 }
+input[type="radio"],
+input[type="checkbox"]{
+  display: none;
+}
+img {
+    max-width: 100%;
+}

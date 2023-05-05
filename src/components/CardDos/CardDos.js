@@ -1,4 +1,4 @@
-function CardAnimado() {
+function CardDos() {
   return (
     <div className="contenedorPrincipal">
       <br />
