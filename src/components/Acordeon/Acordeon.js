@@ -2,7 +2,6 @@ function Acordeon() {
   return (
     <div className="contenedorPrincipal">
       <div className="contenedor-principal">
-        <h1 className="textCenterAcordeon">Acordeon</h1>
         <div className="accordion-wrapper">
           <div className="accordion">
             <input

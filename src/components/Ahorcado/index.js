@@ -4,6 +4,9 @@ function Ahorcado() {
   let hangBody = React.createRef();
   let imgAnswer = React.createRef();
 
+  const [indexHang, setIndexHang] = React.useState(0);
+  const [disable, setDisable] = React.useState(false);
+  const [counter, setCounter] = React.useState();
   const [isVisible, setIsVisible] = React.useState(false);
   const [errorCounter, setErrorCounter] = React.useState(0);
   const [indexHangTwo, setIndexHangTwo] = React.useState(0);
@@ -22,7 +25,7 @@ function Ahorcado() {
     //Una vex que se selecciona una letra, se deshabilita
     contLetters.current.children[letterId].setAttribute = "disabled";
     contLetters.current.children[letterId].style.filter = "grayscale(1)";
-    counter = 0;
+    setCounter(0)
     //Bucle que compara la letra ingresara con la palabra oculta
     for (let index = 0; index < wordSecret.length; index++) {
       if (contWordSecret.current.children[index].textContent == letter) {
@@ -34,7 +37,7 @@ function Ahorcado() {
         setIsVisible(wordSecret.every((e) => e.status == true));
       } else {
         //Variable que cuenta las veces que entra al else, si es 7 (longitud de la palabra) quiere decir que se equivoco de letra
-        counter++;
+        setCounter(counter + 1)
         //Condicion que controla el numero de errores
         if (errorCounter < 5) {
           if (counter == wordSecret.length) {
@@ -44,7 +47,7 @@ function Ahorcado() {
         } else {
           //else cuando supera numero de erroees
           hangBody.current.children[errorCounter].style.display = "block";
-          disable = true;
+          setDisable(true);
         }
       }
     }
@@ -67,8 +70,8 @@ function Ahorcado() {
   }
 
   function reload() {
-    indexHang++;
-    disable = false;
+    setIndexHang(indexHang + 1)
+    setDisable(false);
     setIsVisible(false);
     setErrorCounter(0);
     setIndexHangTwo(indexHangTwo + 1);
@@ -141,9 +144,7 @@ function Ahorcado() {
   );
 }
 
-let counter,
-  disable = false,
-  indexHang = 0;
+
 
 const rootElementHang = document.querySelector(":root");
 
