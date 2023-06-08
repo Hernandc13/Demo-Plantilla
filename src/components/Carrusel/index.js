@@ -1,56 +1,102 @@
-function Carrusel() {
-  let moveCard = React.createRef();
+const initialListImages = [
+  {
+    id: 0,
+    imagen: "assets/imgExpandigCards/img1.jpg",
+    title: "Titulo de imagen 1",
+    mode: true,
+    flag: true,
+  },
+  {
+    id: 1,
+    imagen: "assets/imgExpandigCards/img2.jpg",
+    title: "Titulo de imagen 2",
+    mode: false,
+    flag: false,
+  },
+  {
+    id: 2,
+    imagen: "assets/imgExpandigCards/img3.jpg",
+    title: "Titulo de imagen 3",
+    mode: false,
+    flag: false,
+  },
+  {
+    id: 3,
+    imagen: "assets/imgExpandigCards/img4.jpg",
+    title: "Titulo de imagen 4",
+    mode: false,
+    flag: false,
+  },
+  {
+    id: 4,
+    imagen: "assets/imgExpandigCards/img5.jpg",
+    title: "Titulo de imagen 5",
+    mode: false,
+    flag: false,
+  },
+];
 
-  const expandCard = (code) => {
-    let imgCards = moveCard.current.children
-    for (let index = 0; index < imgCards.length; index++) {
-      imgCards[index].classList.remove('ImgCardActive') 
-      imgCards[index].classList.remove('visible') 
+function Carrusel({ enviarDatos, i }) {
+  const [listImages, setListImages] = useLocalStorage('objectImages', initialListImages)
+  const [flags, setFlags] = useLocalStorage('arrayFlags', [0])
+
+  function expandCard(index) {
+
+    //Desexpande todas las cards cambiando mode a falso
+    const nextListImages = listImages.map((img) => {
+      return {
+        ...img,
+        mode: false
+      };
+    });
+
+    //A la card que se le dio clic, su mode cambia a T para expandir y flag para marcar que ya se dio clic
+    const nextTwoListImages = nextListImages.map((img, i) => {
+      if (i === index) {
+        return {
+          ...img,
+          mode: true,
+          flag: true,
+        };
+      } else {
+        return img;
+      }
+    });
+
+    //Se filtra flgs con valor True y se guardan en array
+    const nextFlags = nextTwoListImages.filter((i) => i.flag == true)
+
+    //Termina de ver cards, se envian datos para mostrar siguiente componente
+    if(flags.length === 4){
+      enviarDatos(i);
     }
-    imgCards[code].classList.add('ImgCardActive')
-    imgCards[code+1].classList.add('visible')
-  };
+
+    setListImages(nextTwoListImages);
+    setFlags(nextFlags)
+  }
 
   return (
-    <div className="contenedorPrincipal">
-      <section className="contImg" ref={moveCard}>
-        <img
-          className="ImgCard ImgCardActive"
-          src={listImages[0].imagen}
-          onClick={() => expandCard(0)}
-          alt=""
-        />
-        <p className="tituloImgCard visible">{listImages[0].title}</p>
-        <img
-          className="ImgCard"
-          src={listImages[1].imagen}
-          onClick={() => expandCard(2)}
-          alt=""
-        />
-        <p className="tituloImgCard tituloImgCardTwo">{listImages[1].title}</p>
-        <img
-          className="ImgCard"
-          src={listImages[2].imagen}
-          onClick={() => expandCard(4)}
-          alt=""
-        />
-        <p className="tituloImgCard tituloImgCardThree">{listImages[2].title}</p>
-        <img
-          className="ImgCard"
-          src={listImages[3].imagen}
-          onClick={() => expandCard(6)}
-          alt=""
-        />
-        <p className="tituloImgCard tituloImgCardFour">{listImages[3].title}</p>
-        <img
-          className="ImgCard"
-          src={listImages[4].imagen}
-          onClick={() => expandCard(8)}
-          alt=""
-        />
-        <p className="tituloImgCard tituloImgCardFive">{listImages[4].title}</p>
+    <>
+      <section className="contImg">
+        {listImages.map((img) => (
+          <img
+            key={img.id}
+            className={
+              img.mode
+                ? "ImgCard ImgCardActive quitarGris"
+                : img.flag
+                ? "ImgCard quitarGris"
+                : "ImgCard"
+            }
+            src={img.imagen}
+            alt=""
+            onClick={() => expandCard(img.id)}
+          />
+        ))}
       </section>
-    </div>
+      <p className="contadorCarrusel">Cards vistas: {flags.length} / 5</p>
+      <button onClick={() =>{localStorage.clear()}}>Limpiar</button> 
+    </>
   );
 }
 

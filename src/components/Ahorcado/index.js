@@ -33,7 +33,6 @@ function Ahorcado() {
         contWordSecret.current.children[index].children[0].style.display =
           "block";
         wordSecret[index].status = true;
-        console.log(wordSecret[index]);
         setIsVisible(wordSecret.every((e) => e.status == true));
       } else {
         //Variable que cuenta las veces que entra al else, si es 7 (longitud de la palabra) quiere decir que se equivoco de letra

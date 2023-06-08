@@ -25,7 +25,7 @@
     <script type="text/babel" src="./src/components/Ahorcado/Alphabet.js"></script>
     <script type="text/babel" src="./src/components/Ahorcado/Muñeco.js"></script>
     <script type="text/babel" src="./src/components/Ahorcado/Word.js"></script>
-    <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script>
+   <!--  <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script> -->
     <script type="text/babel" src="./src/components/CardProfile/CardProfile.js"></script>
     <script type="text/babel" src="./src/components/CardHoverDos/CardHoverDos.js"></script>
     <script type="text/babel" src="./src/components/Carrusel/index.js"></script>
@@ -39,7 +39,12 @@
     <script type="text/babel" src="./src/components/CardZoom/CardZoom.js"></script>
     <script type="text/babel" src="./src/components/LineaDeTiempo/LineaDeTiempo.js"></script>
     <script type="text/babel" src="./src/components/CardFlip/CardFlip.js"></script>
+    <script type="text/babel" src="./src/components/AcordeonDos/AcordeonDos.js"></script>
     <script type="text/babel" src="./src/components/NuevoCurso/NuevoCurso.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/Modal.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/BarraAvance.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/estadisticas.js"></script>
+    
 
 
     <script src="./src/components/Ahorcado/editAhorcado.js"></script>
@@ -54,7 +59,7 @@
     <script src="./src/components/CardFlip/EditCardFlip.js"></script>
     <script src="./src/components/LineaDeTiempo/EditListaTiempo.js"></script>
     <script src="./src/components/Slider/editSlider.js"></script>
-    <script src="./src/components/Acordeon/EditAcordeon.js"></script>
+   <!--  <script src="./src/components/Acordeon/EditAcordeon.js"></script> -->
     
 
     <link rel="stylesheet" href="./index.css">
@@ -73,6 +78,9 @@
     <link rel="stylesheet" href="./src/components/CardFlip/CardFlip.css">
     <link rel="stylesheet" href="./src/components/Slider/Slider.css">
     <link rel="stylesheet" href="./src/components/NuevoCurso/index.css">
+    
+    <script type="text/babel" src="./useLocalStorage.js"></script>
+    <script type="text/babel" src="./useLocalStorageDos.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
@@ -219,7 +227,7 @@
 
                                 <ul className="list__show">
                                     <li className="list__inside">
-                                        <a className="nav__link nav__link--inside link"><Link className="navlink" to="/Acordeon">Acordeon</Link></a>
+                                        <a className="nav__link nav__link--inside link"><Link className="navlink" to="/AcordeonDos">Acordeon</Link></a>
                                     </li>
                                 </ul>
 
@@ -238,7 +246,7 @@
 
                 <Route path="/" exact component={General} />
                 <Route path="/Ahorcado" component={Ahorcado} />
-                <Route path="/Acordeon" component={Acordeon} />
+                {/* <Route path="/Acordeon" component={Acordeon} /> */}
                 <Route path="/CardHoverDos" component={CardHoverDos} />
                 <Route path="/Carrusel" component={Carrusel} />
                 <Route path="/Split" component={Split} />
@@ -251,6 +259,7 @@
                 <Route path="/CardProfile" component={CardProfile} />
                 <Route path="/CardFlip" component={CardFlip} />
                 <Route path="/NuevoCurso" component={NuevoCurso} />
+                <Route path="/AcordeonDos" component={AcordeonDos} />
 
             </ReactRouterDOM.HashRouter>
         )

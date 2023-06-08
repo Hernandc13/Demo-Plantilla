@@ -18,9 +18,13 @@
     border-radius: 2rem;
     cursor: pointer;
     transition: all 0.5s ease;
+    filter: grayscale(1);
 }
 .ImgCardActive{
     width: 55%;
+}
+.quitarGris{
+    filter: grayscale(0);
 }
 .tituloImgCard{
     position: absolute;
@@ -46,6 +50,10 @@
 }
 .visible{
     display: block;
+}
+.contadorCarrusel{
+    text-align: center;
+    color: #fff;
 }
 @media(min-width: 768px){
     .contImg{

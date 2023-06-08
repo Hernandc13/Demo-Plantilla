@@ -12,10 +12,10 @@ function Acordeon() {
               checked
             />
             <label className="accordion-label" for="check1">
-              {listAcordeon[0].title}
+              {initialListAcordeonDos[0].title}
             </label>
             <div className="accordion-content">
-              <p>{listAcordeon[0].texto} &#128522;</p>
+              <p>{initialListAcordeonDos[0].texto} &#128522;</p>
             </div>
           </div>
           <div className="accordion">
@@ -26,10 +26,10 @@ function Acordeon() {
               id="check2"
             />
             <label className="accordion-label" for="check2">
-              {listAcordeon[1].title}
+              {initialListAcordeonDos[1].title}
             </label>
             <div className="accordion-content">
-              <p>{listAcordeon[1].texto}</p>
+              <p>{initialListAcordeonDos[1].texto}</p>
             </div>
           </div>
           <div className="accordion">
@@ -40,10 +40,10 @@ function Acordeon() {
               id="check3"
             />
             <label className="accordion-label" for="check3">
-              {listAcordeon[2].title}
+              {initialListAcordeonDos[2].title}
             </label>
             <div className="accordion-content">
-              <p>{listAcordeon[2].texto}</p>
+              <p>{initialListAcordeonDos[2].texto}</p>
             </div>
           </div>
         </div>
