@@ -89,8 +89,6 @@
     align-items: center;
 }
 .accordion {
-    background-color: #eee;
-    color: #444;
     cursor: pointer;
     padding: 18px;
     width: 60%;
@@ -100,8 +98,8 @@
     transition: 0.4s;
     background-color: var(--color-PrincpalAcordeon);
     color: white;
-    border-top-left-radius: 1.6rem;
-    border-top-right-radius: 1.6rem;
+    border-radius: 1.6rem;
+    margin-bottom: 1rem;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -116,8 +114,8 @@
     display: block;
     overflow: hidden;
     padding: 2rem 0;
-    border-bottom-left-radius: 1.6rem;
-    border-bottom-right-radius: 1.6rem;
+    border-radius: 1.6rem;
+    margin-bottom: 1rem;
   }
   .panel p{
     margin: 0;

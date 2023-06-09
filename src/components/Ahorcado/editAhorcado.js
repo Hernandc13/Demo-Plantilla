@@ -1,21 +1,24 @@
-const listQuestions = [
+const initialListQuestions = [
   {
     id: 1,
     question:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan est at nunc fermentum ultrices. Respuesta: moodle",
     answer: "moodle",
+    active: true
   },
   {
     id: 2,
     question:
       "Aenean accumsan est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respuesta: subitus mx",
     answer: "subitus mx",
+    active: false
   },
   {
     id: 3,
     question:
       "Est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respuesta: javascript",
     answer: "javascript",
+    active: false
   }
 ];
 const hangStyles = {
