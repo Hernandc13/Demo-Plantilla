@@ -1,19 +1,78 @@
 function Ahorcado() {
   const [listaPreguntas, setListasPreguntas] =
     React.useState(initialListQuestions); //Estado que guarda array inicial de palabras
-  const [indexPregunta, setIndexPregunta] = React.useState(2); //Estado: Index para pasar de pregunta
+  const [indexPregunta, setIndexPregunta] = React.useState(1); //Estado: Index para pasar de pregunta
   const [alpha, setAlpha] = React.useState(
     "abcdefghijklmnopqrstuvwxyz"
-      .split("")
-      .map((w, index) => (w = { letter: w, id: index }))
-  ); //Estado: Contiene array, en cada posicion hay una letra con id para la key 
-  const [letraActual, setLetraActual] = React.useState('')
-  /*
-  const [wordSecret, setWordSecret] = React.useState(
-    listQuestions[indexHang].answer
-      .split("")
-      .map((w, index) => (w = { letter: w, id: index, status: false }))
-  ); */
+      .split("") //Estado: Contiene array, en cada posicion hay una letra con id y disable para pintar de gris y desactivar
+      .map((w, index) => (w = { letter: w, id: index, disable: false }))
+  );
+  const [letraActual, setLetraActual] = React.useState("");
+  
+  const arrayPalabras = listaPreguntas.map(le => {
+    return le.answer.split("").map((w, index) => (w = { letter: w, id: index, status: false }))
+  })
+
+  const [palabraActual, setPalabraActual] = React.useState(arrayPalabras[indexPregunta-1])
+
+  const renderPreguntas = listaPreguntas.map((pregunta) => (
+    <div key={pregunta.id}>
+      {pregunta.active && (
+        <p className="preguntaAhorcado">
+          Pregunta {pregunta.id} {pregunta.question}
+        </p>
+      )}
+    </div>
+  ));
+  
+  const renderPalabraEscondida = palabraActual.map((letra) => (
+    <div key={letra.id} className="contLetraEscondida">
+      {letra.status && (
+        <p>
+          {letra.letter}
+        </p>
+      )}
+    </div>
+  ));
+
+  const renderAlfabeto = alpha.map((l) => (
+    <Letter
+      key={l.id}
+      letra={l.letter}
+      disable={l.disable}
+      funcion={() => clicLetra(l.letter)}
+    />
+  ));
+
+  const clicLetra = (letra) => {
+    const newLetra = letra;
+    const nextAlpha = alpha.map((alp) => {
+      if (alp.letter == newLetra) {
+        return {
+          ...alp,
+          disable: true,
+        };
+      } else {
+        return alp;
+      }
+    });
+    const newPalabraActual = palabraActual.map(a =>{
+      if(newLetra === a.letter){
+        return{
+          ...a,
+          status: true
+        }
+      }else{
+        return a
+      }
+    })
+
+    setPalabraActual(newPalabraActual)
+    setLetraActual(newLetra);
+    setAlpha(nextAlpha);
+  };
+
+  
 
   const siguientePregunta = (i) => {
     const siguienteListaPregunta = listaPreguntas.map((pregunta) => {
@@ -31,39 +90,24 @@ function Ahorcado() {
         return pregunta;
       }
     });
-
+    
     setListasPreguntas(siguienteListaPregunta);
     setIndexPregunta(indexPregunta + 1);
+    setPalabraActual(arrayPalabras[i])
   };
-
-  const renderPreguntas = listaPreguntas.map((pregunta) => (
-    <div key={pregunta.id}>
-      {pregunta.active && (
-        <p className="preguntaAhorcado">
-          Pregunta {pregunta.id} {pregunta.question}
-        </p>
-      )}
-    </div>
-  ));
-
-  const renderAlfabeto = alpha.map((l) => (
-    <Letter 
-      key={l.id}
-      letra={l.letter}
-      funcion={() => clicLetra(l.id, l.letter)}/>
-  ));
 
   return (
     <div className="contenedorPrincipal">
-      <div className="contenedorPrincipalHang" id="content">
+      <div className="contenedorPrincipalHang">
         <h2 className="TituloHang">Ahorcado</h2>
         {renderPreguntas}
-
+        <div className="contRenderPalabraEscondida">
+          {renderPalabraEscondida}
+        </div>
         <div className="containLetters">{renderAlfabeto}</div>
-
-        {/* <button onClick={() => siguientePregunta(indexPregunta)}>
+        <button onClick={() => siguientePregunta(indexPregunta)}>
           siguiente pregunta
-        </button> */}
+        </button>
       </div>
     </div>
   );

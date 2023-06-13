@@ -36,13 +36,12 @@ const initialListImages = [
   },
 ];
 
-function Carrusel({ enviarDatos, enviarDatos2, i }) {
+function Carrusel({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
   const [listImages, setListImages] = useLocalStorage('objectImages', initialListImages)
   const [flags, setFlags] = useLocalStorage('arrayFlags', "")
-  const [iniciarTemporizador1, setIniciarTemporizador1] = React.useState(false);
+  const [counterCarrusel, setCounterCarrusel] = React.useState(0)
 
   function expandCard(index) {
-
     //Desexpande todas las cards cambiando mode a falso
     const nextListImages = listImages.map((img) => {
       return {
@@ -78,6 +77,10 @@ function Carrusel({ enviarDatos, enviarDatos2, i }) {
 
     setListImages(nextTwoListImages);
     setFlags(nextFlags)
+
+    const newCounterCarrusel = counterCarrusel + 1
+    enviarDatos3(newCounterCarrusel, i)
+    setCounterCarrusel(newCounterCarrusel)
   }
 
   return (

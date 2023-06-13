@@ -22,10 +22,10 @@ const initialListAcordeonDos = [
   },
 ];
 
-function AcordeonDos({ enviarDatos, i }) {
+function AcordeonDos({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
   const [listAcordeon, setListAcordeon] = useLocalStorage('objectAcordeon', initialListAcordeonDos)
   const [flags, setFlags] = useLocalStorage('arrayFlagsTwo', "")
-
+  const [counterAcordeon, setCounterAcordeon] = React.useState(0)
 
   function AccordionItem({ id, title, texto, mode }) {
     return (
@@ -43,18 +43,12 @@ function AcordeonDos({ enviarDatos, i }) {
   }
 
   function clicAcordeon(id) {
-    const nextListAcordeon = listAcordeon.map((acordeon) => {
-      return {
-        ...acordeon,
-        mode: false,
-      };
-    });
     //A la card que se le dio clic, su mode cambia a T para expandir y flag para marcar que ya se dio clic
-    const nextTwoListAcordeon = nextListAcordeon.map((acordeon, i) => {
+    const nextListAcordeon = listAcordeon.map((acordeon, i) => {
       if (i === id) {
         return {
           ...acordeon,
-          mode: true,
+          mode: !acordeon.mode,
           flag: true,
         };
       } else {
@@ -62,13 +56,22 @@ function AcordeonDos({ enviarDatos, i }) {
       }
     });
 
-    const nextFlags = nextTwoListAcordeon.filter((i) => i.flag == true);
+    const nextFlags = nextListAcordeon.filter((i) => i.flag == true);
 
     if (nextFlags.length === 3) {
       enviarDatos(i);
+      enviarDatos2(false, i);
     }
+    if(nextFlags.length == 1){
+      enviarDatos2(true, i);
+    }
+    
     setFlags(nextFlags);
-    setListAcordeon(nextTwoListAcordeon);
+    setListAcordeon(nextListAcordeon);
+
+    const newCounterAcordeon = counterAcordeon + 1
+    enviarDatos3(newCounterAcordeon, i)
+    setCounterAcordeon(newCounterAcordeon)
   }
 
   const listaAcordeones = (

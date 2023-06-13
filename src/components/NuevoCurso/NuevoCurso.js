@@ -1,8 +1,9 @@
 function NuevoCurso() {
   //array con Ids de componantes visibles, por defecto 1
   const [datos, setDatos] = useLocalStorage("arrayDatos", [1]);
+  const [countTotal, setCountTotal] = useLocalStorage("totalClics", 0);
 
-  //DatosHijo recibe el indice del componente cuando se termina
+  //Se recibe el indice del componente cuando se termina
   const recibirDatos = (indice) => {
     //Guardamos el nuevo indice recibido en un array
     const newDatos = [...datos, indice];
@@ -31,20 +32,37 @@ function NuevoCurso() {
   };
 
   const recibirDatos2 = (boolean, indice) => {
-    
-    const nextEstados = estados.map(est =>{
-      if(indice == est.id){
-        return {
-          ...est,
-          valor: boolean
+    setEstados((prevEstados) => {
+      return prevEstados.map((est) => {
+        //Se actualiza en array de estados
+        if (indice == est.id) {
+          return {
+            ...est,
+            valor: boolean,
+          };
+        } else {
+          return est;
         }
-      }else{
-        return est
-      }
-    })
-    setEstados(nextEstados)
-    console.log(nextEstados)
+      });
+    });
   };
+
+  /* Logica clics individual */
+  const recibirDatos3 = (c, indice) => {
+    setCliks((prevCliks) => {
+      return prevCliks.map((clic) => {
+        if (indice === clic.id) {
+          return {
+            ...clic,
+            valor: c,
+          };
+        } else {
+          return clic;
+        }
+      });
+    });
+  };
+  /* Logica clics individual */
 
   const initialConfigCurso = [
     {
@@ -53,6 +71,7 @@ function NuevoCurso() {
         <Carrusel
           enviarDatos={recibirDatos}
           enviarDatos2={recibirDatos2}
+          enviarDatos3={recibirDatos3}
           i={1}
         />
       ),
@@ -61,15 +80,35 @@ function NuevoCurso() {
     },
     {
       id: 2,
-      componente: <AcordeonDos enviarDatos={recibirDatos} i={2} />,
+      componente: (
+        <AcordeonDos
+          enviarDatos={recibirDatos}
+          enviarDatos2={recibirDatos2}
+          enviarDatos3={recibirDatos3}
+          i={2}
+        />
+      ),
       titulo: "Titulo de prueba 2",
+      active: true,
+    },
+    {
+      id: 3,
+      componente: (
+        <CardFlip
+          enviarDatos={recibirDatos}
+          enviarDatos2={recibirDatos2}
+          enviarDatos3={recibirDatos3}
+          i={3}
+        />
+      ),
+      titulo: "Titulo de prueba 3",
       active: true,
     },
   ];
 
   const [configCurso, setConfigCurso] = React.useState(initialConfigCurso);
 
-  /* Logica de Modal */
+  //Logica de Modal
   const [modalOpen, setModalOpen] = React.useState(false);
   const openModal = () => {
     setModalOpen(true);
@@ -77,7 +116,7 @@ function NuevoCurso() {
   const closeModal = () => {
     setModalOpen(false);
   };
-  /* Logica de Modal */
+  // Logica de Modal
 
   //Estado que controla barra general de avance
   const [scrollTop, setScrollTop] = useLocalStorage("barraAvance", 0);
@@ -94,7 +133,19 @@ function NuevoCurso() {
     </section>
   ));
 
-  /* Logica de temporizadores */
+  const [cliks, setCliks] = React.useState(
+    configCurso.map((comp) => ({
+      id: comp.id,
+      valor: 0,
+      nombre: comp.componente.type.name,
+    }))
+  );
+  const renderClics = cliks.map((cl) => {
+    return <p key={cl.id}>{cl.nombre}: {cl.valor}</p>;
+  });
+
+  //Logica de temporizadores
+  //Se crea estado por cada componente, estos rigen los tiempos individuales
   const [estados, setEstados] = React.useState(
     configCurso.map((comp) => ({ id: comp.id, valor: false }))
   );
@@ -105,7 +156,16 @@ function NuevoCurso() {
   const handleFin = () => {
     setIniciarTemporizador(false);
   };
-  /* Logica de temporizadores */
+
+  const renderTemporizadores = configCurso.map((comp) => (
+    <Temporizador
+      key={comp.id}
+      id={comp.id}
+      iniciarTemporizador={estados[comp.id - 1].valor}
+      nombre={comp.componente.type.name}
+    />
+  ));
+  // Logica de temporizadores
 
   return (
     <div className="contenedorPrincipal">
@@ -149,11 +209,9 @@ function NuevoCurso() {
         <p>{detectarDispositivo()}</p>
         <p>Tu navegador es: {detectarNavegador()}</p>
         <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} />
-        <Temporizador
-          id={1}
-          iniciarTemporizador={estados[0].valor}
-          nombre={"Carrusel"}
-        />
+        {renderTemporizadores}
+        <ClickCounter count={countTotal} setCount={setCountTotal} />
+        {renderClics}
       </Modal>
     </div>
   );

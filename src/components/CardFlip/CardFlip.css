@@ -1,93 +1,103 @@
-:root{
-  --color-CardFlipGeneral: #1A314C; 
+:root {
+  --color-CardFlipGeneral: #1A314C;
   --color-FondoFlipCard: #F8922C;
 }
 
-.wrapperFlip{
-    height: 400px;
-    width: 320px;
-    position: relative;
-    transform-style: preserve-3d;
-      perspective: 1000px;
+.wrapperFlip {
+  height: 400px;
+  width: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: all 0.75s ease;
+}
+
+.wrapperFlip .cardFlip {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background: var(--color-FondoFlipCard);
+  border-radius: 10px;
+  transform: translateY(0deg);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.wrapperFlip .cardFlip img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.wrapperFlip .back-face {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+
+.rotate180{
+  transform: rotateY(180deg);
+}
+
+.wrapperFlip .back-face img {
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: var(--color-CardFlipGeneral);
+}
+
+.wrapperFlip .back-face .info {
+  text-align: center;
+}
+
+.back-face .info .titleFlip {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.back-face ul {
+  display: flex;
+}
+
+.back-face ul a {
+  display: block;
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  text-align: center;
+  margin: 0 5px;
+  line-height: 38px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-color: var(--color-CardFlipGeneral);
+  transition: all 0.5s ease;
+}
+
+/* .back-face ul a:hover {
+  color: var(--color-CardFlipGeneral);
+  border-color: var(--color-CardFlipGeneral);
+  background: linear-gradient(375deg, transparent, transparent);
+} */
+
+.contentFlip {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4rem;
+  flex-direction: column;
+}
+
+@media(min-width: 992px) {
+  .contentFlip {
+    flex-direction: row;
   }
-  .wrapperFlip .cardFlip{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 5px;
-    background: var(--color-FondoFlipCard);
-    border-radius: 10px;
-    transform: translateY(0deg);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-    transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
-  }
-  .wrapperFlip:hover > .front-face{
-    transform: rotateY(-180deg);
-  }
-  .wrapperFlip .cardFlip img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  .wrapperFlip .back-face{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    transform: rotateY(180deg);
-  }
-  .wrapperFlip:hover > .back-face{
-    transform: rotateY(0deg);
-  }
-  .wrapperFlip .back-face img{
-    height: 150px;
-    width: 150px;
-    padding: 5px;
-    border-radius: 50%;
-   background-color: var(--color-CardFlipGeneral);
-  }
-  .wrapperFlip .back-face .info{
-    text-align: center;
-  }
-  .back-face .info .titleFlip{
-    font-size: 30px;
-    font-weight: 500;
-  }
-  .back-face ul{
-    display: flex;
-  }
-  .back-face ul a{
-    display: block;
-    height: 40px;
-    width: 40px;
-    color: #fff;
-    text-align: center;
-    margin: 0 5px;
-    line-height: 38px;
-    border: 2px solid transparent;
-    border-radius: 50%;
-    background-color: var(--color-CardFlipGeneral);
-    transition: all 0.5s ease;
-  }
-  .back-face ul a:hover{
-    color: var(--color-CardFlipGeneral);
-    border-color: var(--color-CardFlipGeneral);
-    background: linear-gradient(375deg, transparent, transparent);
-  }
-  
-  .contentFlip{
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 4rem;
-    flex-direction: column;
-  }
-  @media(min-width: 992px){
-    .contentFlip{
-      flex-direction: row;
-    }
-  }
+}

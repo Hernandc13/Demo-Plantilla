@@ -43,6 +43,9 @@
     width: 2.5rem;
     font-weight: bold;
 }
+.grisDisable{
+    filter: grayscale(1);
+}
 
 .buttonAlphabet:hover {
     box-shadow: var(--color-SecundarioHang) 0px 7px 0px 0px;
@@ -53,4 +56,28 @@
     box-shadow: var(--color-SecundarioHang) 0px 0px 0px 0px;
     transform: translateY(5px);
     transition: 200ms;
+}
+.contRenderPalabraEscondida{
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+.contLetraEscondida{
+    border-bottom: 3px solid var(--color-PrincipalHang);
+    display: inline-block;
+    width: 2.5rem;
+    height: 3rem;
+    text-align: center;
+}
+.contLetraEscondida p{
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+    display: inline-block;
+}
+.contPrueba{
+    background-color: #F8922C;
 }
