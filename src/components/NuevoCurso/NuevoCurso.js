@@ -104,6 +104,19 @@ function NuevoCurso() {
       titulo: "Titulo de prueba 3",
       active: true,
     },
+    {
+      id: 4,
+      componente: (
+        <Ahorcado
+          enviarDatos={recibirDatos}
+          enviarDatos2={recibirDatos2}
+          enviarDatos3={recibirDatos3}
+          i={4}
+        />
+      ),
+      titulo: "Titulo de prueba 4",
+      active: true,
+    },
   ];
 
   const [configCurso, setConfigCurso] = React.useState(initialConfigCurso);
