@@ -28,10 +28,10 @@ const detectarDispositivo = () => {
   const userAgent = navigator.userAgent;
 
   if (userAgent.match(/Mobile/i)) {
-    return <div>Estás en un dispositivo móvil.</div>;
+    return <>Estás en un dispositivo móvil</>
   } else if (userAgent.match(/Tablet/i)) {
-    return <div>Estás en una tablet.</div>;
+    return <>Estás en una tablet</>
   } else {
-    return <div>Estás en un dispositivo de escritorio.</div>;
+    return <>Estás en un dispositivo de escritorio</>
   }
 };

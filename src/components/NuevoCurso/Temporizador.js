@@ -27,5 +27,5 @@ const Temporizador = ({ iniciarTemporizador, id, nombre }) => {
     return `${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
   };
 
-  return  <p style={{color: '#212529'}}>{id == 0 ? 'Tiempo total: ' : `${nombre}: `}{formatTiempo(tiempo)}</p>
+  return  <p className="parrafoTempor">{id == 0 ? 'Tiempo total: ' : `${nombre}: `}{formatTiempo(tiempo)}</p>
 };

@@ -11,9 +11,5 @@ function ClickCounter({ count, setCount }) {
     };
   }, []);
 
-  return (
-    <div>
-      <p>Clics totales: {count}</p>
-    </div>
-  );
+  return <p className="parrafoTempor">Clics totales: {count}</p>
 }
