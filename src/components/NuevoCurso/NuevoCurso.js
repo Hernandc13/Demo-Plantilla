@@ -11,7 +11,7 @@ function NuevoCurso() {
   const recibirDatos = (indice) => {
     //Se recibe el indice del componente cuando se termina
     const newDatos = [...datos, indice]; //Guardamos el nuevo indice recibido en un array
-    const next = configCurso.map((config) => {
+    /* const next = configCurso.map((config) => {
       //Next almacena active: true que encuentre en array newDatos
       for (let index = 0; index < newDatos.length; index++) {
         if (newDatos[index] == config.id) {
@@ -21,6 +21,18 @@ function NuevoCurso() {
           };
         }
       }
+      return config;
+    }); */
+    const next = configCurso.map((config) => {
+      //Next almacena active: true que encuentre en array newDatos
+
+      if (indice+1 == config.id) {
+        return {
+          ...config,
+          active: true,
+        };
+      }
+
       return config;
     });
 
@@ -70,59 +82,38 @@ function NuevoCurso() {
   const initialConfigCurso = [
     {
       id: 1,
-      componente: (
-        <Ahorcado
-          enviarDatos={recibirDatos}
-          enviarDatos2={recibirDatos2}
-          enviarDatos3={recibirDatos3}
-          i={1}
-        />
-      ),
+      nombre: "Ahorcado",
       titulo: "Titulo de prueba",
       active: true,
     },
     {
       id: 2,
-      componente: (
-        <AcordeonDos
-          enviarDatos={recibirDatos}
-          enviarDatos2={recibirDatos2}
-          enviarDatos3={recibirDatos3}
-          i={2}
-        />
-      ),
+      nombre: "AcordeonDos",
       titulo: "Titulo de prueba 2",
-      active: true,
+      active: false,
     },
     {
       id: 3,
-      componente: (
-        <Carrusel
-          enviarDatos={recibirDatos}
-          enviarDatos2={recibirDatos2}
-          enviarDatos3={recibirDatos3}
-          i={3}
-        />
-      ),
+      nombre: "Carrusel",
       titulo: "Titulo de prueba 3",
-      active: true,
+      active: false,
     },
     {
       id: 4,
-      componente: (
-        <CardFlip
-          enviarDatos={recibirDatos}
-          enviarDatos2={recibirDatos2}
-          enviarDatos3={recibirDatos3}
-          i={4}
-        />
-      ),
+      nombre: "CardFlip",
       titulo: "Titulo de prueba 4",
-      active: true,
+      active: false,
     },
   ];
 
-  const [configCurso, setConfigCurso] = useLocalStorage("initial", initialConfigCurso);
+  const componentesMap = {
+    Ahorcado,
+    AcordeonDos,
+    Carrusel,
+    CardFlip,
+  };
+
+  const [configCurso, setConfigCurso] = React.useState(initialConfigCurso);
 
   //Logica de Modal
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -134,27 +125,31 @@ function NuevoCurso() {
   };
   // Logica de Modal
 
-  const listaComponentes = configCurso.map(
-    (
-      comp //Se renderiza lista de coponentes
-    ) => (
+  const listaComponentes = configCurso.map((comp) => {
+    const Componente = componentesMap[comp.nombre];
+    return (
       <section key={comp.id}>
         {comp.active && (
           <div className="contNuevoCursoComponent">
             <h2 className="titleNuevoCurso">{comp.titulo}</h2>
-            {comp.componente}
+            <Componente
+              enviarDatos={recibirDatos}
+              enviarDatos2={recibirDatos2}
+              enviarDatos3={recibirDatos3}
+              i={comp.id}
+            />
           </div>
         )}
       </section>
-    )
-  );
+    );
+  });
 
   const [cliks, setCliks] = useLocalStorage(
     "clicsIndividuales",
     configCurso.map((comp) => ({
       id: comp.id,
       valor: 0,
-      nombre: comp.componente.type.name,
+      nombre: comp.nombre,
     }))
   ); //Estado-Array: que contiene clics de cada componente
 
@@ -185,7 +180,7 @@ function NuevoCurso() {
       key={comp.id}
       id={comp.id}
       iniciarTemporizador={estados[comp.id - 1].valor}
-      nombre={comp.componente.type.name}
+       nombre={comp.nombre}
     />
   )); //Se genera un temporizador por cada componente
 
