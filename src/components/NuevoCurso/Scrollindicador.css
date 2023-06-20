@@ -1,0 +1,19 @@
+.progressMainWrapper{
+    background-color: rgb(0, 0, 0);
+    height: 30px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+.progressMainStyle{
+    height: 30px;
+    background-color: #F8922C;
+
+}
+.progressMainStyle h4{
+    text-align: center !important;
+}
+
+

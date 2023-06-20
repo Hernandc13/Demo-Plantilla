@@ -26,11 +26,71 @@ const configCurso = [
       color: "#0A131E",
     },
   }
+  ,
+  {
+    id: 4,
+    componente: <Acordeon />,
+    titulo: "Titulo de prueba 3",
+    estilos: {
+      wave: false,
+      color: "#0A131E",
+    },
+  }
+  ,
+  {
+    id: 5,
+    componente: <Acordeon />,
+    titulo: "Titulo de prueba 3",
+    estilos: {
+      wave: false,
+      color: "#0A131E",
+    },
+  }
+  ,
+  {
+    id: 6,
+    componente: <Acordeon />,
+    titulo: "Titulo de prueba 3",
+    estilos: {
+      wave: false,
+      color: "#0A131E",
+    },
+  }
 ];
   
 function NuevoCurso() {
+  //Estado para scroll
+    const [scrollTop,setScrollTop]=React.useState(0);
+   // const onScroll= () =>{
+   //   const winScroll=document.documentElement.scrollTop;
+   //   const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+   //   const scrolled = (winScroll / height) *100;
+   //   setScrollTop(scrolled.toFixed(0));
+   // };
+
+  //useEffect para scroll
+    // React.useEffect(() => {
+    //  window.addEventListener("scroll",onScroll);
+    //  return () => window.removeEventListener("scroll",onScroll)
+    
+//},[]);
+  
+  //funcionalidad click
+  function Terminar(){
+     $(document).on('click', 'button', function(event) {
+      //Codigo para buscar cuantos componentes existen.
+     const total = document.querySelectorAll('#DivGeneral .componente').length;
+      let id = this.id;
+      console.log("Encontre:"+ total +' '+ "Componentes"+" :"+ id);
+      const scrolled = (id / total) *100;
+      setScrollTop(scrolled.toFixed(0));
+   
+    });
+    
+  }
   const listaComponentes = configCurso.map((comp) => (
     <section key={comp.id}>
+
       {comp.estilos.wave && (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -40,12 +100,17 @@ function NuevoCurso() {
           ></path>
         </svg>
       )}
-      <div
+      <div id="DivGeneral"
         className="contNuevoCursoComponent"
         style={{ background: comp.estilos.color }}
       >
         <h2 className="titleNuevoCurso">{comp.titulo}</h2>
+        <div className="componente">
         {comp.componente}
+        </div><br/>
+        <center>
+        <button className="btnTermiando"  id={comp.id} onClick={Terminar}>Terminar {comp.id}</button>
+        </center>
       </div>
       {comp.estilos.wave && (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -59,5 +124,12 @@ function NuevoCurso() {
     </section>
   ));
 
-  return <div className="contenedorPrincipal">{listaComponentes}</div>;
+  return <div className="contenedorPrincipal">
+     <div className="progressMainWrapper">
+           <div className="progressMainStyle" style={{width:`${scrollTop}%`}}>
+               <h4>{`${scrollTop}%`}</h4> 
+           </div>
+     </div>
+    {listaComponentes}
+    </div>;
 }
