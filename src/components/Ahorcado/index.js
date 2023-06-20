@@ -102,7 +102,7 @@ function Ahorcado({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
       );//Flag de la palabra a true, se ubica con index proporcionado
       const nextFlags = nextListaPreguntas.filter((i) => i.flag);//Array con flags en true
 
-      if (nextFlags.length === 3) {//Si ya termino las palabras
+      if (nextFlags.length === listaPreguntas.length) {//Si ya termino las palabras
         enviarDatos(i);//Enviamos dato para actualizar barra de avance
         enviarDatos2(false, i);//Enviamos datos para detener temporizador
       }
@@ -113,6 +113,7 @@ function Ahorcado({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
       setFlags(nextFlags);
     }
 
+
     if (countErrores == 6) {//Si no aivino palabra
       setAlpha((prevAlpha) =>
         prevAlpha.map((alp) => ({ ...alp, disable: true }))
@@ -122,7 +123,7 @@ function Ahorcado({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
       );
       const nextFlags = nextListaPreguntas.filter((i) => i.flag);
 
-      if (nextFlags.length === 3) {
+      if (nextFlags.length === listaPreguntas.length) {
         enviarDatos(i);
         enviarDatos2(false, i);
       }
@@ -203,7 +204,7 @@ function Ahorcado({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
           </button>
         )}
       </div>
-      <p className="contadorCarrusel">{flags.length} / 3</p>
+      <p className="contadorCarrusel">{flags.length} / {listaPreguntas.length}</p>
     </div>
   );
 }

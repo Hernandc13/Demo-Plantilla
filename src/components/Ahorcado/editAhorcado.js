@@ -15,14 +15,14 @@ const initialListQuestions = [
     active: false,
     flag: false
   },
-  {
+  /* {
     id: 2,
     question:
       "Est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respuesta: html",
     answer: "html",
     active: false,
     flag: false
-  }
+  } */
 ];
 const hangStyles = {
   colorBackgroundHang: '#1A314C',

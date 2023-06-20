@@ -1,31 +1,14 @@
 function NuevoCurso() {
-  const [datos, setDatos] = useLocalStorage("arrayDatos", [1]); //array con Ids de componantes visibles, por defecto 1
   const [countTotal, setCountTotal] = useLocalStorage("totalClics", 0); //Total de clics
   const [comenzarCurso, setComenzarCurso] = useLocalStorage(
     "stateCurso",
     false
   ); //Boolean para mostrar componentes
   const [scrollTop, setScrollTop] = useLocalStorage("barraAvance", 0); //Estado que controla barra general de avance
-  const [iniciarTemporizador, setIniciarTemporizador] = React.useState(false);
+  const [iniciarTemporizador, setIniciarTemporizador] = useLocalStorage("timeTotal", false);
 
   const recibirDatos = (indice) => {
-    //Se recibe el indice del componente cuando se termina
-    const newDatos = [...datos, indice]; //Guardamos el nuevo indice recibido en un array
-    /* const next = configCurso.map((config) => {
-      //Next almacena active: true que encuentre en array newDatos
-      for (let index = 0; index < newDatos.length; index++) {
-        if (newDatos[index] == config.id) {
-          return {
-            ...config,
-            active: true,
-          };
-        }
-      }
-      return config;
-    }); */
     const next = configCurso.map((config) => {
-      //Next almacena active: true que encuentre en array newDatos
-
       if (indice+1 == config.id) {
         return {
           ...config,
@@ -37,7 +20,6 @@ function NuevoCurso() {
     });
 
     //Actualizamos datos y configcurso
-    setDatos(newDatos);
     setConfigCurso(next);
 
     //Actualizamos el avance con el total y el indice que se recibe
@@ -97,13 +79,13 @@ function NuevoCurso() {
       nombre: "Carrusel",
       titulo: "Titulo de prueba 3",
       active: false,
-    },
+    }/* ,
     {
       id: 4,
       nombre: "CardFlip",
       titulo: "Titulo de prueba 4",
       active: false,
-    },
+    }, */
   ];
 
   const componentesMap = {
@@ -113,7 +95,7 @@ function NuevoCurso() {
     CardFlip,
   };
 
-  const [configCurso, setConfigCurso] = React.useState(initialConfigCurso);
+  const [configCurso, setConfigCurso] = useLocalStorage("initial", initialConfigCurso);
 
   //Logica de Modal
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -183,6 +165,8 @@ function NuevoCurso() {
        nombre={comp.nombre}
     />
   )); //Se genera un temporizador por cada componente
+
+  console.log(countTotal)
 
   return (
     <div className="contenedorPrincipal">
