@@ -1,22 +1,28 @@
-const listQuestions = [
+const initialListQuestions = [
   {
-    id: 1,
+    id: 0,
     question:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan est at nunc fermentum ultrices. Respuesta: moodle",
     answer: "moodle",
+    active: true,
+    flag: false
   },
   {
+    id: 1,
+    question:
+      "Aenean accumsan est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respuesta: subitus",
+    answer: "subitus",
+    active: false,
+    flag: false
+  },
+  /* {
     id: 2,
     question:
-      "Aenean accumsan est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respuesta: subitus mx",
-    answer: "subitus mx",
-  },
-  {
-    id: 3,
-    question:
-      "Est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respuesta: javascript",
-    answer: "javascript",
-  }
+      "Est at nunc fermentum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respuesta: html",
+    answer: "html",
+    active: false,
+    flag: false
+  } */
 ];
 const hangStyles = {
   colorBackgroundHang: '#1A314C',
@@ -24,5 +30,5 @@ const hangStyles = {
   colorSecundarioHang: '#C66606',
   colorTextoHang: '#fff',
   colorTextoAlfabetoHang: '#22201E',
-  anchoComponenteHang: '75%'
+  anchoComponenteHang: '60%'
 }

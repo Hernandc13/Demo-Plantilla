@@ -1,135 +1,228 @@
-const configCurso = [
-  {
-    id: 1,
-    componente: <Ahorcado />,
-    titulo: "Titulo de prueba",
-    estilos: {
-      wave: false,
-      color: "#0A131E",
-    },
-  },
-  {
-    id: 2,
-    componente: <Carrusel />,
-    titulo: "Titulo de prueba 2",
-    estilos: {
-      wave: true,
-      color: "#0099ff",
-    },
-  },
-  {
-    id: 3,
-    componente: <Acordeon />,
-    titulo: "Titulo de prueba 3",
-    estilos: {
-      wave: false,
-      color: "#0A131E",
-    },
-  }
-  ,
-  {
-    id: 4,
-    componente: <Acordeon />,
-    titulo: "Titulo de prueba 3",
-    estilos: {
-      wave: false,
-      color: "#0A131E",
-    },
-  }
-  ,
-  {
-    id: 5,
-    componente: <Acordeon />,
-    titulo: "Titulo de prueba 3",
-    estilos: {
-      wave: false,
-      color: "#0A131E",
-    },
-  }
-  ,
-  {
-    id: 6,
-    componente: <Acordeon />,
-    titulo: "Titulo de prueba 3",
-    estilos: {
-      wave: false,
-      color: "#0A131E",
-    },
-  }
-];
-  
 function NuevoCurso() {
-  //Estado para scroll
-    const [scrollTop,setScrollTop]=React.useState(0);
-   // const onScroll= () =>{
-   //   const winScroll=document.documentElement.scrollTop;
-   //   const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-   //   const scrolled = (winScroll / height) *100;
-   //   setScrollTop(scrolled.toFixed(0));
-   // };
+  const initialConfigCurso = [
+    {
+      id: 1,
+      nombre: "CardHoverDos",
+      titulo: "Titulo de prueba",
+      active: true,
+    },
+    {
+      id: 2,
+      nombre: "AcordeonDos",
+      titulo: "Titulo de prueba 2",
+      active: false,
+    },
+    {
+      id: 3,
+      nombre: "Carrusel",
+      titulo: "Titulo de prueba 3",
+      active: false,
+    }
+  ];
 
-  //useEffect para scroll
-    // React.useEffect(() => {
-    //  window.addEventListener("scroll",onScroll);
-    //  return () => window.removeEventListener("scroll",onScroll)
-    
-//},[]);
+  const componentesMap = {
+    Ahorcado,
+    AcordeonDos,
+    Carrusel,
+    CardFlip,
+    CardHoverUno,
+    CardHoverDos
+  };
   
-  //funcionalidad click
-  function Terminar(){
-     $(document).on('click', 'button', function(event) {
-      //Codigo para buscar cuantos componentes existen.
-     const total = document.querySelectorAll('#DivGeneral .componente').length;
-      let id = this.id;
-      console.log("Encontre:"+ total +' '+ "Componentes"+" :"+ id);
-      const scrolled = (id / total) *100;
-      setScrollTop(scrolled.toFixed(0));
-   
+  const [configCurso, setConfigCurso] = useLocalStorage("initial", initialConfigCurso);
+  const [estados, setEstados] = useLocalStorage("timeIndividual",
+    configCurso.map((comp) => ({ id: comp.id, valor: false }))
+  ); //Se crea estado por cada componente, estos rigen los tiempos individuales
+  const [countTotal, setCountTotal] = useLocalStorage("totalClics", 0); //Total de clics
+  const [comenzarCurso, setComenzarCurso] = useLocalStorage(
+    "stateCurso",
+    false
+  ); //Boolean para mostrar componentes
+  const [scrollTop, setScrollTop] = useLocalStorage("barraAvance", 0); //Estado que controla barra general de avance
+  const [iniciarTemporizador, setIniciarTemporizador] = useLocalStorage("timeTotal", false);
+
+  const [cliks, setCliks] = useLocalStorage(
+    "clicsIndividuales",
+    configCurso.map((comp) => ({
+      id: comp.id,
+      valor: 0,
+      nombre: comp.nombre,
+    }))
+  ); //Estado-Array: que contiene clics de cada componente
+
+  const recibirDatos = (indice) => {
+    const next = configCurso.map((config) => {
+      if (indice+1 == config.id) {
+        return {
+          ...config,
+          active: true,
+        };
+      }
+
+      return config;
     });
-    
+
+    //Actualizamos datos y configcurso
+    setConfigCurso(next);
+
+    //Actualizamos el avance con el total y el indice que se recibe
+    const total = initialConfigCurso.length; //Total de componentes
+    const scrolled = (indice / total) * 100; //Procentaje a mostrar
+    setScrollTop(scrolled.toFixed(0));
+  };
+
+  const recibirDatos2 = (boolean, indice) => {
+    //Se recibe boolean e indice para temporizador
+    const next = estados.map((est) => {
+      if (indice == est.id) {
+        return {
+          ...est,
+          valor: boolean,
+        };
+      } else {
+        return est;
+      }
+    });
+    setEstados(next)
+  };
+
+  const recibirDatos3 = (c, indice) => {
+    const next = cliks.map((clic) => {
+      if (indice === clic.id) {
+        return {
+          ...clic,
+          valor: c,
+        };
+      } else {
+        return clic;
+      }
+    });
+    setCliks(next)
+  };
+
+  //Logica de Modal
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+  // Logica de Modal
+
+  const listaComponentes = configCurso.map((comp) => {
+    const Componente = componentesMap[comp.nombre];
+    return (
+      <section key={comp.id}>
+        {comp.active && (
+          <div className="contNuevoCursoComponent">
+            <h2 className="titleNuevoCurso">{comp.titulo}</h2>
+            <Componente
+              enviarDatos={recibirDatos}
+              enviarDatos2={recibirDatos2}
+              enviarDatos3={recibirDatos3}
+              i={comp.id}
+            />
+          </div>
+        )}
+      </section>
+    );
+  });
+
+  const renderClics = cliks.map((cl) => {
+    return (
+      <p key={cl.id} className="parrafoTempor">
+        {cl.nombre}: {cl.valor}
+      </p>
+    );
+  });
+
+  const handleInicio = () => {
+    //Funcion inicar temporizador general
+    setIniciarTemporizador(true);
+    setComenzarCurso(true);
+  };
+  const handleFin = () => {
+    //Funcion terminar temporizador general
+    setIniciarTemporizador(false);
+  };
+
+  const renderTemporizadores = configCurso.map((comp) => (
+    <Temporizador
+      key={comp.id}
+      id={comp.id}
+      iniciarTemporizador={estados[comp.id - 1].valor}
+       nombre={comp.nombre}
+    />
+  )); //Se genera un temporizador por cada componente
+
+  function ClickCounterDos() {
+    React.useEffect(() => {
+      const handleClick = () => {
+        const newCount = countTotal + 1
+        setCountTotal(newCount);
+      };
+  
+      window.addEventListener("click", handleClick);
+  
+      return () => {
+        window.removeEventListener("click", handleClick);
+      };
+    }, []);
+  
+    return <p className="parrafoTempor">Clics totales: {countTotal}</p>
   }
-  const listaComponentes = configCurso.map((comp) => (
-    <section key={comp.id}>
 
-      {comp.estilos.wave && (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill={comp.estilos.color}
-            fillOpacity="1"
-            d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
-        </svg>
+  return (
+    <div className="contenedorPrincipal">
+      {comenzarCurso ? null : (
+        <div className="botonesTemporales">
+          <button className="buttonComenzar" onClick={handleInicio}>
+            Iniciar curso
+          </button>
+        </div>
       )}
-      <div id="DivGeneral"
-        className="contNuevoCursoComponent"
-        style={{ background: comp.estilos.color }}
-      >
-        <h2 className="titleNuevoCurso">{comp.titulo}</h2>
-        <div className="componente">
-        {comp.componente}
-        </div><br/>
-        <center>
-        <button className="btnTermiando"  id={comp.id} onClick={Terminar}>Terminar {comp.id}</button>
-        </center>
-      </div>
-      {comp.estilos.wave && (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill={comp.estilos.color}
-            fillOpacity="1"
-            d="M0,96L40,128C80,160,160,224,240,250.7C320,277,400,267,480,229.3C560,192,640,128,720,133.3C800,139,880,213,960,240C1040,267,1120,245,1200,213.3C1280,181,1360,139,1400,117.3L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
-          ></path>
-        </svg>
+      {comenzarCurso && (
+        <>
+          <BarraAvance
+            scrollTop={scrollTop}
+            setIniciarTemporizador={setIniciarTemporizador}
+          />
+          {listaComponentes}
+          <div className="botonesTemporales">
+            <button className="buttonTypeUno" onClick={handleFin}>
+              Terminar
+            </button>
+            <button
+              className="buttonTypeUno"
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
+              Limpiar
+            </button>
+            <button className="buttonTypeUno" onClick={openModal}>
+              Abrir Estadisticas
+            </button>
+          </div>
+          <div>
+            {estados.map((estado) => (
+              <p key={estado.id}>{estado.valor}</p>
+            ))}
+          </div>
+          <Modal isOpen={modalOpen} onClose={closeModal}>
+            <h2>Estadisticas</h2>
+            <p>{detectarDispositivo()}</p>
+            <p>Tu navegador es: {detectarNavegador()}</p>
+            <h4 className="subtitleModal">Tiempo</h4>
+            <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} />
+            {renderTemporizadores}
+            <h4 className="subtitleModal">Clic</h4>
+            <ClickCounterDos />
+            {renderClics}
+          </Modal>
+        </>
       )}
-    </section>
-  ));
-
-  return <div className="contenedorPrincipal">
-     <div className="progressMainWrapper">
-           <div className="progressMainStyle" style={{width:`${scrollTop}%`}}>
-               <h4>{`${scrollTop}%`}</h4> 
-           </div>
-     </div>
-    {listaComponentes}
-    </div>;
+    </div>
+  );
 }

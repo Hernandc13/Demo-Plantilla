@@ -1,20 +1,164 @@
-.contNuevoCurso{
+.contNuevoCurso {
     width: 100%;
     margin: auto;
 }
-.contFormComp{
+
+.contFormComp {
     width: 50%;
     margin: auto;
 }
-.form-label{
+
+.form-label {
     color: white;
 }
-.contNuevoCursoComponent{
-    background-color: #0099ff;
-}
-.titleNuevoCurso{
+
+.titleNuevoCurso {
     text-align: center;
     color: white;
     font-size: 2.5rem;
     margin: 0;
+}
+
+/* Barra de progreso */
+.progressMainWrapper {
+    background-color: rgb(139, 139, 139);
+    height: 30px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.progressMainStyle {
+    height: 30px;
+    background-color: #F8922C;
+
+}
+
+.progressMainStyle h4 {
+    text-align: center !important;
+}
+
+/* Modal */
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.open {
+    display: block;
+}
+
+.modal-content {
+    background-color: #f8f8f8 !important;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.buttonTypeUno {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #414141;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.buttonTypeUno:hover {
+    border-color: #0974f1;
+    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+}
+
+.buttonTypeUno:active {
+    box-shadow: 0 0 10px rgba(9, 117, 241, 0.4);
+}
+
+.botonesTemporales {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.subtitleModal {
+    text-align: center;
+}
+
+.parrafoTempor {
+    color: black;
+    margin: 0;
+}
+
+.buttonComenzar {
+    appearance: none;
+    border: 0.125em solid #1A1A1A;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 3.5em;
+    width: 12rem;
+    min-width: 0;
+    outline: none;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.buttonComenzar:disabled {
+    pointer-events: none;
+}
+
+.buttonComenzar:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.buttonComenzar:active {
+    box-shadow: none;
+    transform: translateY(0);
 }

@@ -1,150 +1,213 @@
-function Ahorcado() {
-  let contLetters = React.createRef();
-  let contWordSecret = React.createRef();
-  let hangBody = React.createRef();
-  let imgAnswer = React.createRef();
-
-  const [indexHang, setIndexHang] = React.useState(0);
-  const [disable, setDisable] = React.useState(false);
-  const [counter, setCounter] = React.useState();
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [errorCounter, setErrorCounter] = React.useState(0);
-  const [indexHangTwo, setIndexHangTwo] = React.useState(0);
+function Ahorcado({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
+  const [listaPreguntas, setListasPreguntas] = useLocalStorage(
+    "objectAhorcado",
+    initialListQuestions
+  );
+  const [indexPregunta, setIndexPregunta] = React.useState(1); //Estado: Index para pasar de pregunta
   const [alpha, setAlpha] = React.useState(
     "abcdefghijklmnopqrstuvwxyz"
-      .split("")
-      .map((w, index) => (w = { letter: w, id: index }))
-  );
-  const [wordSecret, setWordSecret] = React.useState(
-    listQuestions[indexHang].answer
-      .split("")
-      .map((w, index) => (w = { letter: w, id: index, status: false }))
-  );
+      .split("") 
+      .map((w, index) => (w = { letter: w, id: index, disable: false }))
+  ); //Estado: Contiene array, en cada posicion hay una letra con id y disable para pintar de gris y desactivar
+  const [letraActual, setLetraActual] = React.useState("");
+  const [error, setError] = React.useState(0); //Estado: Contador de errores
+  const [buttonActive, setButtonActive] = React.useState(false); //Estado: Boolean para boton de siguiente pregunta
+  const [showCorrect, setShowCorrect] = React.useState(false); //Estado: Mostrar icono de correcto
+  const [showIncorrect, setShowIncorrect] = React.useState(false); //Estado: Mostrar icono de incorrecto
 
-  function hangChange(letterId, letter) {
-    //Una vex que se selecciona una letra, se deshabilita
-    contLetters.current.children[letterId].setAttribute = "disabled";
-    contLetters.current.children[letterId].style.filter = "grayscale(1)";
-    setCounter(0)
-    //Bucle que compara la letra ingresara con la palabra oculta
-    for (let index = 0; index < wordSecret.length; index++) {
-      if (contWordSecret.current.children[index].textContent == letter) {
-        //Si esta bien, la muestra en pantalla
-        contWordSecret.current.children[index].children[0].style.display =
-          "block";
-        wordSecret[index].status = true;
-        console.log(wordSecret[index]);
-        setIsVisible(wordSecret.every((e) => e.status == true));
+  const [flags, setFlags] = useLocalStorage("arrayFlags", ""); //Estado; Array de flags de palabras terminadas
+  const [counterAhorcado, setCounterAhorcado] = React.useState(0); //Estado: Contador de clics 
+    
+  const arrayPalabras = listaPreguntas.map((le) => {
+    return le.answer
+      .split("")
+      .map((w, index) => (w = { letter: w, id: index, status: false }));
+  }); //Estado: Array con palabras separadasa letra por letra
+  const [palabraActual, setPalabraActual] = React.useState(
+    arrayPalabras[indexPregunta - 1]
+  ); //Estado: Estado con palabra actual, usando el array de palabras y el index menos 1
+
+  const renderPreguntas = listaPreguntas.map((pregunta) => (
+    pregunta.active && (
+      <p key={pregunta.id} className="preguntaAhorcado">
+        Pregunta {pregunta.id + 1} {pregunta.question}
+      </p>
+    )
+  )); //Render: Preguntas, solo se muestra una cuando active sea true
+
+  const renderPalabraEscondida = palabraActual.map((letra) => (
+    <div key={letra.id} className="contLetraEscondida">
+      {letra.status && <p>{letra.letter}</p>}
+    </div>
+  )); //Render: Palabra actual, se imprime letra por letra y solo se muestra si status es true
+
+  const renderAlfabeto = alpha.map((l) => (
+    <Letter
+      key={l.id}
+      letra={l.letter}
+      disable={l.disable}
+      funcion={() => clicLetra(l.letter, indexPregunta - 1)}
+    />
+  )); //Render de alfabeto, se ocupa componente Letter, se le pasa letra, boolean-disable, funcion clicletra
+
+  const ErrorRender = ({ count }) => { //Se le pasa contador de errores
+    const renderImgXMark = () => {
+      const paragraphs = [];
+
+      for (let i = 0; i < count; i++) { //Dependiendo de eso genera una cantidad de taches
+        paragraphs.push(
+          <img
+            key={i}
+            className="imgXError"
+            src="../../../assets/xmark-solid.svg"
+          />
+        );
+      }
+      return paragraphs;//Retorna array con imgs 
+    };
+
+    return renderImgXMark();
+  };//Componente: Renderiza los los errores 
+
+  const clicLetra = (letra, index) => {
+    enviarDatos2(true, i); //Enviar i, y true para que inicie temporizador
+    
+    const newCounterCarrusel = counterAhorcado + 1;//sumamos 1 al contador de clics 
+    enviarDatos3(newCounterCarrusel, i);//Enviamos el dato
+    setCounterAhorcado(newCounterCarrusel);//ACtualizamos estado
+
+    setAlpha((prevAlpha) =>
+      prevAlpha.map((alp) => (alp.letter === letra ? { ...alp, disable: true } : alp))
+    );//setEstado: la letra que se selecciono, se desactive y pasa a ser gris por disable true
+    const nextAlpha = alpha.map((alp) =>
+      alp.letter === letra ? { ...alp, disable: true } : alp
+    );//Lo mismo de arriba pero lo guardamos en NextAlpha para poder manipularlo antes de renderizar nuevamente
+    const newPalabraActual = palabraActual.map((a) =>
+      a.letter === letra ? { ...a, status: true } : a
+    );//Si la letra que se dio clic, coincide con alguna(s) de la palabra, cambia el status a true y se muestra
+
+    const countDisable = nextAlpha.filter((i) => i.disable);//Guardamos las letras que se han seleccionado
+    const letrasCorrectas = newPalabraActual.filter((i) => i.status);//Guardamos letras descubiertas de la palabra actual
+    const uniqueLetters = [
+      ...new Set(letrasCorrectas.map((item) => item.letter)),
+    ]; //Del array letrasCorrectas, quitamos las letras repetidas
+    const countErrores = countDisable.length - uniqueLetters.length;//Hacemos la resta para contar los errores
+
+    if (palabraActual.length === letrasCorrectas.length) { //Si adivino la palabras
+      setAlpha((prevAlpha) =>
+        prevAlpha.map((alp) => ({ ...alp, disable: true }))
+      );//setEstado: Desactivamos todas las letras para que ya no pueda seleccionar mas
+      const nextListaPreguntas = listaPreguntas.map((p, i) =>
+        i === index ? { ...p, flag: true } : p
+      );//Flag de la palabra a true, se ubica con index proporcionado
+      const nextFlags = nextListaPreguntas.filter((i) => i.flag);//Array con flags en true
+
+      if (nextFlags.length === listaPreguntas.length) {//Si ya termino las palabras
+        enviarDatos(i);//Enviamos dato para actualizar barra de avance
+        enviarDatos2(false, i);//Enviamos datos para detener temporizador
+      }
+
+      setButtonActive(true);//setEstado: Boton de siguiente preguntas true
+      setShowCorrect(true);//setEstado: Icono de palabra correcta
+      setListasPreguntas(nextListaPreguntas);//setEstado: Se actualiza object con flag true
+      setFlags(nextFlags);
+    }
+
+
+    if (countErrores == 6) {//Si no aivino palabra
+      setAlpha((prevAlpha) =>
+        prevAlpha.map((alp) => ({ ...alp, disable: true }))
+      );
+      const nextListaPreguntas = listaPreguntas.map((p, i) =>
+        i === index ? { ...p, flag: true } : p
+      );
+      const nextFlags = nextListaPreguntas.filter((i) => i.flag);
+
+      if (nextFlags.length === listaPreguntas.length) {
+        enviarDatos(i);
+        enviarDatos2(false, i);
+      }
+
+      setButtonActive(true);
+      setShowIncorrect(true);
+      setListasPreguntas(nextListaPreguntas);
+      setFlags(nextFlags);
+    }
+
+    setError(countErrores)
+    setPalabraActual(newPalabraActual);
+    setLetraActual(letra);
+  };
+
+  const siguientePregunta = (i) => {
+    const siguienteListaPregunta = listaPreguntas.map((pregunta) => {
+      if (i - 1 == pregunta.id) {//La pregunta anterior se desactiva
+        return {
+          ...pregunta,
+          active: false,
+        };
+      } else if (i == pregunta.id) {//La pregunta nueva se muestra
+        return {
+          ...pregunta,
+          active: true,
+        };
       } else {
-        //Variable que cuenta las veces que entra al else, si es 7 (longitud de la palabra) quiere decir que se equivoco de letra
-        setCounter(counter + 1)
-        //Condicion que controla el numero de errores
-        if (errorCounter < 5) {
-          if (counter == wordSecret.length) {
-            hangBody.current.children[errorCounter].style.display = "block";
-            setErrorCounter(errorCounter + 1);
-          }
-        } else {
-          //else cuando supera numero de erroees
-          hangBody.current.children[errorCounter].style.display = "block";
-          setDisable(true);
-        }
-      }
-    }
-
-    //Si se gana o pierde, se desactiva teclado
-
-    if (disable || isVisible) {
-      for (let j = 0; j < 26; j++) {
-        contLetters.current.children[j].disabled = "true";
-      }
-      imgAnswer.current.style.display = "block";
-    }
-
-    //Validacion de espacios en respuesta
-    wordSecret.forEach((space) => {
-      if (space.letter == " ") {
-        space.status = true;
+        return pregunta;
       }
     });
-  }
 
-  function reload() {
-    setIndexHang(indexHang + 1)
-    setDisable(false);
-    setIsVisible(false);
-    setErrorCounter(0);
-    setIndexHangTwo(indexHangTwo + 1);
-    setWordSecret(
-      listQuestions[indexHang].answer
-        .split("")
-        .map((w, index) => (w = { letter: w, id: index, status: false }))
-    );
-    for (let j = 0; j < 26; j++) {
-      contLetters.current.children[j].removeAttribute = "disabled";
-      contLetters.current.children[j].style.filter = "none";
-    }
-    for (let k = 0; k < wordSecret.length; k++) {
-      contWordSecret.current.children[k].children[0].style.display = "none";
-    }
-    for (let g = 0; g < 6; g++) {
-      hangBody.current.children[g].style.display = "none";
-    }
-  }
+    const nextAlpha = alpha.map((alp) => ({ ...alp, disable: false }));//Se activan todas las letras
+
+    //Se resetean estados
+    setButtonActive(false);
+    setAlpha(nextAlpha);
+    setListasPreguntas(siguienteListaPregunta);
+    setIndexPregunta(indexPregunta + 1);
+    setPalabraActual(arrayPalabras[i]);
+    setError(0);
+    setShowCorrect(false);
+    setShowIncorrect(false);
+  };
 
   return (
     <div className="contenedorPrincipal">
-      <div className="contenedorPrincipalHang" id="content">
+      <div className="contenedorPrincipalHang">
         <h2 className="TituloHang">Ahorcado</h2>
-        <p className="questionHang">
-          Pregunta {listQuestions[indexHangTwo].id}.{" "}
-          {listQuestions[indexHangTwo].question}
-        </p>
-        <div className="containWordSecret" ref={contWordSecret}>
-          {wordSecret.map((word) => (
-            <Word letter={word.letter} key={word.id} />
-          ))}
-          {isVisible ? (
+        {renderPreguntas}
+        <div className="contRenderPalabraEscondida">
+          {renderPalabraEscondida}
+          {showCorrect && (
             <img
-              className="imgAnswer"
-              ref={imgAnswer}
+              className="imgCorrectIncorrect"
               src="../../../assets/circle-check-solid.svg"
             />
-          ) : (
+          )}
+          {showIncorrect && (
             <img
-              className="imgAnswer"
-              ref={imgAnswer}
+              className="imgCorrectIncorrect"
               src="../../../assets/circle-xmark-solid.svg"
             />
           )}
         </div>
-        <div className="contSecundario">
-          <div className="containLetters" ref={contLetters}>
-            {alpha.map((al) => (
-              <Letter
-                func={() => hangChange(al.id, al.letter)}
-                letter={al.letter}
-                key={al.id}
-              />
-            ))}
-          </div>
-          <div className="contHang" ref={hangBody}>
-            <Muñeco />
+        <div className="contLettersError">
+          <div className="containLetters">{renderAlfabeto}</div>
+          <div className="containError">
+            <ErrorRender count={error} />
           </div>
         </div>
-        <div className="contBtnNext">
-          {isVisible && (
-            <button className="btnNextQuestion" onClick={reload}>
-              Siguiente pregunta
-            </button>
-          )}
-        </div>
+        {buttonActive && (
+          <button
+            className="buttonNextQuestion"
+            onClick={() => siguientePregunta(indexPregunta)}
+          >
+            Siguiente pregunta
+          </button>
+        )}
       </div>
+      <p className="contadorCarrusel">{flags.length} / {listaPreguntas.length}</p>
     </div>
   );
 }
-
-
 
 const rootElementHang = document.querySelector(":root");
 
@@ -160,7 +223,10 @@ rootElementHang.style.setProperty(
   "--color-SecundarioHang",
   hangStyles.colorSecundarioHang
 );
-rootElementHang.style.setProperty("--color-TextoHang", hangStyles.colorTextoHang);
+rootElementHang.style.setProperty(
+  "--color-TextoHang",
+  hangStyles.colorTextoHang
+);
 rootElementHang.style.setProperty(
   "--color-TextoAlfabetoHang",
   hangStyles.colorTextoAlfabetoHang

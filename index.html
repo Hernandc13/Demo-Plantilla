@@ -22,58 +22,44 @@
 
     <script type="text/babel" src="./src/components/General.js"></script>
     <script type="text/babel" src="./src/components/Ahorcado/index.js"></script>
-    <script type="text/babel" src="./src/components/Ahorcado/Alphabet.js"></script>
-    <script type="text/babel" src="./src/components/Ahorcado/Muñeco.js"></script>
-    <script type="text/babel" src="./src/components/Ahorcado/Word.js"></script>
-    <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script>
-    <script type="text/babel" src="./src/components/CardProfile/CardProfile.js"></script>
+    <script type="text/babel" src="./src/components/Ahorcado/Letter.js"></script>
     <script type="text/babel" src="./src/components/CardHoverDos/CardHoverDos.js"></script>
     <script type="text/babel" src="./src/components/Carrusel/index.js"></script>
-    <script type="text/babel" src="./src/components/Split/index.js"></script>
-    <script type="text/babel" src="./src/components/Split/SplitUnit.js"></script>
-    <script type="text/babel" src="./src/components/Split/button.js"></script>
-    <script type="text/babel" src="./src/components/Slider/Slider.js"></script>
-    <script type="text/babel" src="./src/components/CardUno/CardUno.js"></script>
-    <script type="text/babel" src="./src/components/CardDos/CardDos.js"></script>
     <script type="text/babel" src="./src/components/CardHoverUno/CardHoverUno.js"></script>
     <script type="text/babel" src="./src/components/CardZoom/CardZoom.js"></script>
-    <script type="text/babel" src="./src/components/LineaDeTiempo/LineaDeTiempo.js"></script>
     <script type="text/babel" src="./src/components/CardFlip/CardFlip.js"></script>
+    <script type="text/babel" src="./src/components/AcordeonDos/AcordeonDos.js"></script>
     <script type="text/babel" src="./src/components/NuevoCurso/NuevoCurso.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/Modal.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/BarraAvance.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/estadisticas.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/Temporizador.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/ClickCounter.js"></script>
+
 
 
     <script src="./src/components/Ahorcado/editAhorcado.js"></script>
     <script src="./src/components/Carrusel/editCarrusel.js"></script>
-    <script src="./src/components/CardUno/EditCardUno.js"></script>
-    <script src="./src/components/CardDos/EditCardDos.js"></script>
     <script src="./src/components/CardHoverUno/EditCardHoverUno.js"></script>
     <script src="./src/components/CardHoverDos/EditCardHoverDos.js"></script>
     <script src="./src/components/CardZoom/EditCardZoom.js"></script>
-    <script src="./src/components/Split/editSplit.js"></script>
-    <script src="./src/components/CardProfile/EditCardProfile.js"></script>
     <script src="./src/components/CardFlip/EditCardFlip.js"></script>
-    <script src="./src/components/LineaDeTiempo/EditListaTiempo.js"></script>
-    <script src="./src/components/Slider/editSlider.js"></script>
-    <script src="./src/components/Acordeon/EditAcordeon.js"></script>
-    
+    <!--  <script src="./src/components/Acordeon/EditAcordeon.js"></script> -->
+
 
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/General.css">
     <link rel="stylesheet" href="./src/components/Acordeon/Acordeon.css">
     <link rel="stylesheet" href="./src/components/CardHoverDos/CardHoverDos.css">
     <link rel="stylesheet" href="./src/components/Ahorcado/Ahorcado.css">
-    <link rel="stylesheet" href="./src/components/Split/index.css">
     <link rel="stylesheet" href="./src/components/Carrusel/index.css">
-    <link rel="stylesheet" href="./src/components/CardUno/CardUno.css">
-    <link rel="stylesheet" href="./src/components/CardDos/CardDos.css">
     <link rel="stylesheet" href="./src/components/CardHoverUno/CardHoverUno.css">
     <link rel="stylesheet" href="./src/components/CardZoom/CardZoom.css">
-    <link rel="stylesheet" href="./src/components/LineaDeTiempo/LineaDeTiempo.css">
-    <link rel="stylesheet" href="./src/components/CardProfile/CardProfile.css">
     <link rel="stylesheet" href="./src/components/CardFlip/CardFlip.css">
-    <link rel="stylesheet" href="./src/components/Slider/Slider.css">
     <link rel="stylesheet" href="./src/components/NuevoCurso/index.css">
     <link rel="stylesheet" href="./src/components/NuevoCurso/Scrollindicador.css">
+
+    <script type="text/babel" src="./useLocalStorage.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
@@ -94,242 +80,164 @@
         const Link = ReactRouterDOM.Link;
         const Route = ReactRouterDOM.Route;
 
-        const App = () => (
-            <ReactRouterDOM.HashRouter>
-                <div className="wrapper widthZero" id="wrapper">
-                    <input type="checkbox" id="btn" onClick={sidebarFuncion} />
-                    <label for="btn" className="menu-btn">
-                        <i className="fas fa-bars"></i>
-                        <i className="fas fa-times"></i>
-                    </label>
+        const App = () => {
+            const [isActive, setIsActive] = React.useState(false);
 
-                    <nav className="nav" id="sidebar">
-                        <div className="nav-header">
-                            <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
-
-                        </div>
-                        <ul className="list">
-
-                            <li className="list__item">
-                                <div className="list__button">
-                                    <img src="assets/dashboardwhite.svg" className="list__img" />
-                                    <a href="#" className="nav__link">Inicio</a>
-                                </div>
-                            </li>
-
-                            <li className="list__item list__item--click">
-                                <div className="list__button list__button--click">
-                                    <img src="assets/gamepatwhite.svg" className="list__img" />
-                                    <a className="nav__link">Juegos</a>
-                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
-                                </div>
-
-                                <ul className="list__show">
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Ahorcado">Ahorcado</Link></a>
-
-                                    </li>
-                                </ul>
-
-                            </li>
-
-                            <li className="list__item list__item--click">
-                                <div className="list__button list__button--click">
-                                    <img src="assets/sliderwhite.svg" className="list__img" />
-                                    <a className="nav__link">Imagenes</a>
-                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
-                                </div>
-
-                                <ul className="list__show">
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Carrusel">Carrusel</Link></a>
-
-                                    </li>
-
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Split">Split</Link></a>
-
-                                    </li>
-
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/Slider">Slider</Link></a>
-
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li className="list__item list__item--click">
-                                <div className="list__button list__button--click">
-                                    <img src="assets/id-card-regular 1.svg" className="list__img" />
-                                    <a className="nav__link">Cards</a>
-                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
-                                </div>
-
-                                <ul className="list__show">
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardUno">Card 1</Link></a>
-
-                                    </li>
-
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardDos">Card 2</Link></a>
-
-                                    </li>
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardHoverUno">Card Hover</Link></a>
-
-                                    </li>
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardHoverDos">Card Hover 2</Link></a>
-
-                                    </li>
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardZoom">Card Zoom</Link></a>
-
-                                    </li>
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardProfile">Card Perfil</Link></a>
-                                    </li>
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside"><Link className="navlink" to="/CardFlip">Card Flip</Link></a>
-                                    </li>
-                                </ul>
-
-                            </li>
-
-                            <li className="list__item list__item--click">
-                                <div className="list__button list__button--click">
-                                    <img src="assets/acordeonwhite.svg" className="list__img" />
-                                    <a className="nav__link">Line Time</a>
-                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
-                                </div>
-
-                                <ul className="list__show">
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside link"><Link className="navlink" to="/LineaDeTiempo">Fechas</Link></a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li className="list__item list__item--click">
-                                <div className="list__button list__button--click">
-                                    <img src="assets/acordeonwhite.svg" className="list__img" />
-                                    <a className="nav__link">Acordeon</a>
-                                    <img src="assets/arrowwhite.svg" className="list__arrow" />
-                                </div>
-
-                                <ul className="list__show">
-                                    <li className="list__inside">
-                                        <a className="nav__link nav__link--inside link"><Link className="navlink" to="/Acordeon">Acordeon</Link></a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            
-                            <li className="list__item">
-                                <div className="list__button">
-                                    <img src="assets/plus-solid.svg" className="list__img" />
-                                    <a className="nav__link"><Link to="/NuevoCurso">Nuevo curso</Link></a>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </nav>
-                </div>
-                
-                <Route path="/" exact component={General} />
-                <Route path="/Ahorcado" component={Ahorcado} />
-                <Route path="/Acordeon" component={Acordeon} />
-                <Route path="/CardHoverDos" component={CardHoverDos} />
-                <Route path="/Carrusel" component={Carrusel} />
-                <Route path="/Split" component={Split} />
-                <Route path="/Slider" component={Slider} />
-                <Route path="/CardUno" component={CardUno} />
-                <Route path="/CardDos" component={CardDos} />
-                <Route path="/CardHoverUno" component={CardHoverUno} />
-                <Route path="/CardZoom" component={CardZoom} />
-                <Route path="/LineaDeTiempo" component={LineaDeTiempo} />
-                <Route path="/CardProfile" component={CardProfile} />
-                <Route path="/CardFlip" component={CardFlip} />
-                <Route path="/NuevoCurso" component={NuevoCurso} />
-
-            </ReactRouterDOM.HashRouter>
-        )
-        /* const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />); */
-        ReactDOM.render(<App />, document.querySelector('#root'));
-
-
-
-        let listElements = document.querySelectorAll('.list__button--click');
-
-        listElements.forEach(listElement => {
-            listElement.addEventListener('click', () => {
-
+            const toggleArrow = (listElement) => {
                 listElement.classList.toggle('arrow');
 
                 let height = 0;
                 let menu = listElement.nextElementSibling;
-                if (menu.clientHeight == "0") {
+                if (menu.clientHeight === 0) {
                     height = menu.scrollHeight;
                 }
 
                 menu.style.height = `${height}px`;
+            };
 
-            })
-        });
+            const handleListClick = () => {
+                const listElements = document.querySelectorAll('.list__button--click');
+                listElements.forEach((listElement) => {
+                    listElement.addEventListener('click', () => toggleArrow(listElement));
+                });
+            };
 
-        const wrapper = document.getElementById('wrapper')
-        let isActive = false;
-        function sidebarFuncion() {
-            if (isActive) {
-                wrapper.classList.add('widthZero')
+            const handleSidebarClick = () => {
+                const wrapper = document.getElementById('wrapper');
+                if (isActive) {
+                    wrapper.classList.add('widthZero');
+                } else {
+                    wrapper.classList.remove('widthZero');
+                }
+                setIsActive(!isActive);
+            };
+            return (
+                <ReactRouterDOM.HashRouter>
+                    <div className="wrapper widthZero" id="wrapper">
+                        <input type="checkbox" id="btn" onClick={handleSidebarClick} />
+                        <label htmlFor="btn" className="menu-btn">
+                            <i className="fas fa-bars"></i>
+                            <i className="fas fa-times"></i>
+                        </label>
 
-            } else {
-                wrapper.classList.remove('widthZero')
-            }
-            isActive = !isActive
+                        <nav className="nav" id="sidebar">
+                            <div className="nav-header">
+                                <img src="https://www.subitus.com/wp-content/uploads/2019/07/isotipo_subitus_blanco_fondotrans_150x150-01-150x150.png" alt="" />Subitus Mx
+
+                            </div>
+                            <ul className="list">
+
+                                <li className="list__item">
+                                    <div className="list__button">
+                                        <img src="assets/dashboardwhite.svg" className="list__img" />
+                                        <a href="#" className="nav__link">Inicio</a>
+                                    </div>
+                                </li>
+
+                                <li className="list__item list__item--click">
+                                    <div className="list__button list__button--click" onClick={handleListClick}>
+                                        <img src="assets/gamepatwhite.svg" className="list__img" />
+                                        <a className="nav__link">Juegos</a>
+                                        <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                    </div>
+
+                                    <ul className="list__show">
+                                        <li className="list__inside">
+                                            <Link className="nav__link nav__link--inside" to="/Ahorcado">Ahorcado</Link>
+
+                                        </li>
+                                    </ul>
+
+                                </li>
+
+                                <li className="list__item list__item--click">
+                                    <div className="list__button list__button--click" onClick={handleListClick}>
+                                        <img src="assets/sliderwhite.svg" className="list__img" />
+                                        <a className="nav__link">Imagenes</a>
+                                        <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                    </div>
+
+                                    <ul className="list__show">
+                                        <li className="list__inside">
+                                            <Link className="nav__link nav__link--inside" to="/Carrusel">Carrusel</Link>
+
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li className="list__item list__item--click">
+                                    <div className="list__button list__button--click" onClick={handleListClick}>
+                                        <img src="assets/id-card-regular 1.svg" className="list__img" />
+                                        <a className="nav__link">Cards</a>
+                                        <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                    </div>
+
+                                    <ul className="list__show">
+
+                                        <li className="list__inside">
+                                            <Link className="nav__link nav__link--inside" to="/CardHoverUno">Card Hover</Link>
+
+                                        </li>
+                                        <li className="list__inside">
+                                            <Link className="nav__link nav__link--inside" to="/CardHoverDos">Card Hover 2</Link>
+
+                                        </li>
+                                        <li className="list__inside">
+                                            <Link className="nav__link nav__link--inside" to="/CardZoom">Card Zoom</Link>
+
+                                        </li>
+                                        <li className="list__inside">
+                                            <Link className="nav__link nav__link--inside" to="/CardFlip">Card Flip</Link>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li className="list__item list__item--click">
+                                    <div className="list__button list__button--click" onClick={handleListClick}>
+                                        <img src="assets/acordeonwhite.svg" className="list__img" />
+                                        <a className="nav__link">Acordeon</a>
+                                        <img src="assets/arrowwhite.svg" className="list__arrow" />
+                                    </div>
+
+                                    <ul className="list__show">
+                                        <li className="list__inside">
+                                            <Link className="nav__link nav__link--inside" to="/AcordeonDos">Acordeon</Link>
+                                        </li>
+                                    </ul>
+
+                                </li>
+
+                                <li className="list__item">
+                                    <div className="list__button">
+                                        <img src="assets/plus-solid.svg" className="list__img" />
+                                        <Link className="nav__link nav__link--inside" to="/NuevoCurso">Nuevo curso</Link>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <Route path="/" exact component={General} />
+                    <Route path="/Ahorcado" component={Ahorcado} />
+                    <Route path="/CardHoverDos" component={CardHoverDos} />
+                    <Route path="/Carrusel" component={Carrusel} />
+                    <Route path="/CardHoverUno" component={CardHoverUno} />
+                    <Route path="/CardZoom" component={CardZoom} />
+                    <Route path="/CardFlip" component={CardFlip} />
+                    <Route path="/NuevoCurso" component={NuevoCurso} />
+                    <Route path="/AcordeonDos" component={AcordeonDos} />
+
+                </ReactRouterDOM.HashRouter>
+            )
         }
 
-
-        const container = document.querySelectorAll(".containerAnimado .card2")
-
-        container.forEach(el => {
-            el.addEventListener("mousemove", (e) => {
-                let xAxis = (window.innerWidth / 2 - e.pageX) / 15
-                let yAxis = (window.innerHeight / 2 - e.pageY) / 15
-                el.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`
-            })
-        })
-        //in
-        container.forEach(el => {
-            el.addEventListener('mouseenter', (e) => {
-                el.style.transition = `all 0.5s ease`
-                el.style.animation = `animacion 1.5s forwards`
-                el.querySelector(".title").style.transform = "translateZ(150px)"
-            })
-        })
-        //out
-        container.forEach(el => {
-            el.addEventListener('mouseleave', (e) => {
-                el.style.transition = `all 1.5s ease`
-                el.style.animation = `none`
-                el.style.transform = `rotateY(0deg) rotateX(0deg)`
-                el.querySelector(".title").style.transform = "translateZ(0px)"
-            })
-        })
-
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
         AOS.init({
             duration: 1000,
             once: true
         });
-
-
-
-
-
-
     </script>
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>

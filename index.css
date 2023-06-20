@@ -143,6 +143,7 @@ h1 {
     border-radius: 6px;
     padding-left: 20px;
     text-align: left;
+    color: white;
 }
 
 .nav__link--inside:hover {

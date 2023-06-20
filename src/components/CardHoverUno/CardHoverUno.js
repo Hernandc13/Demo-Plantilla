@@ -1,46 +1,75 @@
-function CardHoverUno() {
+function CardHoverUno({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
+  const [listCardsHoverUno, setListCardsHoverUno] = useLocalStorage(
+    "objectCardHoverUno",
+    initiallistCardDist
+  );
+  const [flags, setFlags] = useLocalStorage("arrayFlagsHoverUno", "");
+  const [counterCardHoverUno, setCounterCardHoverUno] = React.useState(0);
+
+  const renderCardsHoverUno = listCardsHoverUno.map((card) => {
+    const [active, setActive] = React.useState(true);
+
+    const clicCardHoverUno = (index) => {
+      const nextListCardsHoverUno = listCardsHoverUno.map((c, i) => {
+        if (i === index) {
+          return {
+            ...c,
+            flag: true,
+          };
+        } else {
+          return c;
+        }
+      });
+      const nextFlags = nextListCardsHoverUno.filter((i) => i.flag == true);
+
+      if (nextFlags.length === listCardsHoverUno.length) {
+        enviarDatos(i);
+        enviarDatos2(false, i);
+      }
+      if (nextFlags.length == 1) {
+        enviarDatos2(true, i);
+      }
+
+      setFlags(nextFlags);
+      setListCardsHoverUno(nextListCardsHoverUno);
+      setActive(!active);
+
+      const newCounterCardHoverUno = counterCardHoverUno + 1;
+      enviarDatos3(newCounterCardHoverUno, i);
+      setCounterCardHoverUno(newCounterCardHoverUno);
+    };
+    return (
+      <div
+        className="cardDist"
+        onClick={() => clicCardHoverUno(card.id)}
+        key={card.id}
+      >
+        <div className="card__background">
+          <img
+            className={
+              active
+                ? "card__background__img"
+                : "card__background__img filterNone"
+            }
+            src={card.imagen}
+            alt=""
+          />
+        </div>
+        <div className="card__content">
+          <p className="card__category">{card.title}</p>
+          <h3 className="card__heading">{card.texto}</h3>
+        </div>
+      </div>
+    );
+  });
   return (
     <div className="contenedorPrincipal">
       <section className="hero-section">
-        <div className="card-grid">
-          <a className="cardDist" href="#">
-            <div className="card__background">
-              <img src={listCardDist[0].imagen} alt="" />
-            </div>
-            <div className="card__content">
-              <p className="card__category">{listCardDist[0].title}</p>
-              <h3 className="card__heading">{listCardDist[0].texto}</h3>
-            </div>
-          </a>
-          <a className="cardDist" href="#">
-            <div className="card__background">
-              <img src={listCardDist[1].imagen} alt="" />
-            </div>
-            <div className="card__content">
-              <p className="card__category">{listCardDist[1].title}</p>
-              <h3 className="card__heading">{listCardDist[1].texto}</h3>
-            </div>
-          </a>
-          <a className="cardDist" href="#">
-            <div className="card__background">
-              <img src={listCardDist[2].imagen} alt="" />
-            </div>
-            <div className="card__content">
-              <p className="card__category">{listCardDist[2].title}</p>
-              <h3 className="card__heading">{listCardDist[2].texto}</h3>
-            </div>
-          </a>
-          <a className="cardDist" href="#">
-            <div className="card__background">
-              <img src={listCardDist[3].imagen} alt="" />
-            </div>
-            <div className="card__content">
-              <p className="card__category">{listCardDist[3].title}</p>
-              <h3 className="card__heading">{listCardDist[3].texto}</h3>
-            </div>
-          </a>
-        </div>
+        <div className="card-grid">{renderCardsHoverUno}</div>
       </section>
+      <p className="contadorCarrusel">
+        Cards vistas: {flags.length} / {listCardsHoverUno.length}
+      </p>
     </div>
   );
 }

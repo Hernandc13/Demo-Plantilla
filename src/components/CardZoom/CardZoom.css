@@ -1,110 +1,130 @@
-:root{
-  --color-TextoTituloCardZoom: #1A314C; 
+:root {
+  --color-TextoTituloCardZoom: #1A314C;
   --color-IconosCardZoom: #F8922C;
 }
+
 .containerZoom {
-    display: flex;
-    margin: auto;
-    flex-direction: column;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.border {
+  height: 369px;
+  width: 290px;
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+}
+
+.border:hover {
+  border: 1px solid #fff;
+}
+
+.cardZoom {
+  height: 379px;
+  width: 300px;
+  background: #808080;
+  border-radius: 10px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 70px 63px -60px #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cardz0 {
+  align-content: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: 350px;
+  margin: auto;
+}
+
+.cardz0:hover {
+  background-size: 500px;
+}
+
+.cardz0:hover h2 {
+  opacity: 1;
+}
+
+.cardz0:hover .fa {
+  opacity: 1;
+}
+
+.cardz1 {
+  align-content: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: 350px;
+  margin: auto;
+}
+
+.cardz1:hover {
+  background-size: 450px;
+}
+
+.cardz1:hover h2 {
+  opacity: 1;
+}
+
+.cardz1:hover .fa {
+  opacity: 1;
+}
+
+.cardz2 {
+  align-content: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: 350px;
+  margin: auto;
+}
+
+.cardz2:hover {
+  background-size: 450px;
+}
+
+.cardz2:hover h2 {
+  opacity: 1;
+}
+
+.cardz2:hover .fa {
+  opacity: 1;
+}
+
+.h2CardZoom {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--color-TextoTituloCardZoom);
+  margin: 20px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.fa {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.icons {
+  position: absolute;
+  fill: #fff;
+  color: var(--color-IconosCardZoom);
+  height: 130px;
+  top: 226px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media(min-width: 992px) {
+  .containerZoom {
+    flex-direction: row;
   }
-  .border {
-    height: 369px;
-    width: 290px;
-    background: transparent;
-    border-radius: 10px;
-    transition: border 1s;
-    position: relative;
-  }
-  .border:hover {
-    border: 1px solid #fff;
-  }
-  .cardZoom {
-    height: 379px;
-    width: 300px;
-    background: #808080;
-    border-radius: 10px;
-    transition: background 0.8s;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 70px 63px -60px #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  .cardz0 {
-    align-content: center;
-    justify-content: center;
-    background-repeat: no-repeat;
-    background-size: 350px;
-    margin: auto;
-  }
-  .cardz0:hover {
-    background-size: 500px;
-  }
-  .cardz0:hover h2 {
-    opacity: 1;
-  }
-  .cardz0:hover .fa {
-    opacity: 1;
-  }
-  .cardz1 {
-    align-content: center;
-    justify-content: center;
-    background-repeat: no-repeat;
-    background-size: 350px;
-    margin: auto;
-  }
-  .cardz1:hover {
-    background-size: 450px;
-  }
-  .cardz1:hover h2 {
-    opacity: 1;
-  }
-  .cardz1:hover .fa {
-    opacity: 1;
-  }
-  .cardz2 {
-    align-content: center;
-    justify-content: center;
-    background-repeat: no-repeat;
-    background-size: 350px;
-    margin: auto;
-  }
-  .cardz2:hover {
-    background-size: 450px;
-  }
-  .cardz2:hover h2 {
-    opacity: 1;
-  }
-  .cardz2:hover .fa {
-    opacity: 1;
-  }
-  .h2CardZoom {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: var(--color-TextoTituloCardZoom);
-    margin: 20px;
-    opacity: 0;
-    transition: opacity 1s;
-  }
-  .fa {
-    opacity: 0;
-    transition: opacity 1s;
-  }
-  .icons {
-    position: absolute;
-    fill: #fff;
-    color: var(--color-IconosCardZoom);
-    height: 130px;
-    top: 226px;
-    width: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
-  @media(min-width: 992px){
-    .containerZoom {
-      flex-direction: row;
-    }
-  }
+}

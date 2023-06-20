@@ -1,52 +1,34 @@
 function CardZoom() {
+  const [listCardHoverDos, setListHoverDos] =
+    React.useState(initialListCardZoom);
+
+  const renderCardZoom = listCardHoverDos.map((card) => {
+    const numero = card.id;
+    const clase = `cardZoom cardz${numero}`;
+    return (
+      <div
+        className={clase}
+        style={{ backgroundImage: `url(${card.imagen})` }}
+        key={card.id}
+      >
+        <div className="border">
+          <h2 className="h2CardZoom">{card.name}</h2>
+          <div className="icons">
+            <i className="fa fa-codepen"></i>
+            <i className="fa fa-instagram"></i>
+            <i className="fa fa-dribbble"></i>
+            <i className="fa fa-twitter"></i>
+            <i className="fa fa-facebook"></i>
+          </div>
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div className="contenedorPrincipal">
       <div className="containerZoom">
-        <div
-          className="cardZoom cardz0"
-          style={{ backgroundImage: `url(${listCardZoom[0].imagen})` }}
-        >
-          <div className="border">
-            <h2 className="h2CardZoom">{listCardZoom[0].name}</h2>
-            <div className="icons">
-              <i className="fa fa-codepen" aria-hidden="true"></i>
-              <i className="fa fa-instagram" aria-hidden="true"></i>
-              <i className="fa fa-dribbble" aria-hidden="true"></i>
-              <i className="fa fa-twitter" aria-hidden="true"></i>
-              <i className="fa fa-facebook" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-        <div
-          className="cardZoom cardz1"
-          style={{ backgroundImage: `url(${listCardZoom[1].imagen})` }}
-        >
-          <div className="border">
-            <h2 className="h2CardZoom">{listCardZoom[1].name}</h2>
-            <div className="icons">
-              <i className="fa fa-codepen" aria-hidden="true"></i>
-              <i className="fa fa-instagram" aria-hidden="true"></i>
-              <i className="fa fa-dribbble" aria-hidden="true"></i>
-              <i className="fa fa-twitter" aria-hidden="true"></i>
-              <i className="fa fa-facebook" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-        <div
-          className="cardZoom cardz2"
-          style={{ backgroundImage: `url(${listCardZoom[2].imagen})` }}
-        >
-          <div className="border">
-            <h2 className="h2CardZoom">{listCardZoom[2].name}</h2>
-            <div className="icons">
-              <i className="fa fa-codepen" aria-hidden="true"></i>
-              <i className="fa fa-instagram" aria-hidden="true"></i>
-              <i className="fa fa-dribbble" aria-hidden="true"></i>
-              <i className="fa fa-twitter" aria-hidden="true"></i>
-              <i className="fa fa-facebook" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
+        {renderCardZoom}
       </div>
     </div>
   );
