@@ -1,41 +1,3 @@
-const initialListImages = [
-  {
-    id: 0,
-    imagen: "assets/imgExpandigCards/img1.jpg",
-    title: "Titulo de imagen 1",
-    mode: false,
-    flag: false,
-  },
-  {
-    id: 1,
-    imagen: "assets/imgExpandigCards/img2.jpg",
-    title: "Titulo de imagen 2",
-    mode: false,
-    flag: false,
-  },
-  {
-    id: 2,
-    imagen: "assets/imgExpandigCards/img3.jpg",
-    title: "Titulo de imagen 3",
-    mode: false,
-    flag: false,
-  },
-  {
-    id: 3,
-    imagen: "assets/imgExpandigCards/img4.jpg",
-    title: "Titulo de imagen 4",
-    mode: false,
-    flag: false,
-  },
-  {
-    id: 4,
-    imagen: "assets/imgExpandigCards/img5.jpg",
-    title: "Titulo de imagen 5",
-    mode: false,
-    flag: false,
-  },
-];
-
 function Carrusel({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
   const [listImages, setListImages] = useLocalStorage('objectImages', initialListImages)
   const [flags, setFlags] = useLocalStorage('arrayFlags', "")
@@ -67,7 +29,7 @@ function Carrusel({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
     const nextFlags = nextTwoListImages.filter((i) => i.flag == true)
 
     //Termina de ver cards, se envian datos para mostrar siguiente componente
-    if(flags.length === 4){
+    if(nextFlags.length === 5){
       enviarDatos(i);
       enviarDatos2(false, i);
     }

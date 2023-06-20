@@ -23,14 +23,8 @@
     <script type="text/babel" src="./src/components/General.js"></script>
     <script type="text/babel" src="./src/components/Ahorcado/index.js"></script>
     <script type="text/babel" src="./src/components/Ahorcado/Letter.js"></script>
-    <!--  <script type="text/babel" src="./src/components/Acordeon/Acordeon.js"></script> -->
-    <script type="text/babel" src="./src/components/CardProfile/CardProfile.js"></script>
     <script type="text/babel" src="./src/components/CardHoverDos/CardHoverDos.js"></script>
     <script type="text/babel" src="./src/components/Carrusel/index.js"></script>
-    <script type="text/babel" src="./src/components/Split/index.js"></script>
-    <script type="text/babel" src="./src/components/Split/SplitUnit.js"></script>
-    <script type="text/babel" src="./src/components/Split/button.js"></script>
-    <script type="text/babel" src="./src/components/CardUno/CardUno.js"></script>
     <script type="text/babel" src="./src/components/CardHoverUno/CardHoverUno.js"></script>
     <script type="text/babel" src="./src/components/CardZoom/CardZoom.js"></script>
     <script type="text/babel" src="./src/components/CardFlip/CardFlip.js"></script>
@@ -46,12 +40,9 @@
 
     <script src="./src/components/Ahorcado/editAhorcado.js"></script>
     <script src="./src/components/Carrusel/editCarrusel.js"></script>
-    <script src="./src/components/CardUno/EditCardUno.js"></script>
     <script src="./src/components/CardHoverUno/EditCardHoverUno.js"></script>
     <script src="./src/components/CardHoverDos/EditCardHoverDos.js"></script>
     <script src="./src/components/CardZoom/EditCardZoom.js"></script>
-    <script src="./src/components/Split/editSplit.js"></script>
-    <script src="./src/components/CardProfile/EditCardProfile.js"></script>
     <script src="./src/components/CardFlip/EditCardFlip.js"></script>
     <!--  <script src="./src/components/Acordeon/EditAcordeon.js"></script> -->
 
@@ -61,12 +52,9 @@
     <link rel="stylesheet" href="./src/components/Acordeon/Acordeon.css">
     <link rel="stylesheet" href="./src/components/CardHoverDos/CardHoverDos.css">
     <link rel="stylesheet" href="./src/components/Ahorcado/Ahorcado.css">
-    <link rel="stylesheet" href="./src/components/Split/index.css">
     <link rel="stylesheet" href="./src/components/Carrusel/index.css">
-    <link rel="stylesheet" href="./src/components/CardUno/CardUno.css">
     <link rel="stylesheet" href="./src/components/CardHoverUno/CardHoverUno.css">
     <link rel="stylesheet" href="./src/components/CardZoom/CardZoom.css">
-    <link rel="stylesheet" href="./src/components/CardProfile/CardProfile.css">
     <link rel="stylesheet" href="./src/components/CardFlip/CardFlip.css">
     <link rel="stylesheet" href="./src/components/NuevoCurso/index.css">
 
@@ -173,11 +161,6 @@
                                             <Link className="nav__link nav__link--inside" to="/Carrusel">Carrusel</Link>
 
                                         </li>
-
-                                        <li className="list__inside">
-                                            <Link className="nav__link nav__link--inside" to="/Split">Split</Link>
-
-                                        </li>
                                     </ul>
 
                                 </li>
@@ -189,10 +172,6 @@
                                     </div>
 
                                     <ul className="list__show">
-                                        <li className="list__inside">
-                                            <Link className="nav__link nav__link--inside" to="/CardUno">Card 1</Link>
-
-                                        </li>
 
                                         <li className="list__inside">
                                             <Link className="nav__link nav__link--inside" to="/CardHoverUno">Card Hover</Link>
@@ -205,9 +184,6 @@
                                         <li className="list__inside">
                                             <Link className="nav__link nav__link--inside" to="/CardZoom">Card Zoom</Link>
 
-                                        </li>
-                                        <li className="list__inside">
-                                            <Link className="nav__link nav__link--inside" to="/CardProfile">Card Perfil</Link>
                                         </li>
                                         <li className="list__inside">
                                             <Link className="nav__link nav__link--inside" to="/CardFlip">Card Flip</Link>
@@ -245,11 +221,8 @@
                     <Route path="/Ahorcado" component={Ahorcado} />
                     <Route path="/CardHoverDos" component={CardHoverDos} />
                     <Route path="/Carrusel" component={Carrusel} />
-                    <Route path="/Split" component={Split} />
-                    <Route path="/CardUno" component={CardUno} />
                     <Route path="/CardHoverUno" component={CardHoverUno} />
                     <Route path="/CardZoom" component={CardZoom} />
-                    <Route path="/CardProfile" component={CardProfile} />
                     <Route path="/CardFlip" component={CardFlip} />
                     <Route path="/NuevoCurso" component={NuevoCurso} />
                     <Route path="/AcordeonDos" component={AcordeonDos} />

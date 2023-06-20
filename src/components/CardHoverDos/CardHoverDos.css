@@ -24,6 +24,7 @@
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
+    cursor: pointer;
   }
   
   .card__image {      
@@ -43,7 +44,7 @@
     transition: .2s ease-in-out;
   }
   
-  .cardw:hover .card__overlay {
+ .card__overlay_active {
     transform: translateY(0);
   }
   
@@ -73,7 +74,7 @@
     d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
   }       
   
-  .cardw:hover .card__header {
+  .card__header_active {
     transform: translateY(0);
   }
   

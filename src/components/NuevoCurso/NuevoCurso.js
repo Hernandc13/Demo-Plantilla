@@ -1,4 +1,38 @@
 function NuevoCurso() {
+  const initialConfigCurso = [
+    {
+      id: 1,
+      nombre: "CardHoverDos",
+      titulo: "Titulo de prueba",
+      active: true,
+    },
+    {
+      id: 2,
+      nombre: "AcordeonDos",
+      titulo: "Titulo de prueba 2",
+      active: false,
+    },
+    {
+      id: 3,
+      nombre: "Carrusel",
+      titulo: "Titulo de prueba 3",
+      active: false,
+    }
+  ];
+
+  const componentesMap = {
+    Ahorcado,
+    AcordeonDos,
+    Carrusel,
+    CardFlip,
+    CardHoverUno,
+    CardHoverDos
+  };
+  
+  const [configCurso, setConfigCurso] = useLocalStorage("initial", initialConfigCurso);
+  const [estados, setEstados] = useLocalStorage("timeIndividual",
+    configCurso.map((comp) => ({ id: comp.id, valor: false }))
+  ); //Se crea estado por cada componente, estos rigen los tiempos individuales
   const [countTotal, setCountTotal] = useLocalStorage("totalClics", 0); //Total de clics
   const [comenzarCurso, setComenzarCurso] = useLocalStorage(
     "stateCurso",
@@ -6,6 +40,15 @@ function NuevoCurso() {
   ); //Boolean para mostrar componentes
   const [scrollTop, setScrollTop] = useLocalStorage("barraAvance", 0); //Estado que controla barra general de avance
   const [iniciarTemporizador, setIniciarTemporizador] = useLocalStorage("timeTotal", false);
+
+  const [cliks, setCliks] = useLocalStorage(
+    "clicsIndividuales",
+    configCurso.map((comp) => ({
+      id: comp.id,
+      valor: 0,
+      nombre: comp.nombre,
+    }))
+  ); //Estado-Array: que contiene clics de cada componente
 
   const recibirDatos = (indice) => {
     const next = configCurso.map((config) => {
@@ -30,72 +73,32 @@ function NuevoCurso() {
 
   const recibirDatos2 = (boolean, indice) => {
     //Se recibe boolean e indice para temporizador
-    setEstados((prevEstados) => {
-      return prevEstados.map((est) => {
-        //Se actualiza en array de estados para comenzar o terminar
-        if (indice == est.id) {
-          return {
-            ...est,
-            valor: boolean,
-          };
-        } else {
-          return est;
-        }
-      });
+    const next = estados.map((est) => {
+      if (indice == est.id) {
+        return {
+          ...est,
+          valor: boolean,
+        };
+      } else {
+        return est;
+      }
     });
+    setEstados(next)
   };
 
   const recibirDatos3 = (c, indice) => {
-    //Se recibe cantidad de clic e indice para actualizar
-    setCliks((prevCliks) => {
-      return prevCliks.map((clic) => {
-        if (indice === clic.id) {
-          return {
-            ...clic,
-            valor: c,
-          };
-        } else {
-          return clic;
-        }
-      });
+    const next = cliks.map((clic) => {
+      if (indice === clic.id) {
+        return {
+          ...clic,
+          valor: c,
+        };
+      } else {
+        return clic;
+      }
     });
+    setCliks(next)
   };
-
-  const initialConfigCurso = [
-    {
-      id: 1,
-      nombre: "Ahorcado",
-      titulo: "Titulo de prueba",
-      active: true,
-    },
-    {
-      id: 2,
-      nombre: "AcordeonDos",
-      titulo: "Titulo de prueba 2",
-      active: false,
-    },
-    {
-      id: 3,
-      nombre: "Carrusel",
-      titulo: "Titulo de prueba 3",
-      active: false,
-    }/* ,
-    {
-      id: 4,
-      nombre: "CardFlip",
-      titulo: "Titulo de prueba 4",
-      active: false,
-    }, */
-  ];
-
-  const componentesMap = {
-    Ahorcado,
-    AcordeonDos,
-    Carrusel,
-    CardFlip,
-  };
-
-  const [configCurso, setConfigCurso] = useLocalStorage("initial", initialConfigCurso);
 
   //Logica de Modal
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -126,15 +129,6 @@ function NuevoCurso() {
     );
   });
 
-  const [cliks, setCliks] = useLocalStorage(
-    "clicsIndividuales",
-    configCurso.map((comp) => ({
-      id: comp.id,
-      valor: 0,
-      nombre: comp.nombre,
-    }))
-  ); //Estado-Array: que contiene clics de cada componente
-
   const renderClics = cliks.map((cl) => {
     return (
       <p key={cl.id} className="parrafoTempor">
@@ -142,10 +136,6 @@ function NuevoCurso() {
       </p>
     );
   });
-
-  const [estados, setEstados] = React.useState(
-    configCurso.map((comp) => ({ id: comp.id, valor: false }))
-  ); //Se crea estado por cada componente, estos rigen los tiempos individuales
 
   const handleInicio = () => {
     //Funcion inicar temporizador general
@@ -166,7 +156,22 @@ function NuevoCurso() {
     />
   )); //Se genera un temporizador por cada componente
 
-  console.log(countTotal)
+  function ClickCounterDos() {
+    React.useEffect(() => {
+      const handleClick = () => {
+        const newCount = countTotal + 1
+        setCountTotal(newCount);
+      };
+  
+      window.addEventListener("click", handleClick);
+  
+      return () => {
+        window.removeEventListener("click", handleClick);
+      };
+    }, []);
+  
+    return <p className="parrafoTempor">Clics totales: {countTotal}</p>
+  }
 
   return (
     <div className="contenedorPrincipal">
@@ -213,7 +218,7 @@ function NuevoCurso() {
             <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} />
             {renderTemporizadores}
             <h4 className="subtitleModal">Clic</h4>
-            <ClickCounter count={countTotal} setCount={setCountTotal} />
+            <ClickCounterDos />
             {renderClics}
           </Modal>
         </>
