@@ -204,7 +204,7 @@ function Ahorcado({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
           </button>
         )}
       </div>
-      <p className="contadorCarrusel">{flags.length} / {listaPreguntas.length}</p>
+      <p className="contadorAvance">{flags.length} / {listaPreguntas.length}</p>
     </div>
   );
 }

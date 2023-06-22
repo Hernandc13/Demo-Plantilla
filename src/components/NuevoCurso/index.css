@@ -15,23 +15,32 @@
 .titleNuevoCurso {
     text-align: center;
     color: white;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 0;
+    padding: 1rem 0;
+}
+
+.contadorAvance{
+    text-align: center;
+    color: #fff;
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 1rem 0;
 }
 
 /* Barra de progreso */
 .progressMainWrapper {
     background-color: rgb(139, 139, 139);
-    height: 30px;
-    position: sticky;
-    top: 0;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
     left: 0;
     z-index: 1;
     width: 100%;
 }
 
 .progressMainStyle {
-    height: 30px;
+    height: 40px;
     background-color: #F8922C;
 
 }
@@ -161,4 +170,23 @@
 .buttonComenzar:active {
     box-shadow: none;
     transform: translateY(0);
+}
+@media (min-width: 768px) {
+    .titleNuevoCurso{
+        font-size: 2.5rem;
+    }
+    .contadorAvance{
+        font-size: 1.75rem;
+    }
+}
+@media (min-width: 1200px) {
+    .titleNuevoCurso{
+        font-size: 3rem;
+        padding: 1.5rem 0;
+    }
+    .contadorAvance{
+        font-size: 2rem;
+        padding: 1.5rem 0;
+    }
+
 }

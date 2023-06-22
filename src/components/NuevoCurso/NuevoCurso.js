@@ -2,7 +2,7 @@ function NuevoCurso() {
   const initialConfigCurso = [
     {
       id: 1,
-      nombre: "CardHoverDos",
+      nombre: "Ahorcado",
       titulo: "Titulo de prueba",
       active: true,
     },
@@ -10,13 +10,37 @@ function NuevoCurso() {
       id: 2,
       nombre: "AcordeonDos",
       titulo: "Titulo de prueba 2",
-      active: false,
+      active: true,
     },
     {
       id: 3,
       nombre: "Carrusel",
       titulo: "Titulo de prueba 3",
-      active: false,
+      active: true,
+    },
+    {
+      id: 4,
+      nombre: "CardFlip",
+      titulo: "Titulo de prueba 4",
+      active: true,
+    },
+    {
+      id: 5,
+      nombre: "CardHoverUno",
+      titulo: "Titulo de prueba 5",
+      active: true,
+    },
+    {
+      id: 6,
+      nombre: "CardHoverDos",
+      titulo: "Titulo de prueba 6",
+      active: true,
+    },
+    {
+      id: 7,
+      nombre: "CardZoom",
+      titulo: "Titulo de prueba 7",
+      active: true,
     }
   ];
 
@@ -26,7 +50,8 @@ function NuevoCurso() {
     Carrusel,
     CardFlip,
     CardHoverUno,
-    CardHoverDos
+    CardHoverDos,
+    CardZoom
   };
   
   const [configCurso, setConfigCurso] = useLocalStorage("initial", initialConfigCurso);
@@ -113,9 +138,9 @@ function NuevoCurso() {
   const listaComponentes = configCurso.map((comp) => {
     const Componente = componentesMap[comp.nombre];
     return (
-      <section key={comp.id}>
+      <section key={comp.id} className="contNuevoCursoComponent">
         {comp.active && (
-          <div className="contNuevoCursoComponent">
+          < >
             <h2 className="titleNuevoCurso">{comp.titulo}</h2>
             <Componente
               enviarDatos={recibirDatos}
@@ -123,7 +148,7 @@ function NuevoCurso() {
               enviarDatos3={recibirDatos3}
               i={comp.id}
             />
-          </div>
+          </>
         )}
       </section>
     );

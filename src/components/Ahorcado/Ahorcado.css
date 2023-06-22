@@ -7,7 +7,7 @@
     --ancho-ComponenteHang: 40%; 
 }
 .contenedorPrincipalHang {
-    width: var(--ancho-ComponenteHang);
+    width: 95%;
     background-color: var(--color-BackgroundHang);
     border-radius: 3rem;
     padding: 1.5rem;
@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     align-content: center;
-    width: 70%;
+    width: 75%;
     flex-wrap: wrap;
     gap: 0.8rem;
 }
@@ -35,7 +35,7 @@
     border: 0;
     background-color: var(--color-PrincipalHang);
     letter-spacing: 1.5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: all .3s ease;
     box-shadow: var(--color-SecundarioHang) 0px 10px 0px 0px;
     color: var(--color-TextoAlfabetoHang);
@@ -67,13 +67,13 @@
 .contLetraEscondida{
     border-bottom: 3px solid var(--color-PrincipalHang);
     display: inline-block;
-    width: 2.5rem;
-    height: 3rem;
+    width: 1.5rem;
+    height: 2rem;
     text-align: center;
 }
 .contLetraEscondida p{
     color: #fff;
-    font-size: 2rem;
+    font-size: 1rem;
     margin: 0;
     display: inline-block;
 }
@@ -90,8 +90,8 @@
 
 }
 .imgXError, .imgCorrectIncorrect{
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
 }
 .buttonNextQuestion{
     padding: 0.5rem 1rem;
@@ -101,4 +101,47 @@
     border-radius: 1rem;
     border: none;
     background-color: var(--color-PrincipalHang);
+}
+@media (min-width: 768px) {
+    .contenedorPrincipalHang{
+        width: 75%;
+    }
+    .TituloHang{
+        font-size: 2rem;
+    }
+    .preguntaAhorcado, .buttonAlphabet, .contLetraEscondida p{
+        font-size: 1.2rem;
+    }
+    .contLetraEscondida{
+        width: 2rem;
+        height: 2.5rem;
+    }
+}
+@media (min-width: 992px) {
+    .contenedorPrincipalHang{
+        width: 70%;
+    }
+    .imgXError, .imgCorrectIncorrect{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+@media (min-width: 1200px) {
+    .TituloHang{
+        font-size: 2.5rem;
+    }
+    .preguntaAhorcado, .buttonAlphabet, .contLetraEscondida p{
+        font-size: 1.6rem;
+    }
+    .contLetraEscondida{
+        width: 3rem;
+        height: 3.5rem;
+    }
+    .buttonAlphabet{
+        width: 3.25rem;
+    }
+    .imgXError, .imgCorrectIncorrect{
+        width: 3rem;
+        height: 3rem;
+    }
 }

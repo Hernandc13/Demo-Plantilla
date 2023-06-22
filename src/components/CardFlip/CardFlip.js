@@ -76,7 +76,7 @@ function CardFlip({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
   return (
     <div className="contenedorPrincipal">
       <div className="contentFlip">{renderCardFlip}</div>
-      <p className="contadorCarrusel">Cards vistas: {flags.length} / 3</p>
+      <p className="contadorAvance">Cards vistas: {flags.length} / {listCardFlip.length}</p>
     </div>
   );
 }

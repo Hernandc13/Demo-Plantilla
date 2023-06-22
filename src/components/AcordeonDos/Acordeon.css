@@ -1,0 +1,87 @@
+:root {
+    --color-TituloAcordeon: white;
+    --color-PrincpalAcordeon: rgba(4, 57, 94);
+    --color-FondoTetxoAcordeon: white
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.containAcordeonDos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accordion {
+    cursor: pointer;
+    padding: 18px;
+    width: 85%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: all 0.4s ease;
+    background-color: var(--color-PrincpalAcordeon);
+    color: white;
+    border-radius: 1.6rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+    background-color: rgb(19, 96, 151);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    width: 85%;
+    background-color: white;
+    display: block;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    border-radius: 0.6rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.panel.active {
+    opacity: 1;
+}
+
+.panel p {
+    color: black;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .accordion, .panel{
+        width: 75%;
+    }
+    .accordion{
+        font-size: 1.5rem;
+    }
+    .panel p{
+        font-size: 1.25rem;
+    }
+}
+@media (min-width: 992px) {
+    .accordion, .panel{
+        width: 70%;
+    }
+    .accordion{
+        font-size: 1.75rem;
+    }
+    .panel p{
+        font-size: 1.5rem;
+    }
+}
+@media (min-width: 1200px) {
+    .accordion{
+        font-size: 2.25rem;
+    }
+    .panel p{
+        font-size: 1.85rem;
+    }
+}
