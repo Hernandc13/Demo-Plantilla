@@ -121,7 +121,7 @@
     margin: auto;
   }
 }
-@media(min-width: 1200px) {
+@media(min-width: 1400px) {
   .card__thumb{
     width: 5.5rem;
     height: 5.5rem;

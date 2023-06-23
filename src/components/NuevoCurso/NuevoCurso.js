@@ -5,43 +5,71 @@ function NuevoCurso() {
       nombre: "Ahorcado",
       titulo: "Titulo de prueba",
       active: true,
+      activeBackground: false,
+      backgroundColor: "#1A314C",
+      waveUp: 1,
+      waveDown: 1
     },
     {
       id: 2,
       nombre: "AcordeonDos",
       titulo: "Titulo de prueba 2",
       active: true,
+      activeBackground: true,
+      backgroundColor: "#1A314C",
+      waveUp: 2,
+      waveDown: 1
     },
     {
       id: 3,
       nombre: "Carrusel",
       titulo: "Titulo de prueba 3",
       active: true,
+      activeBackground: false,
+      backgroundColor: "#1A314C",
+      waveUp: 1,
+      waveDown: 1
     },
     {
       id: 4,
       nombre: "CardFlip",
       titulo: "Titulo de prueba 4",
       active: true,
+      activeBackground: true,
+      backgroundColor: "#1A314C",
+      waveUp: 3,
+      waveDown: 1
     },
     {
       id: 5,
       nombre: "CardHoverUno",
       titulo: "Titulo de prueba 5",
       active: true,
+      activeBackground: false,
+      backgroundColor: "#1A314C",
+      waveUp: 1,
+      waveDown: 1
     },
     {
       id: 6,
       nombre: "CardHoverDos",
       titulo: "Titulo de prueba 6",
       active: true,
+      activeBackground: true,
+      backgroundColor: "#1A314C",
+      waveUp: 2,
+      waveDown: 2
     },
     {
       id: 7,
       nombre: "CardZoom",
       titulo: "Titulo de prueba 7",
       active: true,
-    }
+      activeBackground: false,
+      backgroundColor: "#1A314C",
+      waveUp: 1,
+      waveDown: 1
+    },
   ];
 
   const componentesMap = {
@@ -51,11 +79,15 @@ function NuevoCurso() {
     CardFlip,
     CardHoverUno,
     CardHoverDos,
-    CardZoom
+    CardZoom,
   };
-  
-  const [configCurso, setConfigCurso] = useLocalStorage("initial", initialConfigCurso);
-  const [estados, setEstados] = useLocalStorage("timeIndividual",
+
+  const [configCurso, setConfigCurso] = useLocalStorage(
+    "initial",
+    initialConfigCurso
+  );
+  const [estados, setEstados] = useLocalStorage(
+    "timeIndividual",
     configCurso.map((comp) => ({ id: comp.id, valor: false }))
   ); //Se crea estado por cada componente, estos rigen los tiempos individuales
   const [countTotal, setCountTotal] = useLocalStorage("totalClics", 0); //Total de clics
@@ -64,7 +96,10 @@ function NuevoCurso() {
     false
   ); //Boolean para mostrar componentes
   const [scrollTop, setScrollTop] = useLocalStorage("barraAvance", 0); //Estado que controla barra general de avance
-  const [iniciarTemporizador, setIniciarTemporizador] = useLocalStorage("timeTotal", false);
+  const [iniciarTemporizador, setIniciarTemporizador] = useLocalStorage(
+    "timeTotal",
+    false
+  );
 
   const [cliks, setCliks] = useLocalStorage(
     "clicsIndividuales",
@@ -77,7 +112,7 @@ function NuevoCurso() {
 
   const recibirDatos = (indice) => {
     const next = configCurso.map((config) => {
-      if (indice+1 == config.id) {
+      if (indice + 1 == config.id) {
         return {
           ...config,
           active: true,
@@ -108,7 +143,7 @@ function NuevoCurso() {
         return est;
       }
     });
-    setEstados(next)
+    setEstados(next);
   };
 
   const recibirDatos3 = (c, indice) => {
@@ -122,7 +157,7 @@ function NuevoCurso() {
         return clic;
       }
     });
-    setCliks(next)
+    setCliks(next);
   };
 
   //Logica de Modal
@@ -138,9 +173,9 @@ function NuevoCurso() {
   const listaComponentes = configCurso.map((comp) => {
     const Componente = componentesMap[comp.nombre];
     return (
-      <section key={comp.id} className="contNuevoCursoComponent">
+      <section key={comp.id}>
         {comp.active && (
-          < >
+          <Wave active={comp.activeBackground} color={comp.backgroundColor} wUp={comp.waveUp} wDown={comp.waveDown}>
             <h2 className="titleNuevoCurso">{comp.titulo}</h2>
             <Componente
               enviarDatos={recibirDatos}
@@ -148,7 +183,7 @@ function NuevoCurso() {
               enviarDatos3={recibirDatos3}
               i={comp.id}
             />
-          </>
+          </Wave>
         )}
       </section>
     );
@@ -177,25 +212,25 @@ function NuevoCurso() {
       key={comp.id}
       id={comp.id}
       iniciarTemporizador={estados[comp.id - 1].valor}
-       nombre={comp.nombre}
+      nombre={comp.nombre}
     />
   )); //Se genera un temporizador por cada componente
 
   function ClickCounterDos() {
     React.useEffect(() => {
       const handleClick = () => {
-        const newCount = countTotal + 1
+        const newCount = countTotal + 1;
         setCountTotal(newCount);
       };
-  
+
       window.addEventListener("click", handleClick);
-  
+
       return () => {
         window.removeEventListener("click", handleClick);
       };
     }, []);
-  
-    return <p className="parrafoTempor">Clics totales: {countTotal}</p>
+
+    return <p className="parrafoTempor">Clics totales: {countTotal}</p>;
   }
 
   return (

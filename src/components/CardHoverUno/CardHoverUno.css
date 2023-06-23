@@ -103,7 +103,7 @@
     font-size: 1.35rem;
   }
 }
-@media(min-width: 1200px) {
+@media(min-width: 1400px) {
   .card__category{
     font-size: 1.2rem;
   }
