@@ -7,24 +7,24 @@ function NuevoCurso() {
       active: true,
       activeBackground: false,
       backgroundColor: "#1A314C",
-      waveUp: 1,
+      waveUp: 2,
       waveDown: 1,
     },
     {
       id: 2,
       nombre: "AcordeonDos",
       titulo: "Titulo de prueba 2",
-      active: true,
+      active: false,
       activeBackground: true,
       backgroundColor: "#1A314C",
-      waveUp: 2,
-      waveDown: 1,
+      waveUp: 1,
+      waveDown: 3,
     },
     {
       id: 3,
       nombre: "Carrusel",
       titulo: "Titulo de prueba 3",
-      active: true,
+      active: false,
       activeBackground: false,
       backgroundColor: "#1A314C",
       waveUp: 1,
@@ -34,20 +34,10 @@ function NuevoCurso() {
       id: 4,
       nombre: "CardFlip",
       titulo: "Titulo de prueba 4",
-      active: true,
+      active: false,
       activeBackground: true,
       backgroundColor: "#1A314C",
       waveUp: 3,
-      waveDown: 1,
-    },
-    {
-      id: 5,
-      nombre: "CardZoom",
-      titulo: "Titulo de prueba 5",
-      active: true,
-      activeBackground: false,
-      backgroundColor: "#1A314C",
-      waveUp: 1,
       waveDown: 1,
     }
   ];
@@ -231,7 +221,6 @@ function NuevoCurso() {
       return localStorage.getItem(`tiempo${c.id}`)
     })
     
-    console.log(arrayData)
     React.useEffect(() => {
       const ctx = chartRef.current.getContext('2d');
       new Chart(ctx, {
@@ -308,7 +297,7 @@ function NuevoCurso() {
             <p>Tu navegador es: {detectarNavegador()}</p>
             <h4 className="subtitleModal">Tiempo</h4>
             <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} />
-            {/* {renderTemporizadores} */}
+            {renderTemporizadores}
             <ChartComponent/>
             <h4 className="subtitleModal">Clic</h4>
             <ClickCounterDos />
