@@ -8,7 +8,7 @@ function NuevoCurso() {
       activeBackground: false,
       backgroundColor: "#1A314C",
       waveUp: 1,
-      waveDown: 1
+      waveDown: 1,
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ function NuevoCurso() {
       activeBackground: true,
       backgroundColor: "#1A314C",
       waveUp: 2,
-      waveDown: 1
+      waveDown: 1,
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ function NuevoCurso() {
       activeBackground: false,
       backgroundColor: "#1A314C",
       waveUp: 1,
-      waveDown: 1
+      waveDown: 1,
     },
     {
       id: 4,
@@ -38,38 +38,18 @@ function NuevoCurso() {
       activeBackground: true,
       backgroundColor: "#1A314C",
       waveUp: 3,
-      waveDown: 1
+      waveDown: 1,
     },
     {
       id: 5,
-      nombre: "CardHoverUno",
+      nombre: "CardZoom",
       titulo: "Titulo de prueba 5",
       active: true,
       activeBackground: false,
       backgroundColor: "#1A314C",
       waveUp: 1,
-      waveDown: 1
-    },
-    {
-      id: 6,
-      nombre: "CardHoverDos",
-      titulo: "Titulo de prueba 6",
-      active: true,
-      activeBackground: true,
-      backgroundColor: "#1A314C",
-      waveUp: 2,
-      waveDown: 2
-    },
-    {
-      id: 7,
-      nombre: "CardZoom",
-      titulo: "Titulo de prueba 7",
-      active: true,
-      activeBackground: false,
-      backgroundColor: "#1A314C",
-      waveUp: 1,
-      waveDown: 1
-    },
+      waveDown: 1,
+    }
   ];
 
   const componentesMap = {
@@ -91,6 +71,7 @@ function NuevoCurso() {
     configCurso.map((comp) => ({ id: comp.id, valor: false }))
   ); //Se crea estado por cada componente, estos rigen los tiempos individuales
   const [countTotal, setCountTotal] = useLocalStorage("totalClics", 0); //Total de clics
+  const [isCounting, setIsCounting] = React.useState(true);
   const [comenzarCurso, setComenzarCurso] = useLocalStorage(
     "stateCurso",
     false
@@ -175,7 +156,12 @@ function NuevoCurso() {
     return (
       <section key={comp.id}>
         {comp.active && (
-          <Wave active={comp.activeBackground} color={comp.backgroundColor} wUp={comp.waveUp} wDown={comp.waveDown}>
+          <Wave
+            active={comp.activeBackground}
+            color={comp.backgroundColor}
+            wUp={comp.waveUp}
+            wDown={comp.waveDown}
+          >
             <h2 className="titleNuevoCurso">{comp.titulo}</h2>
             <Componente
               enviarDatos={recibirDatos}
@@ -205,6 +191,7 @@ function NuevoCurso() {
   const handleFin = () => {
     //Funcion terminar temporizador general
     setIniciarTemporizador(false);
+    setIsCounting(false);
   };
 
   const renderTemporizadores = configCurso.map((comp) => (
@@ -217,21 +204,69 @@ function NuevoCurso() {
   )); //Se genera un temporizador por cada componente
 
   function ClickCounterDos() {
-    React.useEffect(() => {
-      const handleClick = () => {
+    const handleClick = () => {
+      if (isCounting) {
         const newCount = countTotal + 1;
         setCountTotal(newCount);
-      };
+      }
+    };
 
+    React.useEffect(() => {
       window.addEventListener("click", handleClick);
 
       return () => {
         window.removeEventListener("click", handleClick);
       };
-    }, []);
+    }, [isCounting]);
 
     return <p className="parrafoTempor">Clics totales: {countTotal}</p>;
   }
+
+  function ChartComponent() {
+    const chartRef = React.useRef(null);
+    const labelNames = configCurso.map(c => {
+      return c.nombre
+    })
+    const arrayData = configCurso.map(c => {
+      return localStorage.getItem(`tiempo${c.id}`)
+    })
+    
+    console.log(arrayData)
+    React.useEffect(() => {
+      const ctx = chartRef.current.getContext('2d');
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: labelNames,
+          datasets: [
+            {
+              data: arrayData,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+              ]
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+        },
+      });
+    }, []);
+  
+    return <canvas ref={chartRef} />;
+  }
+
 
   return (
     <div className="contenedorPrincipal">
@@ -249,6 +284,7 @@ function NuevoCurso() {
             setIniciarTemporizador={setIniciarTemporizador}
           />
           {listaComponentes}
+          
           <div className="botonesTemporales">
             <button className="buttonTypeUno" onClick={handleFin}>
               Terminar
@@ -265,18 +301,15 @@ function NuevoCurso() {
               Abrir Estadisticas
             </button>
           </div>
-          <div>
-            {estados.map((estado) => (
-              <p key={estado.id}>{estado.valor}</p>
-            ))}
-          </div>
+          
           <Modal isOpen={modalOpen} onClose={closeModal}>
             <h2>Estadisticas</h2>
             <p>{detectarDispositivo()}</p>
             <p>Tu navegador es: {detectarNavegador()}</p>
             <h4 className="subtitleModal">Tiempo</h4>
             <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} />
-            {renderTemporizadores}
+            {/* {renderTemporizadores} */}
+            <ChartComponent/>
             <h4 className="subtitleModal">Clic</h4>
             <ClickCounterDos />
             {renderClics}
@@ -286,3 +319,4 @@ function NuevoCurso() {
     </div>
   );
 }
+
