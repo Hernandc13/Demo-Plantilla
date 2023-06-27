@@ -123,6 +123,9 @@ function NuevoCurso() {
               enviarDatos3={recibirDatos3}
               i={comp.id}
             />
+           
+           
+
           </div>
         )}
       </section>
@@ -184,11 +187,13 @@ function NuevoCurso() {
       )}
       {comenzarCurso && (
         <>
+           
           <BarraAvance
             scrollTop={scrollTop}
             setIniciarTemporizador={setIniciarTemporizador}
           />
           {listaComponentes}
+          
           <div className="botonesTemporales">
             <button className="buttonTypeUno" onClick={handleFin}>
               Terminar
@@ -220,9 +225,13 @@ function NuevoCurso() {
             <h4 className="subtitleModal">Clic</h4>
             <ClickCounterDos />
             {renderClics}
+            <div  ref={this.inputRef}>
+              
+            </div>
           </Modal>
         </>
       )}
+      
     </div>
   );
 }

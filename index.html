@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/babel" src="./src/components/General.js"></script>
     <script type="text/babel" src="./src/components/Ahorcado/index.js"></script>
@@ -35,8 +36,9 @@
     <script type="text/babel" src="./src/components/NuevoCurso/estadisticas.js"></script>
     <script type="text/babel" src="./src/components/NuevoCurso/Temporizador.js"></script>
     <script type="text/babel" src="./src/components/NuevoCurso/ClickCounter.js"></script>
-
-
+    <script type="text/babel" src="./src/components/NuevoCurso/Olas.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/Charts.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/logica.js"></script>
 
     <script src="./src/components/Ahorcado/editAhorcado.js"></script>
     <script src="./src/components/Carrusel/editCarrusel.js"></script>
@@ -58,6 +60,7 @@
     <link rel="stylesheet" href="./src/components/CardFlip/CardFlip.css">
     <link rel="stylesheet" href="./src/components/NuevoCurso/index.css">
     <link rel="stylesheet" href="./src/components/NuevoCurso/Scrollindicador.css">
+    <link rel="stylesheet" href="./src/components/NuevoCurso/Olas.css">
 
     <script type="text/babel" src="./useLocalStorage.js"></script>
 
@@ -113,6 +116,7 @@
             };
             return (
                 <ReactRouterDOM.HashRouter>
+    
                     <div className="wrapper widthZero" id="wrapper">
                         <input type="checkbox" id="btn" onClick={handleSidebarClick} />
                         <label htmlFor="btn" className="menu-btn">
@@ -242,5 +246,6 @@
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js'></script>
+
 
 </html>
