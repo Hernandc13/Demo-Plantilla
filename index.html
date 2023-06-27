@@ -35,10 +35,8 @@
     <script type="text/babel" src="./src/components/NuevoCurso/BarraAvance.js"></script>
     <script type="text/babel" src="./src/components/NuevoCurso/estadisticas.js"></script>
     <script type="text/babel" src="./src/components/NuevoCurso/Temporizador.js"></script>
-    <script type="text/babel" src="./src/components/NuevoCurso/ClickCounter.js"></script>
-    <script type="text/babel" src="./src/components/NuevoCurso/Olas.js"></script>
-    <script type="text/babel" src="./src/components/NuevoCurso/Charts.js"></script>
-    <script type="text/babel" src="./src/components/NuevoCurso/logica.js"></script>
+    <script type="text/babel" src="./src/components/NuevoCurso/Wave.js"></script>
+
 
     <script src="./src/components/Ahorcado/editAhorcado.js"></script>
     <script src="./src/components/Carrusel/editCarrusel.js"></script>
@@ -46,12 +44,11 @@
     <script src="./src/components/CardHoverDos/EditCardHoverDos.js"></script>
     <script src="./src/components/CardZoom/EditCardZoom.js"></script>
     <script src="./src/components/CardFlip/EditCardFlip.js"></script>
-    <!--  <script src="./src/components/Acordeon/EditAcordeon.js"></script> -->
 
 
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./src/styles/General.css">
-    <link rel="stylesheet" href="./src/components/Acordeon/Acordeon.css">
+    <link rel="stylesheet" href="./src/components/AcordeonDos/Acordeon.css">
     <link rel="stylesheet" href="./src/components/CardHoverDos/CardHoverDos.css">
     <link rel="stylesheet" href="./src/components/Ahorcado/Ahorcado.css">
     <link rel="stylesheet" href="./src/components/Carrusel/index.css">
@@ -69,9 +66,13 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <title>Plantilla</title>
 </head>
 
@@ -79,7 +80,7 @@
 
     <div id='root'></div>
     <script type='text/babel'>
-
+        
         const Link = ReactRouterDOM.Link;
         const Route = ReactRouterDOM.Route;
 

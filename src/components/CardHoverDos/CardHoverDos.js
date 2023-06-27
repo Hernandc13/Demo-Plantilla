@@ -69,7 +69,7 @@ function CardHoverDos({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
   return (
     <div className="contenedorPrincipal">
       <ul className="cardsw">{renderCardsHoverDos}</ul>
-      <p className="contadorCarrusel">Cards vistas: {flags.length} / {listCardHoverDos.length}</p>
+      <p className="contadorAvance">Cards vistas: {flags.length} / {listCardHoverDos.length}</p>
     </div>
   );
 }

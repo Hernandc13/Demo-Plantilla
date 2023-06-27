@@ -272,6 +272,7 @@ ul {
     overflow: hidden;
     left: -270px;
     transition: all 0.3s ease;
+    display: block;
 }
 
 #btn:checked~#sidebar {

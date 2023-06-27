@@ -7,6 +7,7 @@
   display: flex;
   margin: auto;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
 .border {
@@ -37,64 +38,21 @@
   position: relative;
 }
 
-.cardz0 {
+.cardz {
   align-content: center;
   justify-content: center;
   background-repeat: no-repeat;
   background-size: 350px;
   margin: auto;
+  cursor: pointer;
 }
 
-.cardz0:hover {
-  background-size: 500px;
+.cardzHover {
+  background-size: 415px;
 }
 
-.cardz0:hover h2 {
-  opacity: 1;
-}
-
-.cardz0:hover .fa {
-  opacity: 1;
-}
-
-.cardz1 {
-  align-content: center;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-size: 350px;
-  margin: auto;
-}
-
-.cardz1:hover {
-  background-size: 450px;
-}
-
-.cardz1:hover h2 {
-  opacity: 1;
-}
-
-.cardz1:hover .fa {
-  opacity: 1;
-}
-
-.cardz2 {
-  align-content: center;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-size: 350px;
-  margin: auto;
-}
-
-.cardz2:hover {
-  background-size: 450px;
-}
-
-.cardz2:hover h2 {
-  opacity: 1;
-}
-
-.cardz2:hover .fa {
-  opacity: 1;
+.cardzOpacity {
+  opacity: 1 !important;
 }
 
 .h2CardZoom {
@@ -122,9 +80,15 @@
   align-items: center;
   justify-content: space-around;
 }
-
-@media(min-width: 992px) {
+@media(min-width: 768px) {
   .containerZoom {
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media(min-width: 1200px) {
+  .containerZoom {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

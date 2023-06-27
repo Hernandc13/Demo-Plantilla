@@ -67,7 +67,7 @@ function CardHoverUno({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
       <section className="hero-section">
         <div className="card-grid">{renderCardsHoverUno}</div>
       </section>
-      <p className="contadorCarrusel">
+      <p className="contadorAvance">
         Cards vistas: {flags.length} / {listCardsHoverUno.length}
       </p>
     </div>

@@ -34,7 +34,7 @@ function AcordeonDos({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
           {title}
         </button>
         {mode && (
-          <div className="panel">
+          <div className={`panel ${mode ? 'active' : ''}`}>
             <p>{texto}</p>
           </div>
         )}
@@ -87,7 +87,7 @@ function AcordeonDos({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
           />
         ))}
       </div>
-      <p className="contadorCarrusel">Cards vistas: {flags.length} / 3</p>
+      <p className="contadorAvance">Cards vistas: {flags.length} / {listAcordeon.length}</p>
     </>
   );
 

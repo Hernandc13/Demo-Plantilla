@@ -64,7 +64,7 @@ function Carrusel({ enviarDatos, enviarDatos2, enviarDatos3, i }) {
           />
         ))}
       </section>
-      <p className="contadorCarrusel">Cards vistas: {flags.length} / 5</p>
+      <p className="contadorAvance">Cards vistas: {flags.length} / {listImages.length}</p>
     </>
   );
 }
