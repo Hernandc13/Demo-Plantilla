@@ -3,7 +3,7 @@ function NuevoCurso() {
     {
       id: 1,
       nombre: "Ahorcado",
-      titulo: "Titulo de prueba",
+      titulo: "Título de prueba",
       active: true,
       activeBackground: false,
       backgroundColor: "#1A314C",
@@ -13,7 +13,7 @@ function NuevoCurso() {
     {
       id: 2,
       nombre: "AcordeonDos",
-      titulo: "Titulo de prueba 2",
+      titulo: "Título de prueba 2",
       active: false,
       activeBackground: true,
       backgroundColor: "#1A314C",
@@ -23,7 +23,7 @@ function NuevoCurso() {
     {
       id: 3,
       nombre: "Carrusel",
-      titulo: "Titulo de prueba 3",
+      titulo: "Título de prueba 3",
       active: false,
       activeBackground: false,
       backgroundColor: "#1A314C",
@@ -33,7 +33,7 @@ function NuevoCurso() {
     {
       id: 4,
       nombre: "CardFlip",
-      titulo: "Titulo de prueba 4",
+      titulo: "Título de prueba 4",
       active: false,
       activeBackground: true,
       backgroundColor: "#1A314C",
@@ -253,7 +253,9 @@ function NuevoCurso() {
       });
     }, []);
   
-    return <canvas ref={chartRef} />;
+    return     <div className="divcan" > <h2>Gráfica</h2>
+      <canvas  ref={chartRef} />
+      </div>;
   }
 
 
@@ -293,19 +295,43 @@ function NuevoCurso() {
           </div>
           
           <Modal isOpen={modalOpen} onClose={closeModal}>
-            <h2>Estadisticas</h2>
-            <p>{detectarDispositivo()}</p>
-            <p>Tu navegador es: {detectarNavegador()}</p>
-            <h4 className="subtitleModal">Tiempo</h4>
-            <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} />
-            {renderTemporizadores}
+            <section>
+             <div className="row">
+                <div className="col-6">
+                <h2>Estadísticas</h2>
+                <table className="tablet">
+        <thead>
+          <tr>
+            <th>Dispositivo</th>
+            <th>Navegador</th>
+            <th>Tiempo</th>
+            <th>Tiempo Individual</th>
+            <th>Clics</th>
+            <th>Clics Individuales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{detectarDispositivo()}</td>
+            <td> {detectarNavegador()}</td>
+            <td> <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} /></td>
+            <td> {renderTemporizadores}</td>
+            <td> <ClickCounterDos /></td>
+            <td>  {renderClics}</td>
+          </tr>
+        </tbody>
+      </table>
+                </div>
+                <div className="col-6">
+               
             <ChartComponent/>
-            <h4 className="subtitleModal">Clic</h4>
-            <ClickCounterDos />
-            {renderClics}
-            <div  ref={this.inputRef}>
-              
-            </div>
+      
+                </div>
+             </div>
+            </section>
+
+           
+        
           </Modal>
         </>
       )}

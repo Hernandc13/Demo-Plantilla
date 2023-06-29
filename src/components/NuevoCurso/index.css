@@ -220,7 +220,7 @@
 @media (min-width: 1200px) {
     .titleNuevoCurso {
         font-size: 3rem;
-        padding: 1.5rem 0;
+        padding: 4rem 0;
     }
 
     .contadorAvance {
@@ -254,3 +254,405 @@
     background-size: cover;
     z-index: 23;
   }
+
+  /* ajustes celular*/
+  @media (min-width: 375px) {
+    .titleNuevoCurso {
+        font-size: 1.5rem;
+        padding-top: 5rem;
+        padding: 4rem 0rem 1rem;
+    }
+
+    .contadorAvance {
+        font-size: 1rem;
+    }
+
+    .contProgressBar {
+        width: 90%;
+    }
+
+    .contProgressBar h4 {
+        font-size: 1rem;
+    }
+    .containLetters {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        width: 850%;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    .col-6 {
+        width: 100% !important;
+    }
+}
+ /* ajustes celular*/
+ @media (min-width: 360px) {
+    .titleNuevoCurso {
+        font-size: 1.5rem;
+        padding-top: 5rem;
+    }
+
+    .contadorAvance {
+        font-size: 1rem;
+    }
+
+    .contProgressBar {
+        width: 90%;
+    }
+
+    .contProgressBar h4 {
+        font-size: 1rem;
+    }
+    .containLetters {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        width: 850%;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    .col-6 {
+        width: 100% !important;
+    }
+}
+/*ajustes a tablet*/
+@media (min-width: 820px) {
+    .titleNuevoCurso {
+        font-size: 3rem;
+    }
+
+    .contadorAvance {
+        font-size: 1.75rem;
+    }
+
+    .contProgressBar {
+        width: 85%;
+    }
+
+    .contProgressBar h4 {
+        font-size: 2rem;
+    }
+    .modal-content {
+        margin: 8% auto;
+        padding: 20px;
+        border: 1px solid rgb(136, 136, 136);
+        width: 80%;
+        max-width: 630px;
+        border-radius: 5px;
+        background-color: rgb(248, 248, 248) !important;
+    }
+}
+/*ajuste a tablet 768px*/
+@media (min-width: 768px) {
+    .titleNuevoCurso {
+        font-size: 2.5rem;
+    }
+
+    .contadorAvance {
+        font-size: 1.75rem;
+    }
+
+    .contProgressBar {
+        width: 90%;
+    }
+
+    .contProgressBar h4 {
+        font-size: 2rem;
+    }
+    .preguntaAhorcado{
+        font-size: 1.5rem;
+        text-align: justify;
+    }
+    .containError {
+        display: flex;
+        width: 22%;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: center;
+    }
+    .buttonNextQuestion {
+        padding: 0.5rem 1rem;
+        display: flex;
+        margin: auto;
+        margin-top: 2rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: var(--color-PrincipalHang);
+        font-size: 1.5rem;
+    }
+    .modal-content {
+        margin: 8% auto;
+        padding: 20px;
+        border: 1px solid rgb(136, 136, 136);
+        width: 80%;
+        max-width: 630px;
+        border-radius: 5px;
+        background-color: rgb(248, 248, 248) !important;
+    }
+}
+.preguntaAhorcado{
+    text-align: justify;
+}
+
+/*ajuste a cel 280px*/
+@media (min-width: 280px) {
+    .titleNuevoCurso {
+        text-align: center;
+        color: white;
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 4rem 0rem 1rem;
+    }
+
+    .contadorAvance {
+        font-size: 1.2rem;
+    }
+
+    .contProgressBar {
+        width: 90%;
+    }
+
+    .contProgressBar h4 {
+        font-size: 1rem;
+    }
+    .preguntaAhorcado{
+        font-size: 1rem;
+        text-align: justify;
+    }
+    .containError {
+        display: flex;
+        width: 22%;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: center;
+    }
+    .buttonNextQuestion {
+        padding: 0.5rem 1rem;
+        display: flex;
+        margin: auto;
+        margin-top: 2rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: var(--color-PrincipalHang);
+        font-size: 1rem;
+    }
+    .TituloHang {
+        font-size: 1rem;
+        color: var(--color-PrincipalHang);
+    }
+    .containLetters {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        width: 500%;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    .col-6 {
+        width: 100% !important;
+    }
+}
+
+/*ajuste a cel 1280px*/
+@media (min-width: 1280px) {
+    .titleNuevoCurso {
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        margin: 0;
+        padding: 1rem 0rem 1rem;
+    }
+
+    .contadorAvance {
+        font-size: 2rem;
+    }
+
+    .contProgressBar {
+        width: 90%;
+    }
+
+    .contProgressBar h4 {
+        font-size: 2rem;
+    }
+    .preguntaAhorcado{
+        font-size: 1.5rem;
+        text-align: justify;
+    }
+    .TituloHang {
+        font-size: 2rem ;
+        color: var(--color-PrincipalHang);
+    }
+    .containError {
+        display: flex;
+        width: 63%;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: center;
+    }
+    .buttonNextQuestion {
+        padding: 0.5rem 1rem;
+        display: flex;
+        margin: auto;
+        margin-top: 2rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: var(--color-PrincipalHang);
+        font-size: 1.5rem;
+    }
+    .modal-content {
+        background-color: #f8f8f8 !important;
+         margin: 0; 
+        padding: 20px !important;
+        border: 1px solid #888 !important;
+        width: 100% !important;
+         max-width: 100%; 
+        border-radius: 5px !important;
+        height: 100%;
+    }
+   .divcan{
+    width: 300px;
+    height: 400px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+    margin-left: 30rem;
+   }
+}
+
+.tablet {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.tablet tr {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #dddddd;
+}
+
+.tablet th, .tablet td {
+    font-size: 16px;
+    padding: 8px;
+    text-align: center;
+}
+
+.tablet thead th{ 
+    background-color: #F8922C;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .tablet {
+        border: 0px;
+    }
+    .tablet caption {
+        font-size: 22px;
+    }
+    .tablet thead {
+        display: none;
+    }
+    .tablet tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+    .tablet th, .tablet td {
+        font-size: 12px;
+    }
+    .tablet td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .tablet  td:last-child {
+        border-bottom: 0px;
+    }
+    .tablet td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tablet {
+        border: 0px;
+    }
+    .tablet caption {
+        font-size: 22px;
+    }
+    .tablet thead {
+        display: none;
+    }
+    .tablet tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+    .tablet th, .tablet td {
+        font-size: 12px;
+    }
+    .tablet td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .tablet  td:last-child {
+        border-bottom: 0px;
+    }
+    .tablet td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+}
+@media screen and (max-width: 912px) {
+    .tablet {
+        border: 0px;
+    }
+    .tablet caption {
+        font-size: 22px;
+    }
+    .tablet thead {
+        display: none;
+    }
+    .tablet tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+    .tablet th, .tablet td {
+        font-size: 12px;
+    }
+    .tablet td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .tablet  td:last-child {
+        border-bottom: 0px;
+    }
+    .tablet td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+}
