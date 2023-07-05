@@ -39,7 +39,7 @@ function NuevoCurso() {
       backgroundColor: "#1A314C",
       waveUp: 3,
       waveDown: 1,
-    }
+    },
   ];
 
   const componentesMap = {
@@ -214,36 +214,36 @@ function NuevoCurso() {
 
   function ChartComponent() {
     const chartRef = React.useRef(null);
-    const labelNames = configCurso.map(c => {
-      return c.nombre
-    })
-    const arrayData = configCurso.map(c => {
-      return localStorage.getItem(`tiempo${c.id}`)
-    })
-    
+    const labelNames = configCurso.map((c) => {
+      return c.nombre;
+    });
+    const arrayData = configCurso.map((c) => {
+      return localStorage.getItem(`tiempo${c.id}`);
+    });
+
     React.useEffect(() => {
-      const ctx = chartRef.current.getContext('2d');
+      const ctx = chartRef.current.getContext("2d");
       new Chart(ctx, {
-        type: 'pie',
+        type: "pie",
         data: {
           labels: labelNames,
           datasets: [
             {
               data: arrayData,
               backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
+                "rgba(255, 99, 132, 0.6)",
+                "rgba(54, 162, 235, 0.6)",
+                "rgba(255, 206, 86, 0.6)",
+                "rgba(75, 192, 192, 0.6)",
+                "rgba(153, 102, 255, 0.6)",
               ],
               borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-              ]
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+              ],
             },
           ],
         },
@@ -252,12 +252,15 @@ function NuevoCurso() {
         },
       });
     }, []);
-  
-    return     <div className="divcan" > <h2>Gráfica</h2>
-      <canvas  ref={chartRef} />
-      </div>;
-  }
 
+    return (
+      <div className="divcan">
+        {" "}
+        <h2>Gráfica</h2>
+        <canvas ref={chartRef} />
+      </div>
+    );
+  }
 
   return (
     <div className="contenedorPrincipal">
@@ -270,13 +273,12 @@ function NuevoCurso() {
       )}
       {comenzarCurso && (
         <>
-           
           <BarraAvance
             scrollTop={scrollTop}
             setIniciarTemporizador={setIniciarTemporizador}
           />
           {listaComponentes}
-          
+
           <div className="botonesTemporales">
             <button className="buttonTypeUno" onClick={handleFin}>
               Terminar
@@ -293,50 +295,52 @@ function NuevoCurso() {
               Abrir Estadisticas
             </button>
           </div>
-          
+
           <Modal isOpen={modalOpen} onClose={closeModal}>
             <section>
-             <div className="row">
+              <div className="row">
                 <div className="col-6">
-                <h2>Estadísticas</h2>
-                <table className="tablet">
-        <thead>
-          <tr>
-            <th>Dispositivo</th>
-            <th>Navegador</th>
-            <th>Tiempo</th>
-            <th>Tiempo Individual</th>
-            <th>Clics</th>
-            <th>Clics Individuales</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{detectarDispositivo()}</td>
-            <td> {detectarNavegador()}</td>
-            <td> <Temporizador id={0} iniciarTemporizador={iniciarTemporizador} /></td>
-            <td> {renderTemporizadores}</td>
-            <td> <ClickCounterDos /></td>
-            <td>  {renderClics}</td>
-          </tr>
-        </tbody>
-      </table>
+                  <h2>Estadísticas</h2>
+                  <table className="tablet">
+                    <thead>
+                      <tr>
+                        <th>Dispositivo</th>
+                        <th>Navegador</th>
+                        <th>Tiempo</th>
+                        <th>Tiempo Individual</th>
+                        <th>Clics</th>
+                        <th>Clics Individuales</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{detectarDispositivo()}</td>
+                        <td> {detectarNavegador()}</td>
+                        <td>
+                          {" "}
+                          <Temporizador
+                            id={0}
+                            iniciarTemporizador={iniciarTemporizador}
+                          />
+                        </td>
+                        <td> {renderTemporizadores}</td>
+                        <td>
+                          {" "}
+                          <ClickCounterDos />
+                        </td>
+                        <td> {renderClics}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div className="col-6">
-               
-            <ChartComponent/>
-      
+                  <ChartComponent />
                 </div>
-             </div>
+              </div>
             </section>
-
-           
-        
           </Modal>
         </>
       )}
-      
     </div>
   );
 }
-
